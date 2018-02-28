@@ -64,7 +64,7 @@
                 $('#newsList li').not(':lt('+x+')').slideUp("");
                 $('#loadMore').show();
                 $('#showLess').show();
-                if(x == 3){
+                if(x == 10){
                     $('#showLess').hide();
                 }
             });
@@ -94,7 +94,7 @@
             }
             .multiline
             {
-                padding:10px;
+                padding:5px;
                 white-space: pre-wrap;
             }
             .LOGO
@@ -151,21 +151,36 @@
             0% { left: 0; }
             100% { left: -100%; }
             }
-
+			ul.nav.navbar-nav.navbar-right li.nav-item{
+				background-color: #000033; 
+				margin-right:20px ;
+				
+			
+			}
+		
+			ul.nav.navbar-nav.navbar-right li.nav-item a:hover{
+				background:#000033;
+			
+			}
+		
     </style>
 </head>
 <body>
-            <ul class="nav navbar-nav navbar-right" style ="background-color: #000033; margin-right:20px ;" >
-                <li><a href="#contact">Sign in</a></li>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item"><a href="#contact">Sign in</a></li>
             </ul>
     <h1 ><div  class="container" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;padding:30px;"><center><img src="image/LOGO/LOGO.png" width="120px" height="120px">ชุมชนนักปีนผา-ไต่เขา</center></div></h1>
+    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><center><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></center></div></h1>
     <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
-    <div class="container">
+    <div class="container"
         <div class="collapse navbar-collapse" id="myNavbar" >
             <ul class="nav navbar-nav navbar-left">
-                <li style="background-color:#FFCC33;" id="Home"><a href="">HOME</a></li>
-                <li><a href="#services">News</a></li>
+                <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">News&Announcements</a>
+					</div>
+                </li>
+                <li><a href="#services"></a></li>
                 <li><a href="#portfolio"></a></li>
                 <li><a href="#pricing"></a></li>
                 <li><a href="#contact"></a></li>
@@ -237,10 +252,10 @@
                         <h4><span id="NewsAndAnno">News & Announcements</span></h4>
                     </div>
                 </div>
-                    <div class="textContainer_Truncate" style="background-color:#FFCC33	;">
+                    <div class="textContainer_Truncate" style="background-color:#FFCC33	; padding:10px;">
                         <ul id="newsList">
                                 <?php
-                                    $str = "SELECT NewsID, NewsTitle, NewsContent, NewsTag, TIMEDATE, NewsShot, DATE(TIMEDATE) AS DATE, TIME(TIMEDATE) AS TIME FROM NEWS ORDER BY TIMEDATE DESC ";
+                                    $str = "SELECT NewsID, NewsTitle, NewsContent, NewsTag, TIMEDATE, NewsShot, DATE(TIMEDATE) AS DATE, TIME(TIMEDATE) AS TIME FROM NEWS ORDER BY TIMEDATE DESC";
                                     $stmt2 = $pdo->prepare($str);
                                     $stmt2->execute();
                                     $i = 0 ;
@@ -251,8 +266,8 @@
                                         <li class="multiline"><a href="News/News.php?NewsID=<?php echo $row["NewsID"]?>"><?php echo $row["NewsTitle"]?></a></li> 
                                 <?php } ?>
                             </ul> 
-                        <div id="loadMore">Load more</div>
-                        <!--<div id="showLess">Show less</div>-->
+                        <div id="loadMore" align="right">Load more</div>
+                        <!--<div id="showLess" align="right">Show less</div> -->
                     </div>
             </div>
 
@@ -264,7 +279,7 @@
     <footer class="container-fluid text-center">
         <div class = "container">
             <nav>CopyRight © 2018 ชุมชนนักปีนผา-ไต่เขา</nav>
-            <nav>123 มหาวิทยาลัยขอนแก่น ต.ในเมือง อ.เมืองขอนแก่น จ.ขอนแก่น 40002</nav>
+            <nav>Contact Email: hedgehog.sec02@gmail.com</nav>
         </div>
     </footer>
     <!-- JS -->     

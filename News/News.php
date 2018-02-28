@@ -23,10 +23,12 @@
 <head>
     <title><?php echo $row["NewsTitle"] ; ?></title>
     <meta charset="utf-8" />
-    <script src="../js/jquery.min.js"></script>
+  
     <!-- JS -->     
-    <script src = "../js/bootstrap.min.js"></script>
-    <link rel="stylesheet"  href="../css/bootstrap.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
 
     <style>
         footer {
@@ -61,21 +63,34 @@
             vertical-align: middle;
             display: table-cell;
         }
+			ul.nav.navbar-nav.navbar-right li.nav-item{
+				background-color: #000033; 
+				margin-right:20px ;
+			}
+		
+			ul.nav.navbar-nav.navbar-right li.nav-item a:hover{
+				background:#000033;
+			
+			}
     </style>
 </head>
 <body>
             <ul class="nav navbar-nav navbar-right" style ="background-color: #000033; margin-right:20px ;" >
                 <li><a href="#contact">Sign in</a></li>
             </ul>
-    <h1 ><div class="container" style ="background-image:url(../img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;padding:30px;"><center><img src="../image/LOGO/LOGO.png" width="120px" height="120px">ชุมชนนักปีนผา-ไต่เขา</center></div>
-    </h1>
+    <h1 ><div  class="container" style ="background-image:url(../img/sea.gif); background-repeat: no-repeat;width:100%;
+    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><center><img  src="../image/LOGO/logo.png" width="800px" height="250px" ></center></div></h1>
+	
     <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF;">
         <div class="container">
             <div class="collapse navbar-collapse" id="myNavbar" >
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="../" id="Home">HOME</a></li>
-                    <li style="background-color:white;"><a href="#services">News</a></li>
+                    <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<a class="dropdown-item" href="../">News&Announcements</a>
+						</div>
+					</li>
+             
                     <li><a href="#portfolio"></a></li>
                     <li><a href="#pricing"></a></li>
                     <li><a href="#contact"></a></li>
