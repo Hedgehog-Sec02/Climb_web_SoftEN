@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
     <script>
     /* // Old showmore
         $(document).ready(function () {
@@ -179,6 +179,7 @@
 </head>
 <body>
              <ul class="nav navbar-nav navbar-right">
+                <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="">Sign up</a></li>
                 <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="myBtn">Sign in</a></li>
             </ul>
             <div class="container">
@@ -186,7 +187,7 @@
            
   <!--<button type="button" class="btn btn-default btn-lg  navbar-right" id="myBtn">Login</button>-->
   
-  <!-- Modal -->
+  <!-- Modal Login pop up -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -214,7 +215,7 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-          <p>Not a member? <a href="#">Sign Up</a></p>
+          <!--<p>Not a member? <a href="#">Sign Up</a></p> -->
           <p>Forgot <a href="#">Password?</a></p>
         </div>
       </div>
