@@ -163,15 +163,68 @@
 				/*background:#000033;*/
                 background:None;
 			}
+            
+             .modal-header, h4, .close {
+                background-color: #FFCC00;
+                color:white !important;
+                text-align: center;
+                font-size: 30px;
+            }
+        
+            .modal-footer {
+            background-color: #f9f9f9;
+            }
 		
     </style>
 </head>
 <body>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item"><a style="color:black;" href="registration.php">Sign in</a></li>
+             <ul class="nav navbar-nav navbar-right">
+                <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="myBtn">Sign in</a></li>
             </ul>
+            <div class="container">
+  <!-- Trigger the modal with a button -->
+           
+  <!--<button type="button" class="btn btn-default btn-lg  navbar-right" id="myBtn">Login</button>-->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <p>Not a member? <a href="#">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+</div>
+    
     <h1 ><div  class="container" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><center><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></center></div></h1>
+    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></div></h1>
     <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
     <div class="container"
         <div class="collapse navbar-collapse" id="myNavbar" >
@@ -179,6 +232,9 @@
                 <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a class="dropdown-item" href="#">News&Announcements</a>
+                        <a class="dropdown-item" href="#">สาระน่ารู้</a>
+                        <a class="dropdown-item" href="#">ข้อมูลกิจกรรม</a>
+                        <a class="dropdown-item" href="#">ข้อมูลเกี่ยวกับชุมชน</a>
 					</div>
                 </li>
                 <li><a href="#services"></a></li>
@@ -284,7 +340,13 @@
     </footer>
     <!-- JS -->     
 
-
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myModal").modal();
+    });
+});
+</script>
 
 </body>
 </html>
