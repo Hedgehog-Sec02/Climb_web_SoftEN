@@ -1,7 +1,7 @@
 <?php 
-    include "../connect.php" ;
-
-    $stmt = $pdo->prepare("SELECT * FROM NEWS ORDER BY TIMEDATE DESC");
+    require_once "../connect.php" ;
+    require_once "../model/getNews.php";
+    $stmt = DB::get()->prepare("SELECT * FROM NEWS ORDER BY TIMEDATE DESC");
     $stmt->execute();
     $test[0] = NULL ;
     $i = 1 ;
@@ -12,11 +12,8 @@
     }
 
     $NewsID = $_GET["NewsID"] ; 
-    $str = "SELECT NewsID, NewsTitle, NewsContent, NewsTag, TIMEDATE, NewsShot, DATE(TIMEDATE) AS DATE, TIME(TIMEDATE) AS TIME FROM NEWS 
-    WHERE NewsID = '$NewsID' ORDER BY TIMEDATE DESC";
-    $stmt = $pdo->prepare($str);
-    $stmt->execute(); 
-    $row = $stmt->fetch(PDO::FETCH_ASSOC) ; if($row!=NULL){ echo "" ; } else { echo "" ;}
+    // intent(getNews) : Get News matching NewsID 
+    $row = News::getNews($NewsID);
 ?> 
 <!DOCTYPE html>
 <html>
@@ -31,7 +28,7 @@
     
 
     <style>
-        footer {
+            footer {
             background-color: #555;
             color: white;
             padding: 15px;

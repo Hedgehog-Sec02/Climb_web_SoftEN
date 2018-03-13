@@ -1,8 +1,9 @@
 <?php 
-    include "connect.php" ;
-    $str = "SELECT NewsID, NewsTitle, NewsContent, NewsTag, TIMEDATE, NewsShot, DATE(TIMEDATE) AS DATE, TIME(TIMEDATE) AS TIME FROM NEWS ORDER BY TIMEDATE DESC LIMIT 5";
-    $stmt = $pdo->prepare($str);
-    $stmt->execute();
+
+    require_once "connect.php" ;
+    require_once "model/getNews.php" ;
+    // intent(getSlideFiveNews) : function for get later five news
+    $stmt = News::getSlideFiveNews();
 ?> 
 
 <!DOCTYPE html>
@@ -73,7 +74,7 @@
     </script>
 <!-- End JS -->
     <style>
-          footer {
+            footer {
             background-color: #555;
             color: white;
             padding: 15px;
@@ -152,22 +153,22 @@
             100% { left: -100%; }
             }
 			ul.nav.navbar-nav.navbar-right li.nav-item{
-				background-color: #000033; 
+			    /*background-color: #000033; */
 				margin-right:20px ;
-				
-			
+				background-color:None ;
+                font-size:50px;
 			}
 		
 			ul.nav.navbar-nav.navbar-right li.nav-item a:hover{
-				background:#000033;
-			
+				/*background:#000033;*/
+                background:None;
 			}
 		
     </style>
 </head>
 <body>
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item"><a href="#contact">Sign in</a></li>
+                <li class="nav-item"><a style="color:black;" href="registration.php">Sign in</a></li>
             </ul>
     <h1 ><div  class="container" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
     background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><center><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></center></div></h1>
@@ -255,9 +256,8 @@
                     <div class="textContainer_Truncate" style="background-color:#FFCC33	; padding:10px;">
                         <ul id="newsList">
                                 <?php
-                                    $str = "SELECT NewsID, NewsTitle, NewsContent, NewsTag, TIMEDATE, NewsShot, DATE(TIMEDATE) AS DATE, TIME(TIMEDATE) AS TIME FROM NEWS ORDER BY TIMEDATE DESC";
-                                    $stmt2 = $pdo->prepare($str);
-                                    $stmt2->execute();
+                                    // intent(getAll): function for get all news
+                                    $stmt2 = News::getAll() ; 
                                     $i = 0 ;
                                     while($row = $stmt2->fetch(PDO::FETCH_ASSOC)){
                                     $test[$i] = $row["NewsID"] ; 

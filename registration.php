@@ -1,0 +1,1 @@
+<?php echo "THIS ISS REGISTRATION"?>
