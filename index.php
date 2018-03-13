@@ -179,9 +179,10 @@
 </head>
 <body>
              <ul class="nav navbar-nav navbar-right">
-                <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="">Sign up</a></li>
+                <li class="btn nav-item navbar-right btn-lg"><a href="registration.php" style="color:black;" id="">Sign up</a></li>
                 <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="myBtn">Sign in</a></li>
             </ul>
+            
             <div class="container">
   <!-- Trigger the modal with a button -->
            
@@ -333,12 +334,10 @@
             </div>
         </div>
     </div>
-    <footer class="container-fluid text-center">
-        <div class = "container">
-            <nav>CopyRight © 2018 ชุมชนนักปีนผา-ไต่เขา</nav>
-            <nav>Contact Email: hedgehog.sec02@gmail.com</nav>
-        </div>
-    </footer>
+    
+    <!-- Footer -->     
+    <?php  require_once "footer.html" ; ?>
+
     <!-- JS -->     
 
 <script>

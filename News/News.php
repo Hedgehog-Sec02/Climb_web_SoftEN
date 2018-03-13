@@ -60,20 +60,23 @@
             vertical-align: middle;
             display: table-cell;
         }
-			ul.nav.navbar-nav.navbar-right li.nav-item{
-				background-color: #000033; 
+            ul.nav.navbar-nav.navbar-right li.nav-item{
+			    /*background-color: #000033; */
 				margin-right:20px ;
+				background-color:None ;
+                font-size:50px;
 			}
 		
 			ul.nav.navbar-nav.navbar-right li.nav-item a:hover{
-				background:#000033;
-			
+				/*background:#000033;*/
+                background:None;
 			}
     </style>
 </head>
 <body>
-            <ul class="nav navbar-nav navbar-right" style ="background-color: #000033; margin-right:20px ;" >
-                <li><a href="#contact">Sign in</a></li>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="btn nav-item navbar-right btn-lg"><a href="registration.php" style="color:black;" id="">Sign up</a></li>
+                <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="myBtn">Sign in</a></li>
             </ul>
     <h1 ><div  class="container" style ="background-image:url(../img/sea.gif); background-repeat: no-repeat;width:100%;
     background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><center><img  src="../image/LOGO/logo.png" width="800px" height="250px" ></center></div></h1>
@@ -99,6 +102,7 @@
             </div>
         </div>
     </nav>
+
     <!-- End Header-->
     <div class="container-fluid" style="background-color:white;">
         <div class="row">
@@ -126,11 +130,8 @@
             <center><div class = "col-sm-3 col-md-4 col-lg-1"></div></center>
         </div>
     </div>
-    <footer class="container-fluid text-center">
-        <div class = "container">
-            <nav>CopyRight © 2018 ชุมชนนักปีนผา-ไต่เขา</nav>
-            <nav>123 มหาวิทยาลัยขอนแก่น ต.ในเมือง อ.เมืองขอนแก่น จ.ขอนแก่น 40002</nav>
-        </div>
-    </footer>
+    
+    <?php  require_once "../footer.html" ; ?>
+
 </body>
 </html>
