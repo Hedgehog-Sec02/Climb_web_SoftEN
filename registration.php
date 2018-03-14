@@ -122,12 +122,12 @@
                 <form class="form-horizontal" action='' method="POST" style="padding:10px;">
                     <fieldset>
                         <div id="legend">
-                        <legend class="">Register</legend>
+                        <legend class="">สมัครสมาชิก</legend>
                         </div>
                         <div class="control-group">
                         <!-- Username -->
                             <div class="form-group">
-                                <label for="name"><span class="glyphicon glyphicon-pencil"></span> Name</label>
+                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>ชื่อ - นามสกุล/Name</label>
                                 <div class="controls">
                                     <input type="text" id="name" name="name" placeholder="" class="form-control">
                                     <p class="help-block">Please provide name-lastname</p>
@@ -135,7 +135,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="idenNo"><span class="glyphicon glyphicon-user"></span> Identification No./ Passport No.</label>
+                                <label for="idenNo"><span class="glyphicon glyphicon-user"></span>เลขบัตรประจำวันตัวประชาชน/Passport No.</label>
                                 <div class="controls">
                                     <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control">
                                     <p class="help-block">Please provide your Identification Number or Passport Number</p>
@@ -172,7 +172,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>Birthdate</label>
+                                <label for="con-Password"><span class="glyphicon glyphicon-user"></span>Confirm Password</label>
+                                <div class="controls">
+                                    <input type="password" id="con-Password" name="con-Password" placeholder="" class="form-control" onkeyup="chkLeastPassword(); return false;" >
+                                    <p class="help-block" id="error-al">
+                                 </div>
+                            </div>
+
+                            
+
+
+                            <div class="form-group">
+                                <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>วันเกิด</label>
                                 <div class='input-group date' id='datetimepicker1' data-date="2012-02-02" data-date-format="yyyy-mm-dd">
                                     <input type='text' class="form-control" />
                                     <span class="input-group-addon">
@@ -229,6 +240,14 @@
                                 <label><span class=""></span>Answer : </label>
                                 <input type="text" id="Q3" name="Q3" placeholder="" class="form-control">
                                     <p class="help-block">Please provide your Password</p>
+                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email"><span class="glyphicon glyphicon-user"></span>E-mail</label>
+                                <div class="controls">
+                                    <input type="text" id="email" name="email" placeholder="" class="form-control">
+                                    <p class="help-block">Please provide your Usernmae</p>
                                  </div>
                             </div>
 
