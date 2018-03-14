@@ -14,7 +14,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
     <script src='https://www.google.com/recaptcha/api.js'></script>//Captcha
+=======
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+>>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
     
     <script>
     /* // Old showmore
@@ -181,6 +185,10 @@
 <body>
              <ul class="nav navbar-nav navbar-right">
                 <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="myBtn">Sign in</a></li>
+<<<<<<< HEAD
+=======
+                <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" href ="registration.php">Sign up</a></li>
+>>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
             </ul>
             <div class="container">
   <!-- Trigger the modal with a button -->
@@ -198,7 +206,11 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
+<<<<<<< HEAD
           <form role="form">
+=======
+          <form role="form" method="post">
+>>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input type="text" class="form-control" id="usrname" placeholder="Enter email">
@@ -221,7 +233,11 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+<<<<<<< HEAD
           <p>Not a member? <a href="#">Sign Up</a></p>
+=======
+         <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
+>>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
           <p>Forgot <a href="#">Password?</a></p>
         </div>
       </div>
