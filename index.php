@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>//Captcha
     
     <script>
     /* // Old showmore
@@ -193,7 +194,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" >&times;</button>
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
@@ -209,11 +210,17 @@
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
-              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+              <div class="form-group">
+                            <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                            
+                            <div class="help-block with-errors"></div>
+                </div>
+              
+              <button type="submit" class="btn btn-success btn-block" style="background : #FF6600"><span class="glyphicon glyphicon-off" ></span> Login</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
           <p>Not a member? <a href="#">Sign Up</a></p>
           <p>Forgot <a href="#">Password?</a></p>
         </div>
@@ -230,11 +237,11 @@
         <div class="collapse navbar-collapse" id="myNavbar" >
             <ul class="nav navbar-nav navbar-left">
                 <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">News&Announcements</a>
-                        <a class="dropdown-item" href="#">สาระน่ารู้</a>
-                        <a class="dropdown-item" href="#">ข้อมูลกิจกรรม</a>
-                        <a class="dropdown-item" href="#">ข้อมูลเกี่ยวกับชุมชน</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
+						<h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
+                        <h5><a class="dropdown-item" href="#" style="color:white;">สาระน่ารู้</a><br></h5>
+                        <h5><a class="dropdown-item" href="#" style="color:white;">ข้อมูลกิจกรรม</a><br></h5>
+                        <h5><a class="dropdown-item" href="#" style="color:white;">ข้อมูลเกี่ยวกับชุมชน</a></h5>
 					</div>
                 </li>
                 <li><a href="#services"></a></li>
