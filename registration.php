@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 <?php echo "THIS ISS REGISTRATION"?>
-=======
 <?php 
     require_once "connect.php" ;
     
@@ -393,4 +391,3 @@
 
 </body>
 </html>
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae

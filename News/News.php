@@ -63,11 +63,7 @@
             vertical-align: middle;
             display: table-cell;
         }
-<<<<<<< HEAD
 			ul.nav.navbar-nav.navbar-right li.nav-item{
-=======
-            ul.nav.navbar-nav.navbar-right li.nav-item{
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
 			    /*background-color: #000033; */
 				margin-right:20px ;
 				background-color:None ;
@@ -78,7 +74,6 @@
 				/*background:#000033;*/
                 background:None;
 			}
-<<<<<<< HEAD
         
              .modal-header, h4, .close {
                 background-color: #FFCC00;
@@ -90,13 +85,10 @@
             .modal-footer {
             background-color: #f9f9f9;
             }
-=======
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
     </style>
 </head>
 <body>
             <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
                 <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="myBtn">Sign in</a></li>
             </ul>
             <div class="container">
@@ -148,31 +140,18 @@
 </div>
     <h1 ><div  class="container" style ="background-image:url(../img/sea.gif); background-repeat: no-repeat;width:100%;
     background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><img  src="../image/LOGO/logo.png" width="800px" height="250px" ></div></h1>
-=======
-                <li class="btn nav-item navbar-right btn-lg"><a href="registration.php" style="color:black;" id="">Sign up</a></li>
-                <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="myBtn">Sign in</a></li>
-            </ul>
-    <h1 ><div  class="container" style ="background-image:url(../img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><center><img  src="../image/LOGO/logo.png" width="800px" height="250px" ></center></div></h1>
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
 	
     <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF;">
         <div class="container">
             <div class="collapse navbar-collapse" id="myNavbar" >
                 <ul class="nav navbar-nav navbar-left">
                     <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
-<<<<<<< HEAD
 						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
 						<h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
                         <h5><a class="dropdown-item" href="#" style="color:white;">สาระน่ารู้</a><br></h5>
                         <h5><a class="dropdown-item" href="#" style="color:white;">ข้อมูลกิจกรรม</a><br></h5>
                         <h5><a class="dropdown-item" href="#" style="color:white;">ข้อมูลเกี่ยวกับชุมชน</a></h5>
 					</div>
-=======
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="../">News&Announcements</a>
-						</div>
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
 					</li>
              
                     <li><a href="#portfolio"></a></li>
@@ -186,10 +165,6 @@
             </div>
         </div>
     </nav>
-<<<<<<< HEAD
-=======
-
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
     <!-- End Header-->
     <div class="container-fluid" style="background-color:white;">
         <div class="row">
@@ -217,7 +192,6 @@
             <center><div class = "col-sm-3 col-md-4 col-lg-1"></div></center>
         </div>
     </div>
-<<<<<<< HEAD
     <footer class="container-fluid text-center">
         <div class = "container">
             <nav>CopyRight © 2018 ชุมชนนักปีนผา-ไต่เขา</nav>
@@ -232,10 +206,5 @@
         });
         });
     </script>
-=======
-    
-    <?php  require_once "../footer.html" ; ?>
-
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
 </body>
 </html>
