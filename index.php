@@ -190,7 +190,7 @@
            
   <!--<button type="button" class="btn btn-default btn-lg  navbar-right" id="myBtn">Login</button>-->
   
-  <!-- Modal -->
+  <!-- Modal for Login -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -229,7 +229,6 @@
         <div class="modal-footer">
           <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
 
-          <p>Not a member? <a href="#">Sign Up</a></p>
 
          <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
 
@@ -240,15 +239,18 @@
     </div>
   </div> 
 </div>
+    <!-- End Modal for Login -->
+
+        <!-- Start Header -->
         <div  class="row" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;">
+            background-size:cover;background-attachment:fixed;background-position:center;">
             <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:50px;padding-top:50px;padding-bottom:50px;">
                 <img class='img-rounded' src="image/LOGO/logo.png" style="width:100%;height:250px;">
             </div>
 
             <div class="col-sm-2 col-md-2 col-lg-2" >
                 <div class="pull-right">
-                    <a  style="color:black;text-decoration:underline;" id="myBtn">Sign in</a><br>
+                    <a  style="color:black;text-decoration:underline;" href ="#" id="myBtn">Sign in</a><br>
                     <a  style="color:black;text-decoration:underline;" href ="registration.php">Register</a>
                 </div>
             </div>
@@ -291,6 +293,7 @@
         
     <!-- End Header -->
 
+    <!-- Start slide news -->
     <div class="container-fluid" style="background-color:white;">
         <div>
             <div class="jumbotron text-center">
@@ -340,7 +343,9 @@
                 </div>
             </div>
         </div>
+        <!-- End slide news -->
 
+        <!-- Start Show all news -->
         <div class="row">
             <div class = "col-sm-12 col-md-6 col-lg-4">
                 <div class="marquee">
@@ -366,26 +371,28 @@
                         <!--<div id="showLess" align="right">Show less</div> -->
                     </div>
             </div>
+            
+            <!-- End Show all news -->
 
             <div class = "col-sm-9 col-md-6 col-lg-8 ">
             <h2><center></center></h2>
             </div>
         </div>
     </div>
-    <footer class="container-fluid text-center">
-        <div class = "container">
-            <nav>CopyRight © 2018 ชุมชนนักปีนผา-ไต่เขา</nav>
-            <nav>Contact Email: hedgehog.sec02@gmail.com</nav>
-        </div>
-    </footer>
+    
+    <!-- Footer -->
+    <?php require_once "footer.html" ?>
     <!-- JS -->     
 
 <script>
+
+// Start function for Login
 $(document).ready(function(){
     $("#myBtn").click(function(){
         $("#myModal").modal();
     });
 });
+// End function for Login
 </script>
 
 </body>

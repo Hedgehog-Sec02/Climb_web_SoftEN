@@ -95,38 +95,62 @@
     </style>
 </head>
 <body>
-        
-            <div  class="row" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></div></h1>
-    <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
-    <div class="container"
-        <div class="collapse navbar-collapse" id="myNavbar" >
-            <ul class="nav navbar-nav navbar-left">
-                <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">News&Announcements</a>
-                        <a class="dropdown-item" href="#">สาระน่ารู้</a>
-                        <a class="dropdown-item" href="#">ข้อมูลกิจกรรม</a>
-                        <a class="dropdown-item" href="#">ข้อมูลเกี่ยวกับชุมชน</a>
-					</div>
-                </li>
-                <li><a href="#services"></a></li>
-                <li><a href="#portfolio"></a></li>
-                <li><a href="#pricing"></a></li>
-                <li><a href="#contact"></a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#contact"></a></li>
-                <li><a href="#contact"></a></li>
-            </ul>
+        <!-- Start Header -->
+        <div  class="row" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
+            background-size:cover;background-attachment:fixed;background-position:center;">
+            <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:50px;padding-top:50px;padding-bottom:50px;">
+                <img class='img-rounded' src="image/LOGO/logo.png" style="width:100%;height:250px;">
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2" >
+                <div class="pull-right">
+                    <a  style="color:black;text-decoration:underline;" href = "#" id="myBtn">Sign in</a><br>
+                    <a  style="color:black;text-decoration:underline;" href ="registration.php">Register</a>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+
+        <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
+            <div class="container">
+                <div class = "navbar-header">
+                    <button type = "button" class = "navbar-toggle" 
+                        data-toggle = "collapse" data-target = "#example-navbar-collapse">
+                        <span class = "sr-only">Toggle navigation</span>
+                        <span class = "icon-bar"></span>
+                        <span class = "icon-bar"></span>
+                        <span class = "icon-bar"></span>
+                    </button>
+                        
+                    <a class = "navbar-brand" href = "#"></a>
+                </div>
+                <div class="collapse navbar-collapse" id = "example-navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
+                                <h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
+                            </div>
+                        </li>
+                        <li><a href="#services">Knowledge</a></li>
+                        <li><a href="#portfolio">Activity</a></li>
+                        <li><a href="#pricing">Community</a></li>
+                        <li><a href="#contact"></a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#contact"></a></li>
+                        <li><a href="#contact"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     <!-- End Header-->
+
+
     <div class="container-fluid" style="background-color:white;">
         <div class="row">
-            <center><div class = "col-sm-3 col-md-4 col-lg-3" ></div></center>
-                <div class = "col-sm-6 col-md-4 col-lg-6" style="background-color:#e3e8e3;">
+            <center><div class = "col-sm-1 col-md-2 col-lg-3" ></div></center>
+            <!-- Start Form -->
+                <div class = "col-sm-10 col-md-8 col-lg-6" style="background-color:#e3e8e3;">
                 <form class="form-horizontal" action='' method="POST" style="padding:10px;">
                     <fieldset>
                         <div id="legend">
@@ -254,8 +278,8 @@
                             <div class="form-group">
                                 <label for="email"><span class="glyphicon glyphicon-user"></span>E-mail</label>
                                 <div class="controls">
-                                    <input type="text" id="email" name="email" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Usernmae</p>
+                                    <input type="text" id="email" name="email" placeholder="" class="form-control" onkeyup="chkValidEmail(); return false;">
+                                    <p class="help-block" id="error-email"></p>
                                  </div>
                             </div>
 
@@ -264,7 +288,7 @@
                                 <label class="form-check-label" for="exampleCheck1">I agree to the<a class = "btn"style="color : red;" data-toggle="modal" data-target="#exampleModalLong">Privacy and Terms</a></label>
                             </div>
 
-                         
+                        <!-- End Form -->
 
 
                         <!-- Modal policy -->
@@ -301,10 +325,11 @@
                 </form>
             
                 </div>
-            <center><div class = "col-sm-3 col-md-4 col-lg-3"></div></center>
+            <center><div class = "col-sm-1 col-md-2 col-lg-3"></div></center>
         </div>
     </div>
 
+    <!-- Footer -->
     <?php  require_once "footer.html" ; ?>
 
     <script type="text/javascript">
@@ -353,76 +378,14 @@
 
                 
             });
-            function chkLeastPassword(){
-                var pass1 = document.getElementById('Password');
-                var pass2 = document.getElementById('con-Password');
-                var goodColor = "#66cc66";
-                var badColor = "#ff6666";
-                var message = document.getElementById('error-al');
-                var message2 = document.getElementById('error-al2');
-                // Password ---------------------------------------------------
-                if(pass1.value != ''){
-                    if(pass1.value.length > 15){
-                        pass1.style.backgroundColor =goodColor ;
-                        message.style.color = goodColor ;
-                        message.innerHTML = "Password is ok !!" ; 
-                    }else {
-                        pass1.style.backgroundColor = badColor;
-                        message.style.color = badColor;
-                        message.innerHTML = " you have to enter at least 16 digit!";
-                        return;
-                    }
-                }else {
-                    pass1.style.backgroundColor = "";
-                    message.style.color = "";
-                    message.innerHTML = "";
-                }
-                // Con-Password ------------------------------------------------
-                if(pass2.value != ''){
-                    if(pass1.value == pass2.value ){
-                        pass2.style.backgroundColor = goodColor ;
-                        message2.style.color = goodColor ;
-                        message2.innerHTML = "Password is match !!";
-                    }else {
-                        pass2.style.backgroundColor = badColor ;
-                        message2.style.color = badColor ;
-                        message2.innerHTML = "Password isn't match !!";
-                    }
-                }else {
-                    pass2.style.backgroundColor = "" ;
-                    message2.style.color = "" ;
-                    message2.innerHTML = '';
-                    
-                }
-            }
 
-            function chkValidUsername(){
-                var username = document.getElementById('Username');
-                var goodColor = "#66cc66";
-                var badColor = "#ff6666";
-                var message = document.getElementById('error-username');
-                //message.style.color = "yellow" ; 
-                message.innerHTML = "Seaching...";
-
-                if(username.value != ''){
-                    $.post('model/chkValidUsername.php', { username: username.value}, function(data) {
-                    data = $.parseJSON(data);
-                    if(data.count > 0 ){
-                        message.style.color = badColor ;
-                    }else{
-                        message.style.color = goodColor ;
-                    }
-
-                    message.innerHTML = data.dataAlert  ; 
-                    console.log(data.count);
-                    console.log(data.dataAlert);
-            });
-                }else {
-                    message.innerHTML = '' ; 
-                }
-            }
-
-        </script>
+            var goodColor = "#66cc66";
+            var badColor = "#ff6666";
+            </script>
+            <script src="model/chkPassword.js"></script>
+            <script src="model/chkUsername.js"></script>
+            <script src="model/chkEmail.js"></script>
+            
 
 </body>
 </html>

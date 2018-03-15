@@ -88,15 +88,12 @@
     </style>
 </head>
 <body>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="myBtn">Sign in</a></li>
-            </ul>
-            <div class="container">
+
   <!-- Trigger the modal with a button -->
            
   <!--<button type="button" class="btn btn-default btn-lg  navbar-right" id="myBtn">Login</button>-->
   
-  <!-- Modal -->
+  <!-- Start Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -138,33 +135,55 @@
     </div>
   </div> 
 </div>
-    <h1 ><div  class="container" style ="background-image:url(../img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><img  src="../image/LOGO/logo.png" width="800px" height="250px" ></div></h1>
-	
-    <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF;">
-        <div class="container">
-            <div class="collapse navbar-collapse" id="myNavbar" >
-                <ul class="nav navbar-nav navbar-left">
-                    <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
-						<h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
-                        <h5><a class="dropdown-item" href="#" style="color:white;">สาระน่ารู้</a><br></h5>
-                        <h5><a class="dropdown-item" href="#" style="color:white;">ข้อมูลกิจกรรม</a><br></h5>
-                        <h5><a class="dropdown-item" href="#" style="color:white;">ข้อมูลเกี่ยวกับชุมชน</a></h5>
-					</div>
-					</li>
-             
-                    <li><a href="#portfolio"></a></li>
-                    <li><a href="#pricing"></a></li>
-                    <li><a href="#contact"></a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#contact"></a></li>
-                    <li><a href="#contact"></a></li>
-                </ul>
+ <!-- End Modal -->
+    <!-- Start Header -->
+    <div  class="row" style ="background-image:url(../img/sea.gif); background-repeat: no-repeat;width:100%;
+            background-size:cover;background-attachment:fixed;background-position:center;">
+            <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:50px;padding-top:50px;padding-bottom:50px;">
+                <img class='img-rounded' src="../image/LOGO/logo.png" style="width:100%;height:250px;">
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2" >
+                <div class="pull-right">
+                    <a  style="color:black;text-decoration:underline;" href ="#" id="myBtn">Sign in</a><br>
+                    <a  style="color:black;text-decoration:underline;" href ="registration.php">Register</a>
+                </div>
             </div>
         </div>
-    </nav>
+
+        <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
+            <div class="container">
+                <div class = "navbar-header">
+                    <button type = "button" class = "navbar-toggle" 
+                        data-toggle = "collapse" data-target = "#example-navbar-collapse">
+                        <span class = "sr-only">Toggle navigation</span>
+                        <span class = "icon-bar"></span>
+                        <span class = "icon-bar"></span>
+                        <span class = "icon-bar"></span>
+                    </button>
+                        
+                    <a class = "navbar-brand" href = "#"></a>
+                </div>
+                <div class="collapse navbar-collapse" id = "example-navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
+                                <h5><a class="dropdown-item" href="../" style="color:white;">News&Announcements</a></h5>
+                            </div>
+                        </li>
+                        <li><a href="#services">Knowledge</a></li>
+                        <li><a href="#portfolio">Activity</a></li>
+                        <li><a href="#pricing">Community</a></li>
+                        <li><a href="#contact"></a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#contact"></a></li>
+                        <li><a href="#contact"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     <!-- End Header-->
     <div class="container-fluid" style="background-color:white;">
         <div class="row">
