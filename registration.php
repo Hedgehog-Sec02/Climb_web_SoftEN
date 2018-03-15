@@ -4,7 +4,6 @@
 >>>>>>> c1d39463479e377e37daaead7c07d14ddf761381
 <?php 
     require_once "connect.php" ;
-    dfgsfasfsaafasdad
 ?> 
 <!DOCTYPE html>
 <html>
