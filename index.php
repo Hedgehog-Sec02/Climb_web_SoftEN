@@ -245,8 +245,13 @@
   </div> 
 </div>
     
-    <h1 ><div  class="container" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></div></h1>
+    <h1 >
+        <div  class="row" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
+    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;">
+            <img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" >
+        </div>
+    </h1>
+
     <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
     <div class="container">
         <div class="collapse navbar-collapse" id="myNavbar" >
