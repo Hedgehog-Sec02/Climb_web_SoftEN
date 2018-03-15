@@ -185,6 +185,7 @@
     </style>
 </head>
 <body>
+            <div class="container">
   <!-- Trigger the modal with a button -->
            
   <!--<button type="button" class="btn btn-default btn-lg  navbar-right" id="myBtn">Login</button>-->
@@ -239,11 +240,8 @@
     </div>
   </div> 
 </div>
-
-<div class="container">
-    <!-- Start Header -->
         <div  class="row" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
-                background-size:cover;background-attachment:fixed;background-position:center;">
+    background-size:cover;background-attachment:fixed;background-position:center;">
             <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:50px;padding-top:50px;padding-bottom:50px;">
                 <img class='img-rounded' src="image/LOGO/logo.png" style="width:100%;height:250px;">
             </div>
@@ -289,6 +287,8 @@
                 </div>
             </div>
         </nav>
+
+        
     <!-- End Header -->
 
     <div class="container-fluid" style="background-color:white;">
