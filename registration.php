@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<?php echo "THIS ISS REGISTRATION"?>
-=======
 <?php 
     require_once "connect.php" ;
     
@@ -95,7 +92,7 @@
 </head>
 <body>
         
-            <div  class="container" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
+            <div  class="row" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
     background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></div></h1>
     <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
     <div class="container"
@@ -425,4 +422,3 @@
 
 </body>
 </html>
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
