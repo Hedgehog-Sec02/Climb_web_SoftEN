@@ -161,8 +161,8 @@
                             <div class="form-group">
                                 <label for="Usernmae"><span class="glyphicon glyphicon-user"></span> Username</label>
                                 <div class="controls">
-                                    <input type="text" id="Username" name="Username" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Usernmae</p>
+                                    <input type="text" id="Username" name="Username" placeholder="" class="form-control" onkeyup="chkValidUsername(); return false;"> 
+                                    <p class="help-block" id="error-username">
                                  </div>
                             </div>
 
@@ -178,7 +178,7 @@
                                 <label for="con-Password"><span class="glyphicon glyphicon-user"></span>Confirm Password</label>
                                 <div class="controls">
                                     <input type="password" id="con-Password" name="con-Password" placeholder="" class="form-control" onkeyup="chkLeastPassword(); return false;" >
-                                    <p class="help-block" id="error-al">
+                                    <p class="help-block" id="error-al2">
                                  </div>
                             </div>
 
@@ -321,21 +321,73 @@
                 
             });
             function chkLeastPassword(){
-                        var pass1 = document.getElementById('Password');
-                        var goodColor = "#66cc66";
-                        var badColor = "#ff6666";
-                        var message = document.getElementById('error-al');
-                        if(pass1.value.length > 15){
-                            pass1.style.backgroundColor =goodColor ;
-                            message.style.color = goodColor ;
-                            message.innerHTML = "Password is ok !!" ; 
-                        }else {
-                            pass1.style.backgroundColor = badColor;
-                            message.style.color = badColor;
-                            message.innerHTML = " you have to enter at least 16 digit!"
-                            return;
-                        }
+                var pass1 = document.getElementById('Password');
+                var pass2 = document.getElementById('con-Password');
+                var goodColor = "#66cc66";
+                var badColor = "#ff6666";
+                var message = document.getElementById('error-al');
+                var message2 = document.getElementById('error-al2');
+                // Password ---------------------------------------------------
+                if(pass1.value != ''){
+                    if(pass1.value.length > 15){
+                        pass1.style.backgroundColor =goodColor ;
+                        message.style.color = goodColor ;
+                        message.innerHTML = "Password is ok !!" ; 
+                    }else {
+                        pass1.style.backgroundColor = badColor;
+                        message.style.color = badColor;
+                        message.innerHTML = " you have to enter at least 16 digit!";
+                        return;
                     }
+                }else {
+                    pass1.style.backgroundColor = "";
+                    message.style.color = "";
+                    message.innerHTML = "";
+                }
+                // Con-Password ------------------------------------------------
+                if(pass2.value != ''){
+                    if(pass1.value == pass2.value ){
+                        pass2.style.backgroundColor = goodColor ;
+                        message2.style.color = goodColor ;
+                        message2.innerHTML = "Password is match !!";
+                    }else {
+                        pass2.style.backgroundColor = badColor ;
+                        message2.style.color = badColor ;
+                        message2.innerHTML = "Password isn't match !!";
+                    }
+                }else {
+                    pass2.style.backgroundColor = "" ;
+                    message2.style.color = "" ;
+                    message2.innerHTML = '';
+                    
+                }
+            }
+
+            function chkValidUsername(){
+                var username = document.getElementById('Username');
+                var goodColor = "#66cc66";
+                var badColor = "#ff6666";
+                var message = document.getElementById('error-username');
+                //message.style.color = "yellow" ; 
+                message.innerHTML = "Seaching...";
+
+                if(username.value != ''){
+                    $.post('model/chkValidUsername.php', { username: username.value}, function(data) {
+                    data = $.parseJSON(data);
+                    if(data.count > 0 ){
+                        message.style.color = badColor ;
+                    }else{
+                        message.style.color = goodColor ;
+                    }
+
+                    message.innerHTML = data.dataAlert  ; 
+                    console.log(data.count);
+                    console.log(data.dataAlert);
+            });
+                }else {
+                    message.innerHTML = '' ; 
+                }
+            }
 
         </script>
 
