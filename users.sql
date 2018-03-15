@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2018 at 05:28 PM
+-- Generation Time: Mar 15, 2018 at 03:55 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -29,20 +29,25 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `userID` int(5) NOT NULL AUTO,
-  `fname` varchar(20) NOT NULL,
-  `lname` varchar(20) NOT NULL,
-  `idenNo` varchar(20) NOT NULL,
-  `ppNo` varchar(100) DEFAULT NULL,
+  `userID` int(5) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `personID` varchar(20) NOT NULL,
   `userName` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `birthDate` date NOT NULL,
+  `personImage` text,
+  `qNO1` int(11) NOT NULL,
+  `qNO2` int(11) NOT NULL,
+  `qNO3` int(11) NOT NULL,
+  `QID1` varchar(50) NOT NULL,
+  `QID2` varchar(50) NOT NULL,
+  `QID3` varchar(50) NOT NULL,
+  `question1` varchar(50) NOT NULL,
+  `question2` varchar(50) NOT NULL,
+  `question3` varchar(50) NOT NULL,
+  `userEmail` varchar(50) NOT NULL,
   `status` varchar(10) NOT NULL,
-  `ppImage` varchar(50) DEFAULT NULL,
-  `idenImage` varchar(50) DEFAULT NULL,
-  `question1` varchar(100) NOT NULL,
-  `question2` varchar(100) NOT NULL,
-  `question3` varchar(100) NOT NULL
+  `userPoint` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
@@ -56,11 +61,12 @@ ALTER TABLE `users`
   ADD PRIMARY KEY (`userID`);
 COMMIT;
 
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-INSERT INTO users VALUES ()
-
 ALTER TABLE users 
 	MODIFY userID INT(5) NOT NULL AUTO_INCREMENT
+	
+	
