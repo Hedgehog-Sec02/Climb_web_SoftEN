@@ -83,6 +83,10 @@
             #img-upload{
                 width: 100%;
             }
+            a:hover.btn{
+
+                text-decoration:underline;
+            }
     
     </style>
 </head>
@@ -251,10 +255,38 @@
                                  </div>
                             </div>
 
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">I agree to the<a class = "btn"style="color : red;" data-toggle="modal" data-target="#exampleModalLong">Privacy and Terms</a></label>
+                            </div>
+
+                         
+
+
+                        <!-- Modal policy -->
+                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            </div>
                         </div>
-                    
+                        </div>
+
+                        </div>
+                        <!-- End Modal policy-->
             
-                    
+                        <br>
                         <div class="control-group">
                         <!-- Button -->
                         <div class="controls">

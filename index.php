@@ -185,7 +185,20 @@
     </style>
 </head>
 <body>
+<<<<<<< HEAD
             <div class="container">
+=======
+<<<<<<< HEAD
+             <ul class="nav navbar-nav navbar-right ">
+                <a class="btn nav-item  btn-lg" style="color:black;" id="myBtn">Sign in</a>
+
+                <br><a class="btn nav-item btn-lg" style="color:black;" href ="registration.php">Register</a>
+
+            </ul>
+            <div class="container">
+=======
+>>>>>>> 1f0e7e42a65cf197ab446778737d54a8bfc89964
+>>>>>>> 2aacbb9b5cd09d3aeedad9e86550338fb7a646d6
   <!-- Trigger the modal with a button -->
            
   <!--<button type="button" class="btn btn-default btn-lg  navbar-right" id="myBtn">Login</button>-->
