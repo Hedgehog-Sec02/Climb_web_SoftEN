@@ -183,10 +183,10 @@
     </style>
 </head>
 <body>
-             <ul class="nav navbar-nav navbar-right">
-                <li ><a style="color:black;" id="myBtn">Sign in</a></li>
+             <ul class="nav navbar-nav navbar-right ">
+                <a class="btn nav-item  btn-lg" style="color:black;" id="myBtn">Sign in</a>
 
-                <li ><a style="color:black;" href ="registration.php">Sign up</a></li>
+                <br><a class="btn nav-item btn-lg" style="color:black;" href ="registration.php">Register</a>
 
             </ul>
             <div class="container">
