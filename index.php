@@ -161,7 +161,7 @@
 			    /*background-color: #000033; */
 				margin-right:20px ;
 				background-color:None ;
-                font-size:50px;
+                font-size:10px;
 			}
 		
 			ul.nav.navbar-nav.navbar-right li.nav-item a:hover{
@@ -184,11 +184,10 @@
 </head>
 <body>
              <ul class="nav navbar-nav navbar-right">
-                <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" id="myBtn">Sign in</a></li>
-<<<<<<< HEAD
-=======
-                <li class="btn nav-item navbar-right btn-lg"><a style="color:black;" href ="registration.php">Sign up</a></li>
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
+                <li ><a style="color:black;" id="myBtn">Sign in</a></li>
+
+                <li ><a style="color:black;" href ="registration.php">Sign up</a></li>
+
             </ul>
             <div class="container">
   <!-- Trigger the modal with a button -->
@@ -206,11 +205,11 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-<<<<<<< HEAD
+
           <form role="form">
-=======
+
           <form role="form" method="post">
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
+
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input type="text" class="form-control" id="usrname" placeholder="Enter email">
@@ -233,11 +232,11 @@
         </div>
         <div class="modal-footer">
           <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-<<<<<<< HEAD
+
           <p>Not a member? <a href="#">Sign Up</a></p>
-=======
+
          <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
->>>>>>> 343ce3c80d4df404ce1747beab67b43c725a21ae
+
           <p>Forgot <a href="#">Password?</a></p>
         </div>
       </div>
@@ -249,20 +248,18 @@
     <h1 ><div  class="container" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
     background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></div></h1>
     <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
-    <div class="container"
+    <div class="container">
         <div class="collapse navbar-collapse" id="myNavbar" >
             <ul class="nav navbar-nav navbar-left">
                 <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
 						<h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
-                        <h5><a class="dropdown-item" href="#" style="color:white;">สาระน่ารู้</a><br></h5>
-                        <h5><a class="dropdown-item" href="#" style="color:white;">ข้อมูลกิจกรรม</a><br></h5>
-                        <h5><a class="dropdown-item" href="#" style="color:white;">ข้อมูลเกี่ยวกับชุมชน</a></h5>
 					</div>
                 </li>
-                <li><a href="#services"></a></li>
-                <li><a href="#portfolio"></a></li>
-                <li><a href="#pricing"></a></li>
+                <li><a href="#services">Knowledge</a></li>
+                <li><a href="#portfolio">Activity</a></li>
+                <li><a href="#pricing">
+Community</a></li>
                 <li><a href="#contact"></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
