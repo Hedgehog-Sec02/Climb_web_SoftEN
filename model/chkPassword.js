@@ -6,10 +6,10 @@ function chkLeastPassword(){
     var message2 = document.getElementById('error-al2');
     // Password ---------------------------------------------------
     if(pass1.value != ''){
-        if(pass1.value.length > 15){
+        if(pass1.value.length > 15&&pass1.value.length <20){
                 pass1.style.backgroundColor =goodColor ;
                 message.style.color = goodColor ;
-                message.innerHTML = "Password is Valiable!!" ; 
+                message.innerHTML = "Password is Valid ok !!" ; 
         
         }else {
             pass1.style.backgroundColor = badColor;
