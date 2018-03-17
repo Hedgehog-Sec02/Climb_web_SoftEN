@@ -11,6 +11,7 @@
     <script type="text/javascript" src="model/chkUsername.js"></script>
     <script type="text/javascript" src="model/chkEmail.js"></script>
     <script type="text/javascript" src="model/chkCap.js"></script>
+    <script type="text/javascript" src="model/chkEmtryForm.js"></script>
 
     <!-- JS -->     
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -192,7 +193,8 @@
                                             Browse… <input type="file" id="imgInp">
                                         </span>
                                     </span>
-                                    <input type="text" class="form-control" readonly>
+                                    <input type="text"  id = "person_img" class="form-control" readonly>
+                                    <p class="help-block" id="error-person-img">
                                 </div>
                                 <img id='img-upload'/>
                             </div>
@@ -227,7 +229,7 @@
                             <div class="form-group">
                                 <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>Birthdate</label>
                                 <div class='input-group date' id='datetimepicker1' data-date="2012-02-02" data-date-format="yyyy-mm-dd">
-                                    <input type='text' class="form-control" />
+                                    <input type='text' id="birthdate" class="form-control" />
                                     <p class="help-block" id="error-birthdate">
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
@@ -248,7 +250,7 @@
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
                                     <input type="text" id="Q1" name="Q1" placeholder="" class="form-control">
-                                    <p class="help-block" id="error-question">
+                                    <p class="help-block" id="error-question1">
                                  </div>
                             </div>
 
@@ -265,7 +267,7 @@
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
                                     <input type="text" id="Q2" name="Q2" placeholder="" class="form-control">
-                                    <p class="help-block" id="error-question">
+                                    <p class="help-block" id="error-question2">
                                  </div>
                             </div>
 
@@ -282,7 +284,7 @@
                                 <div class="controls">
                                 <label><span class=""></span>Answer : </label>
                                 <input type="text" id="Q3" name="Q3" placeholder="" class="form-control">
-                                <p class="help-block" id="error-question">
+                                <p class="help-block" id="error-question3">
                                  </div>
                             </div>
 
@@ -395,12 +397,12 @@
             $('#myRegister').click(function(event) {
                 event.preventDefault();
                 var chk = document.getElementById("exampleCheck1").checked ;
-                var message = document.getElementById('error-checkbox');
+                chkEmtryForm();
                 if(chk){
                     console.log("Register it!!")
                 }else{
-                    message.innerHTML = "Please take accept policy in checkbox!!";
-                    message.style.color = badColor ;
+                   // message.innerHTML = "Please take accept policy in checkbox!!";
+                   // message.style.color = badColor ;
                 }
             })
 

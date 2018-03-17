@@ -10,7 +10,6 @@
     if($test[$i] == $_GET["NewsID"]){ $chk = $i ;}    
     $i = $i + 1 ; 
     }
-
     $NewsID = $_GET["NewsID"] ; 
     // intent(getNews) : Get News matching NewsID 
     $row = News::getNews($NewsID);
@@ -203,7 +202,7 @@
                         <h2 id="NewsTitle"><?php $NewsTitle = $row["NewsTitle"]; echo $NewsTitle ; ?></h2>                
                         <div>NewsContent : </div>
                                 <div class="multiline"><?php $NewsContent = $row["NewsContent"]; echo $NewsContent ?></div>
-
+                        <!-- Previous Next -->
                         <?php $page = $NewsID ; if($page > 1){ $prev = $test[$chk+1] ; echo "<div class='col-sm-6 col-md-6 col-lg-6' ><a id='prev' class='btn btn-primary btn-md'  href ='News.php?NewsID=$prev'>ก่อนหน้านี้</a></div>" ;}else{ echo "<a class='col-sm-6 col-md-6 col-lg-6'></a>" ; } 
                                                 if($page < $test[1]){ $next = $test[$chk-1] ; echo "<div align='right' class='col-sm-6 col-md-6 col-lg-6' ><a id='next' class='btn btn-primary btn-md' role='button' href ='News.php?NewsID=$next'>ถัดไป</a></div>" ;} 
                         ?>               
