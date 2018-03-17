@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<?php echo "THIS ISS REGISTRATION"?>
-=======
->>>>>>> c1d39463479e377e37daaead7c07d14ddf761381
 <?php 
     require_once "connect.php" ;
 ?> 
@@ -10,7 +6,9 @@
 <head>
     <title><?php echo $row["NewsTitle"] ; ?></title>
     <meta charset="utf-8" />
-  
+
+    <script type="text/javascript" src="model/chkPassword.js"></script>
+    
     <!-- JS -->     
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -90,6 +88,16 @@
 
                 text-decoration:underline;
             }
+            #alert-cap
+            {
+            border: 1px solid #FFFF66;
+            background-color: #FFFFCC;
+            display: inline-block;
+            margin-left: 10px;
+            padding: 3px;
+            margin-top:3px;
+            visibility:hidden;
+            }
     
     </style>
 </head>
@@ -126,7 +134,7 @@
                     <ul class="nav navbar-nav navbar-left">
                         <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
-                                <h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
+                                <h5><a class="dropdown-item" href="index.php" style="color:white;">News&Announcements</a></h5>
                             </div>
                         </li>
                         <li><a href="#services">Knowledge</a></li>
@@ -155,13 +163,13 @@
                         <div id="legend">
                         <legend class="">สมัครสมาชิก</legend>
                         </div>
-                        <div class="control-group">
+                        <div class="control-group" >
                         <!-- Username -->
                             <div class="form-group">
                                 <label for="name"><span class="glyphicon glyphicon-pencil"></span>ชื่อ - นามสกุล/Name</label>
                                 <div class="controls">
                                     <input type="text" id="name" name="name" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide name-lastname</p>
+                                    <p class="help-block" id="error-name">
                                  </div>
                             </div>
 
@@ -169,7 +177,7 @@
                                 <label for="idenNo"><span class="glyphicon glyphicon-user"></span>เลขบัตรประจำวันตัวประชาชน/Passport No.</label>
                                 <div class="controls">
                                     <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Identification Number or Passport Number</p>
+                                    <p class="help-block" id="error-iden_passport">
                                  </div>
                             </div>
 
@@ -195,7 +203,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="Password"><span class="glyphicon glyphicon-user"></span>Password</label>
+                                <label for="Password"><span class="glyphicon glyphicon-user"></span>Password</label><span  id="alert-cap" >Caps lock is on!</span>
                                 <div class="controls">
                                     <input type="password" id="Password" name="Password" placeholder="" class="form-control" onkeyup="chkLeastPassword(); return false;" >
                                     <p class="help-block" id="error-al">
@@ -217,6 +225,7 @@
                                 <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>วันเกิด</label>
                                 <div class='input-group date' id='datetimepicker1' data-date="2012-02-02" data-date-format="yyyy-mm-dd">
                                     <input type='text' class="form-control" />
+                                    <p class="help-block" id="error-birthdate">
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                      </span>
@@ -236,7 +245,7 @@
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
                                     <input type="text" id="Q1" name="Q1" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Password</p>
+                                    <p class="help-block" id="error-question">
                                  </div>
                             </div>
 
@@ -253,7 +262,7 @@
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
                                     <input type="text" id="Q2" name="Q2" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Password</p>
+                                    <p class="help-block" id="error-question">
                                  </div>
                             </div>
 
@@ -270,7 +279,7 @@
                                 <div class="controls">
                                 <label><span class=""></span>Answer : </label>
                                 <input type="text" id="Q3" name="Q3" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Password</p>
+                                <p class="help-block" id="error-question">
                                  </div>
                             </div>
 
@@ -373,17 +382,32 @@
 
                     $("#imgInp").change(function(){
                         readURL(this);
-                    }); 	
-
+                    }); 
                 
             });
 
             var goodColor = "#66cc66";
             var badColor = "#ff6666";
+
+            $('#Password').keypress(function(e){ 
+                var s = String.fromCharCode( e.which );
+                if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
+                    document.getElementById('alert-cap').style.visibility = 'visible';
+                }else {
+                    document.getElementById('alert-cap').style.visibility = 'hidden';
+                }
+            });      
+
+            $('#con-Password').keypress(function(e){ 
+                var s = String.fromCharCode( e.which );
+                if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
+                    document.getElementById('alert-cap').style.visibility = 'visible';
+                }else {
+                    document.getElementById('alert-cap').style.visibility = 'hidden';
+                }
+            });     
             </script>
-            <script src="model/chkPassword.js"></script>
-            <script src="model/chkUsername.js"></script>
-            <script src="model/chkEmail.js"></script>
+
             
 
 </body>

@@ -3,12 +3,14 @@ function chkLeastPassword(){
     var pass2 = document.getElementById('con-Password');
     var message = document.getElementById('error-al');
     var message2 = document.getElementById('error-al2');
+    var regex = new RegExp() ; 
     // Password ---------------------------------------------------
     if(pass1.value != ''){
         if(pass1.value.length > 15){
-            pass1.style.backgroundColor =goodColor ;
-            message.style.color = goodColor ;
-            message.innerHTML = "Password is ok !!" ; 
+                pass1.style.backgroundColor =goodColor ;
+                message.style.color = goodColor ;
+                message.innerHTML = "Password is o!!" ; 
+        
         }else {
             pass1.style.backgroundColor = badColor;
             message.style.color = badColor;
