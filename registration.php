@@ -356,16 +356,18 @@
                 var badColor = "#ff6666";
                 var message = document.getElementById('error-al');
                 var message2 = document.getElementById('error-al2');
+                var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\-])(?=.*[\_])[0-9a-zA-Z\-\_]{16,}$/;
+                
                 // Password ---------------------------------------------------
                 if(pass1.value != ''){
-                    if(pass1.value.length > 15){
+                    if(pass1.value.match(pattern)){
                         pass1.style.backgroundColor =goodColor ;
                         message.style.color = goodColor ;
                         message.innerHTML = "Password is ok !!" ; 
                     }else {
                         pass1.style.backgroundColor = badColor;
                         message.style.color = badColor;
-                        message.innerHTML = " you have to enter at least 16 digit!";
+                        message.innerHTML = " Password must contain at least (A-Z,a-z,0-9, _ , -) and 16 digit!";
                         return;
                     }
                 }else {
