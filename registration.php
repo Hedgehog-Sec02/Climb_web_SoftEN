@@ -8,6 +8,9 @@
     <meta charset="utf-8" />
 
     <script type="text/javascript" src="model/chkPassword.js"></script>
+    <script type="text/javascript" src="model/chkUsername.js"></script>
+    <script type="text/javascript" src="model/chkEmail.js"></script>
+    <script type="text/javascript" src="model/chkCap.js"></script>
 
     <!-- JS -->     
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -158,15 +161,15 @@
             <center><div class = "col-sm-1 col-md-2 col-lg-3" ></div></center>
             <!-- Start Form -->
                 <div class = "col-sm-10 col-md-8 col-lg-6" style="background-color:#e3e8e3;">
-                <form class="form-horizontal" action='' method="POST" style="padding:10px;">
+                <form class="form-horizontal" action='' role="form" method="POST" style="padding:10px;">
                     <fieldset>
                         <div id="legend">
-                        <legend class="">สมัครสมาชิก</legend>
+                        <legend class="">Registration</legend>
                         </div>
                         <div class="control-group" >
                         <!-- Username -->
                             <div class="form-group">
-                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>ชื่อ - นามสกุล/Name</label>
+                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>Name</label>
                                 <div class="controls">
                                     <input type="text" id="name" name="name" placeholder="" class="form-control">
                                     <p class="help-block" id="error-name">
@@ -174,7 +177,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="idenNo"><span class="glyphicon glyphicon-user"></span>เลขบัตรประจำวันตัวประชาชน/Passport No.</label>
+                                <label for="idenNo"><span class="glyphicon glyphicon-user"></span>Idenfication/Passport No.</label>
                                 <div class="controls">
                                     <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control">
                                     <p class="help-block" id="error-iden_passport">
@@ -222,7 +225,7 @@
 
 
                             <div class="form-group">
-                                <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>วันเกิด</label>
+                                <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>Birthdate</label>
                                 <div class='input-group date' id='datetimepicker1' data-date="2012-02-02" data-date-format="yyyy-mm-dd">
                                     <input type='text' class="form-control" />
                                     <p class="help-block" id="error-birthdate">
@@ -294,6 +297,7 @@
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">I agree to the<a class = "btn"style="color : red;" data-toggle="modal" data-target="#exampleModalLong">Privacy and Terms</a></label>
+                                <p class="help-block" id="error-checkbox"></p>
                             </div>
 
                         <!-- End Form -->
@@ -326,7 +330,7 @@
                         <div class="control-group">
                         <!-- Button -->
                         <div class="controls">
-                            <button class="btn btn-success">Register</button>
+                            <button class="btn btn-success" id ="myRegister">Register</button>
                         </div>
                         </div>
                     </fieldset>
@@ -385,27 +389,23 @@
                     }); 
                 
             });
-           
             var goodColor = "#66cc66";
             var badColor = "#ff6666";
-
-            $('#Password').keypress(function(e){ 
-                var s = String.fromCharCode( e.which );
-                if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
-                    document.getElementById('alert-cap').style.visibility = 'visible';
-                }else {
-                    document.getElementById('alert-cap').style.visibility = 'hidden';
+            
+            $('#myRegister').click(function(event) {
+                event.preventDefault();
+                var chk = document.getElementById("exampleCheck1").checked ;
+                var message = document.getElementById('error-checkbox');
+                if(chk){
+                    console.log("Register it!!")
+                }else{
+                    message.innerHTML = "Please take accept policy in checkbox!!";
+                    message.style.color = badColor ;
                 }
-            });      
+            })
 
-            $('#con-Password').keypress(function(e){ 
-                var s = String.fromCharCode( e.which );
-                if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
-                    document.getElementById('alert-cap').style.visibility = 'visible';
-                }else {
-                    document.getElementById('alert-cap').style.visibility = 'hidden';
-                }
-            });     
+            // Cap lock is on ? 
+            chkCap();
             </script>
 
             
