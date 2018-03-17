@@ -1,0 +1,24 @@
+***Setting***
+
+Library    Selenium2Library
+
+***Variable***
+${SERVER}    http://localhost:8080/climb_web/registration.php
+${BROWSER}    Chrome
+***Test Cases***
+Open Browser
+    Open Browser    ${SERVER}    ${BROWSER}
+Username Valiable
+	Input Text    Username    atisitz
+	Wait Until Page Contains    Username doesn't exist
+	Capture Page Screenshot    filename=Username_Valid.png
+Password Valiable
+	Input Text    Password    11111111111111111
+	Wait Until Page Contains    Password is ok !!
+	Capture Page Screenshot    filename=Password_Valid.png
+Click Home 
+	Click Link	navbarDropdownMenuLink
+	Wait Until Page Contains    News&Announcements
+	Capture Page Screenshot    filename=Click_Home.png
+***Keywords***
+

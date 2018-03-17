@@ -1,13 +1,14 @@
 <?php 
     require_once "connect.php" ;
-    
 ?> 
 <!DOCTYPE html>
 <html>
 <head>
     <title><?php echo $row["NewsTitle"] ; ?></title>
     <meta charset="utf-8" />
-  
+
+    <script type="text/javascript" src="model/chkPassword.js"></script>
+
     <!-- JS -->     
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -87,54 +88,88 @@
 
                 text-decoration:underline;
             }
+            #alert-cap
+            {
+            border: 1px solid #FFFF66;
+            background-color: #FFFFCC;
+            display: inline-block;
+            margin-left: 10px;
+            padding: 3px;
+            margin-top:3px;
+            visibility:hidden;
+            }
     
     </style>
 </head>
 <body>
-        
-            <div  class="row" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></div></h1>
-    <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
-    <div class="container"
-        <div class="collapse navbar-collapse" id="myNavbar" >
-            <ul class="nav navbar-nav navbar-left">
-                <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">News&Announcements</a>
-                        <a class="dropdown-item" href="#">สาระน่ารู้</a>
-                        <a class="dropdown-item" href="#">ข้อมูลกิจกรรม</a>
-                        <a class="dropdown-item" href="#">ข้อมูลเกี่ยวกับชุมชน</a>
-					</div>
-                </li>
-                <li><a href="#services"></a></li>
-                <li><a href="#portfolio"></a></li>
-                <li><a href="#pricing"></a></li>
-                <li><a href="#contact"></a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#contact"></a></li>
-                <li><a href="#contact"></a></li>
-            </ul>
+        <!-- Start Header -->
+        <div  class="row" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
+            background-size:cover;background-attachment:fixed;background-position:center;">
+            <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:50px;padding-top:50px;padding-bottom:50px;">
+                <img class='img-rounded' src="image/LOGO/logo.png" style="width:100%;height:250px;">
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2" >
+                <div class="pull-right">
+                    <a  style="color:black;text-decoration:underline;" href = "#" id="myBtn">Sign in</a><br>
+                    <a  style="color:black;text-decoration:underline;" href ="registration.php">Register</a>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
+
+        <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
+            <div class="container">
+                <div class = "navbar-header">
+                    <button type = "button" class = "navbar-toggle" 
+                        data-toggle = "collapse" data-target = "#example-navbar-collapse">
+                        <span class = "sr-only">Toggle navigation</span>
+                        <span class = "icon-bar"></span>
+                        <span class = "icon-bar"></span>
+                        <span class = "icon-bar"></span>
+                    </button>
+                        
+                    <a class = "navbar-brand" href = "#"></a>
+                </div>
+                <div class="collapse navbar-collapse" id = "example-navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
+                                <h5><a class="dropdown-item" href="index.php" style="color:white;">News&Announcements</a></h5>
+                            </div>
+                        </li>
+                        <li><a href="#services">Knowledge</a></li>
+                        <li><a href="#portfolio">Activity</a></li>
+                        <li><a href="#pricing">Community</a></li>
+                        <li><a href="#contact"></a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#contact"></a></li>
+                        <li><a href="#contact"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     <!-- End Header-->
+
+
     <div class="container-fluid" style="background-color:white;">
         <div class="row">
-            <center><div class = "col-sm-3 col-md-4 col-lg-3" ></div></center>
-                <div class = "col-sm-6 col-md-4 col-lg-6" style="background-color:#e3e8e3;">
+            <center><div class = "col-sm-1 col-md-2 col-lg-3" ></div></center>
+            <!-- Start Form -->
+                <div class = "col-sm-10 col-md-8 col-lg-6" style="background-color:#e3e8e3;">
                 <form class="form-horizontal" action='' method="POST" style="padding:10px;">
                     <fieldset>
                         <div id="legend">
                         <legend class="">สมัครสมาชิก</legend>
                         </div>
-                        <div class="control-group">
+                        <div class="control-group" >
                         <!-- Username -->
                             <div class="form-group">
                                 <label for="name"><span class="glyphicon glyphicon-pencil"></span>ชื่อ - นามสกุล/Name</label>
                                 <div class="controls">
                                     <input type="text" id="name" name="name" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide name-lastname</p>
+                                    <p class="help-block" id="error-name">
                                  </div>
                             </div>
 
@@ -142,7 +177,7 @@
                                 <label for="idenNo"><span class="glyphicon glyphicon-user"></span>เลขบัตรประจำวันตัวประชาชน/Passport No.</label>
                                 <div class="controls">
                                     <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Identification Number or Passport Number</p>
+                                    <p class="help-block" id="error-iden_passport">
                                  </div>
                             </div>
 
@@ -168,7 +203,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="Password"><span class="glyphicon glyphicon-user"></span>Password</label>
+                                <label for="Password"><span class="glyphicon glyphicon-user"></span>Password</label><span  id="alert-cap" >Caps lock is on!</span>
                                 <div class="controls">
                                     <input type="password" id="Password" name="Password" placeholder="" class="form-control" onkeyup="chkLeastPassword(); return false;" >
                                     <p class="help-block" id="error-al">
@@ -190,6 +225,7 @@
                                 <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>วันเกิด</label>
                                 <div class='input-group date' id='datetimepicker1' data-date="2012-02-02" data-date-format="yyyy-mm-dd">
                                     <input type='text' class="form-control" />
+                                    <p class="help-block" id="error-birthdate">
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                      </span>
@@ -209,7 +245,7 @@
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
                                     <input type="text" id="Q1" name="Q1" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Password</p>
+                                    <p class="help-block" id="error-question">
                                  </div>
                             </div>
 
@@ -226,7 +262,7 @@
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
                                     <input type="text" id="Q2" name="Q2" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Password</p>
+                                    <p class="help-block" id="error-question">
                                  </div>
                             </div>
 
@@ -243,15 +279,15 @@
                                 <div class="controls">
                                 <label><span class=""></span>Answer : </label>
                                 <input type="text" id="Q3" name="Q3" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Password</p>
+                                <p class="help-block" id="error-question">
                                  </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="email"><span class="glyphicon glyphicon-user"></span>E-mail</label>
                                 <div class="controls">
-                                    <input type="text" id="email" name="email" placeholder="" class="form-control">
-                                    <p class="help-block">Please provide your Usernmae</p>
+                                    <input type="text" id="email" name="email" placeholder="" class="form-control" onkeyup="chkValidEmail(); return false;">
+                                    <p class="help-block" id="error-email"></p>
                                  </div>
                             </div>
 
@@ -260,31 +296,31 @@
                                 <label class="form-check-label" for="exampleCheck1">I agree to the<a class = "btn"style="color : red;" data-toggle="modal" data-target="#exampleModalLong">Privacy and Terms</a></label>
                             </div>
 
-                         
+                        <!-- End Form -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+                        <!-- Modal policy -->
+                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
 
                         </div>
-                    
+                        <!-- End Modal policy-->
             
                         <br>
                         <div class="control-group">
@@ -297,10 +333,11 @@
                 </form>
             
                 </div>
-            <center><div class = "col-sm-3 col-md-4 col-lg-3"></div></center>
+            <center><div class = "col-sm-1 col-md-2 col-lg-3"></div></center>
         </div>
     </div>
 
+    <!-- Footer -->
     <?php  require_once "footer.html" ; ?>
 
     <script type="text/javascript">
@@ -345,10 +382,10 @@
 
                     $("#imgInp").change(function(){
                         readURL(this);
-                    }); 	
-
+                    }); 
                 
             });
+<<<<<<< HEAD
             function chkLeastPassword(){
                 var pass1 = document.getElementById('Password');
                 var pass2 = document.getElementById('con-Password');
@@ -386,41 +423,32 @@
                         message2.style.color = badColor ;
                         message2.innerHTML = "Password isn't match !!";
                     }
+=======
+
+            var goodColor = "#66cc66";
+            var badColor = "#ff6666";
+
+            $('#Password').keypress(function(e){ 
+                var s = String.fromCharCode( e.which );
+                if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
+                    document.getElementById('alert-cap').style.visibility = 'visible';
+>>>>>>> cb5d60d4ff1e4acf6c751a24adba9107d4cf601e
                 }else {
-                    pass2.style.backgroundColor = "" ;
-                    message2.style.color = "" ;
-                    message2.innerHTML = '';
-                    
+                    document.getElementById('alert-cap').style.visibility = 'hidden';
                 }
-            }
+            });      
 
-            function chkValidUsername(){
-                var username = document.getElementById('Username');
-                var goodColor = "#66cc66";
-                var badColor = "#ff6666";
-                var message = document.getElementById('error-username');
-                //message.style.color = "yellow" ; 
-                message.innerHTML = "Seaching...";
-
-                if(username.value != ''){
-                    $.post('model/chkValidUsername.php', { username: username.value}, function(data) {
-                    data = $.parseJSON(data);
-                    if(data.count > 0 ){
-                        message.style.color = badColor ;
-                    }else{
-                        message.style.color = goodColor ;
-                    }
-
-                    message.innerHTML = data.dataAlert  ; 
-                    console.log(data.count);
-                    console.log(data.dataAlert);
-            });
+            $('#con-Password').keypress(function(e){ 
+                var s = String.fromCharCode( e.which );
+                if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
+                    document.getElementById('alert-cap').style.visibility = 'visible';
                 }else {
-                    message.innerHTML = '' ; 
+                    document.getElementById('alert-cap').style.visibility = 'hidden';
                 }
-            }
+            });     
+            </script>
 
-        </script>
+            
 
 </body>
 </html>
