@@ -445,6 +445,7 @@
                     console.log(Question3);
                     console.log(myObj.Question3);
                     console.log(myObj.email);
+                    console.log("test_git");
                 }else{
                     console.log("Can't Register !!!");
                 }
