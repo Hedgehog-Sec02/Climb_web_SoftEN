@@ -412,24 +412,26 @@
                 
                 event.preventDefault();
 
-                var e = document.getElementById("Question1");
-                var Question1 = e.options[e.selectedIndex].value ;
-                var e = document.getElementById("Question2");
-                var Question2 = e.options[e.selectedIndex].value ;
-                var e = document.getElementById("Question3");
-                var Question3 = e.options[e.selectedIndex].value  ;
-
                 //intent : chkEmtryForm เช็คว่ามี null ในช่องform หรือไม่ ถ้าไม่มีจะ return true และ data 
                 var myObj = chkEmtryForm();
                 chkValidUsername();
                 chkValidEmail();
                 chkLeastPassword();
+
+                var e = document.getElementById("Question1");
+                myObj.Q1 = e.options[e.selectedIndex].value ;
+                var e = document.getElementById("Question2");
+                myObj.Q2 = e.options[e.selectedIndex].value ;
+                var e = document.getElementById("Question3");
+                myObj.Q3 = e.options[e.selectedIndex].value  ;
+
                 //intent : myObJ.pass เช็คช่องว่าง true/false
                 console.log(myObj.pass) ; 
                 //intent : pass เช็คการผิดรูปแบบของ email pass username : true/false
                 console.log(pass_usernameJS);
                 console.log(pass_PasswordJS);
                 console.log(pass_EmailJS);
+                
                 if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS){
                     console.log("Register it!!");
                     console.log(myObj.name);
@@ -438,14 +440,18 @@
                     console.log(myObj.username);
                     console.log(myObj.password);
                     console.log(myObj.Birthdate);
-                    console.log(Question1);
-                    console.log(myObj.Question1);
-                    console.log(Question2);
-                    console.log(myObj.Question2);
-                    console.log(Question3);
-                    console.log(myObj.Question3);
+                    console.log(myObj.Q1); 
+                    console.log(myObj.Question1); // ANSWER OF Q1
+                    console.log(myObj.Q2);
+                    console.log(myObj.Question2); // ANSWER OF Q2
+                    console.log(myObj.Q3);
+                    console.log(myObj.Question3); // ANSWER OF Q3
                     console.log(myObj.email);
-                    console.log("test_git");
+
+                    myObj = JSON.stringify(myObj);
+                    $.post('model/addUser.php', { dataUser: myObj}, function(data) {
+        
+                    });
                 }else{
                     console.log("Can't Register !!!");
                 }

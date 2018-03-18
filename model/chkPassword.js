@@ -3,7 +3,8 @@ function chkLeastPassword(){
     var pass2 = document.getElementById('con-Password');
     var message = document.getElementById('error-al');
     var message2 = document.getElementById('error-al2');
-    var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\-])(?=.*[\_])[0-9a-zA-Z\-\_]{16,}$/;
+    //var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\-])(?=.*[\_])[0-9a-zA-Z\-\_]{16,}$/;
+    var pattern = /^(?=.*\d)(?=.*[a-zA-Z\-\_])[0-9a-zA-Z\-\_]{16,}$/;
     
     // Password ---------------------------------------------------
     if(pass1.value != ''){
