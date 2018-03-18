@@ -1,10 +1,11 @@
 <?php 
     require_once "connect.php" ;
+    require_once "model/question.php" ; 
 ?> 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo $row["NewsTitle"] ; ?></title>
+    <title>Registration User</title>
     <meta charset="utf-8" />
 
     <script type="text/javascript" src="model/chkPassword.js"></script>
@@ -236,15 +237,18 @@
                                      </span>
                                  </div>
                             </div>
+                            <!-- intent : Query data from qcatalog 1 -->
+                            <?php $stmt= Question::getQuestion1() ;?>
 
                             <div class="form-group">
                                 <label for="Q1"><span class="glyphicon glyphicon-user"></span>Question1:</label>
                                 <br>
-                                <select class="selectpicker" data-live-search="true">
-                                    <option data-tokens="ketchup mustard">เลือกคำถาม</option>
-                                    <option data-tokens="ketchup mustard">Where ?</option>
-                                    <option data-tokens="mustard">Who ?</option>
-                                    <option data-tokens="frosting">When?</option>
+                                <select class="selectpicker" id="Question1" data-live-search="true">
+                                    <!-- Loop Question list in catalog 1 -->
+                                    <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+                                    <option value='<?php echo $row["qid"] ; ?>' ><?php echo $row["qdesc"]; ?> </option>
+                                    <?php  } ?>
+                                    <!-- End Loop -->
                                 </select>
 
                                 <div class="controls">
@@ -254,14 +258,18 @@
                                  </div>
                             </div>
 
+                            <!-- intent : Query data from qcatalog 2 -->
+                            <?php $stmt= Question::getQuestion2() ;?>
+
                             <div class="form-group">
                                 <label for="Q2"><span class="glyphicon glyphicon-user"></span>Question2:</label>
                                 <br>
-                                <select class="selectpicker" data-live-search="true">
-                                    <option data-tokens="ketchup mustard">เลือกคำถาม</option>
-                                    <option data-tokens="ketchup mustard">Where ?</option>
-                                    <option data-tokens="mustard">Who ?</option>
-                                    <option data-tokens="frosting">When?</option>
+                                <select class="selectpicker" id="Question2" data-live-search="true">
+                                    <!-- Loop Question list in catalog 2 -->
+                                    <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+                                    <option value='<?php echo $row["qid"] ; ?>' ><?php echo $row["qdesc"]; ?> </option>
+                                    <?php  } ?>
+                                    <!-- End Loop -->
                                 </select>
 
                                 <div class="controls">
@@ -271,14 +279,18 @@
                                  </div>
                             </div>
 
+                            <!-- intent : Query data from qcatalog 3 -->
+                            <?php $stmt= Question::getQuestion3() ;?>
+
                             <div class="form-group">
                                 <label for="Q3"><span class="glyphicon glyphicon-user"></span>Question3:</label>
                                 <br>
-                                <select class="selectpicker" data-live-search="true">
-                                    <option data-tokens="ketchup mustard">เลือกคำถาม</option>
-                                    <option data-tokens="ketchup mustard">Where ?</option>
-                                    <option data-tokens="mustard">Who ?</option>
-                                    <option data-tokens="frosting">When?</option>
+                                <select class="selectpicker" id="Question3" data-live-search="true">
+                                    <!-- Loop Question list in catalog 3 -->
+                                    <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+                                    <option value='<?php echo $row["qid"] ; ?>' ><?php echo $row["qdesc"]; ?> </option>
+                                    <?php  } ?>
+                                    <!-- End Loop -->
                                 </select>
 
                                 <div class="controls">
@@ -297,7 +309,7 @@
                             </div>
 
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" onchange="doalert(this)">
                                 <label class="form-check-label" for="exampleCheck1">I agree to the<a class = "btn"style="color : red;" data-toggle="modal" data-target="#exampleModalLong">Privacy and Terms</a></label>
                                 <p class="help-block" id="error-checkbox"></p>
                             </div>
@@ -393,17 +405,50 @@
             });
             var goodColor = "#66cc66";
             var badColor = "#ff6666";
-            
+            var pass_usernameJS = false ;
+            var pass_PasswordJS = false ;
+            var pass_EmailJS = false ;
             $('#myRegister').click(function(event) {
+                
                 event.preventDefault();
-                var chk = document.getElementById("exampleCheck1").checked ;
-                chkEmtryForm();
-                if(chk){
-                    console.log("Register it!!")
+
+                var e = document.getElementById("Question1");
+                var Question1 = e.options[e.selectedIndex].value ;
+                var e = document.getElementById("Question2");
+                var Question2 = e.options[e.selectedIndex].value ;
+                var e = document.getElementById("Question3");
+                var Question3 = e.options[e.selectedIndex].value  ;
+
+                //intent : chkEmtryForm เช็คว่ามี null ในช่องform หรือไม่ ถ้าไม่มีจะ return true และ data 
+                var myObj = chkEmtryForm();
+                chkValidUsername();
+                chkValidEmail();
+                chkLeastPassword();
+                //intent : myObJ.pass เช็คช่องว่าง true/false
+                console.log(myObj.pass) ; 
+                //intent : pass เช็คการผิดรูปแบบของ email pass username : true/false
+                console.log(pass_usernameJS);
+                console.log(pass_PasswordJS);
+                console.log(pass_EmailJS);
+                if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS){
+                    console.log("Register it!!");
+                    console.log(myObj.name);
+                    console.log(myObj.iden);
+                    console.log(myObj.person_img);
+                    console.log(myObj.username);
+                    console.log(myObj.password);
+                    console.log(myObj.Birthdate);
+                    console.log(Question1);
+                    console.log(myObj.Question1);
+                    console.log(Question2);
+                    console.log(myObj.Question2);
+                    console.log(Question3);
+                    console.log(myObj.Question3);
+                    console.log(myObj.email);
                 }else{
-                   // message.innerHTML = "Please take accept policy in checkbox!!";
-                   // message.style.color = badColor ;
+                    console.log("Can't Register !!!");
                 }
+            
             })
 
             // Cap lock is on ? 
