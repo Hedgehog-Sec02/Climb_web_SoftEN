@@ -413,10 +413,10 @@
                 event.preventDefault();
 
                 //intent : chkEmtryForm เช็คว่ามี null ในช่องform หรือไม่ ถ้าไม่มีจะ return true และ data 
-                var myObj = chkEmtryForm();
                 chkValidUsername();
                 chkValidEmail();
                 chkLeastPassword();
+                var myObj = chkEmtryForm();
 
                 var e = document.getElementById("Question1");
                 myObj.Q1 = e.options[e.selectedIndex].value ;

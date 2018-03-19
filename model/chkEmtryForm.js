@@ -81,7 +81,7 @@ function chkEmtryForm(){
 
     //con-password is '' 
     if(con_password.value == ''){
-        con_password.innerHTML = "Please fil con-password" ;
+        err_con_password.innerHTML = "Please fil con-password" ;
         err_con_password.style.color = badColor;
         myObj.pass = false ; 
     }else{
@@ -100,7 +100,7 @@ function chkEmtryForm(){
 
     //Question false is '' 
     if(Question1.value == ''){
-        err_Question1.innerHTML = "Please fill Question"; 
+        err_Question1.innerHTML = "Please fill Answer"; 
         err_Question1.style.color = badColor;
         myObj.pass = false ; 
     }else{
@@ -110,7 +110,7 @@ function chkEmtryForm(){
 
     //Question 2 is '' 
     if(Question2.value == ''){
-        err_Question2.innerHTML = "Please fill Question";
+        err_Question2.innerHTML = "Please fill Answer";
         err_Question2.style.color = badColor;
         myObj.pass = false ; 
     }else{
@@ -120,7 +120,7 @@ function chkEmtryForm(){
 
     //Question 3 is ''
     if(Question3.value == ''){
-        err_Question3.innerHTML = "Please fill Question"; 
+        err_Question3.innerHTML = "Please fill Answer"; 
         err_Question3.style.color = badColor;
         myObj.pass = false ; 
     }else{
