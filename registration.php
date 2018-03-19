@@ -458,7 +458,12 @@
 
                     myObj = JSON.stringify(myObj);
                     $.post('model/addUser.php', { dataUser: myObj}, function(data) {
-        
+                        data = $.parseJSON(data);
+                        if(data.insertResult){
+                            window.location = "registerSuccess.html";
+                        }else{
+                            window.location = "registerNotSuccess.html";
+                        }
                     });
                 }else{
                     console.log("Can't Register !!!");

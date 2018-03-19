@@ -28,17 +28,20 @@
             $status = "WAIT" ;
             $point = 0 ; 
 
-            $stmt = DB::get()->prepare("INSERT INTO users VALUES ('', '$name', '$iden', '$username', '$password', 
+            $stmt = DB::get()->prepare("INSERT INTO users VALUES ('', '$fname', '$iden', '$username', '$password', 
                                             '$birthdate', '$person_img', '$q1', '$q2', '$q3', '$ans_q1',
                                              '$ans_q2', '$ans_q3', '$email', '$status',
-                                            $point);");
+                                            $point,'$lname');");
             $stmt->execute();
-            header("registerSuccess.html");
+            $arr = array(
+                        'insertResult'=> true 
+            );
         }else {
-            header("registerNotSuccess.html");
+
         }
     }else {
-        header("registerNotSuccess.html");
+
     }
+    echo json_encode($arr);
 
 ?>
