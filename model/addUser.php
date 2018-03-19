@@ -8,7 +8,8 @@
         $data = json_decode($data);
         if (!empty($data)) 
         {       
-            $name = $data->name ;
+            $fname = $data->fname ;
+            $lname = $data->lname ;
             $iden = $data->iden ;
             $person_img = $data->person_img;
             $username = $data->username;

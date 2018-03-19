@@ -1,6 +1,7 @@
 function chkEmtryForm(){
 
-    var name = document.getElementById("name");
+    var fname = document.getElementById("fname");
+    var lname = document.getElementById("lname");
     var iden = document.getElementById("idenNo");
     var person_img = document.getElementById("person_img");
     var username = document.getElementById("Username");
@@ -13,7 +14,8 @@ function chkEmtryForm(){
     var email = document.getElementById("email");
     var chk = document.getElementById("exampleCheck1");
 
-    var err_name = document.getElementById("error-name");
+    var err_fname = document.getElementById("error-fname");
+    var err_lname = document.getElementById("error-lname");
     var err_iden = document.getElementById("error-iden_passport");
     var err_person_img = document.getElementById("error-person-img");
     var err_username = document.getElementById("error-username");
@@ -29,14 +31,24 @@ function chkEmtryForm(){
     
     var myObj = {} ; 
     myObj.pass = true ; 
-    // name is '' 
-    if(name.value == ''){
-        err_name.innerHTML = " Please fill name";
-        err_name.style.color = badColor;
+    // firstname is '' 
+    if(fname.value == ''){
+        err_fname.innerHTML = " Please fill firstname";
+        err_fname.style.color = badColor;
         myObj.pass = false ; 
     }else {
-        err_name.innerHTML = '' ;
-        myObj.name = name.value ; 
+        err_fname.innerHTML = '' ;
+        myObj.fname = fname.value ; 
+    }  
+
+    // lastname is '' 
+    if(lname.value == ''){
+        err_lname.innerHTML = " Please fill lastname";
+        err_lname.style.color = badColor;
+        myObj.pass = false ; 
+    }else {
+        err_lname.innerHTML = '' ;
+        myObj.lname = lname.value ; 
     }   
 
     // idenfication is '' 

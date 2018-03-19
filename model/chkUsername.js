@@ -30,6 +30,8 @@ function chkValidUsername(){
         });
 
     }else {
-        message.innerHTML = '' ; 
+        username.style.backgroundColor = "" ;
+        message.style.color = "";
+        message.innerHTML = "";
     }
 }

@@ -171,10 +171,18 @@
                         <div class="control-group" >
                         <!-- Username -->
                             <div class="form-group">
-                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>Name</label>
+                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>FirstName</label>
                                 <div class="controls">
-                                    <input type="text" id="name" name="name" placeholder="" class="form-control">
-                                    <p class="help-block" id="error-name">
+                                    <input type="text" id="fname" name="fname" placeholder="" class="form-control">
+                                    <p class="help-block" id="error-fname">
+                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>LastName</label>
+                                <div class="controls">
+                                    <input type="text" id="lname" name="lname" placeholder="" class="form-control">
+                                    <p class="help-block" id="error-lname">
                                  </div>
                             </div>
 
@@ -411,7 +419,6 @@
             $('#myRegister').click(function(event) {
                 
                 event.preventDefault();
-
                 //intent : chkEmtryForm เช็คว่ามี null ในช่องform หรือไม่ ถ้าไม่มีจะ return true และ data 
                 chkValidUsername();
                 chkValidEmail();
@@ -434,7 +441,8 @@
                 
                 if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS){
                     console.log("Register it!!");
-                    console.log(myObj.name);
+                    console.log(myObj.fname);
+                    console.log(myObj.lname);
                     console.log(myObj.iden);
                     console.log(myObj.person_img);
                     console.log(myObj.username);

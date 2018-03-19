@@ -20,7 +20,7 @@
             else
             {
                 $arr = array('count' => $count,
-                'dataAlert' => "Username doesn't exist"
+                'dataAlert' => "Username already exist"
             );
             }
             echo json_encode($arr);
