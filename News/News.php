@@ -42,7 +42,7 @@
                 background-position: center;
                 background-size: cover;
                 background-color: white;
-                background-image:url(../img/sea.gif);
+                background-image:url(../img/Hot-Sun.jpg);
             }
             .carousel-caption {
                 padding : 10px ;
@@ -136,10 +136,10 @@
 </div>
  <!-- End Modal -->
     <!-- Start Header -->
-    <div  class="row" style ="background-image:url(../img/sea.gif); background-repeat: no-repeat;width:100%;
+    <div  class="row" style ="background-image:url(../img/HOT-Sun.jpg); background-repeat: no-repeat;width:100%;
             background-size:cover;background-attachment:fixed;background-position:center;">
-            <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:50px;padding-top:50px;padding-bottom:50px;">
-                <img class='img-rounded' src="../image/LOGO/logo.png" style="width:100%;height:250px;">
+            <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:0px;padding-top:0px;padding-bottom:0px;">
+                <img class='img-rounded' src="../image/LOGO/logo.png" style="width:45%;height:45%;">
             </div>
 
             <div class="col-sm-2 col-md-2 col-lg-2" >
