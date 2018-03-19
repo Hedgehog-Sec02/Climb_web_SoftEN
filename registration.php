@@ -1,13 +1,18 @@
 <?php 
     require_once "connect.php" ;
+    require_once "model/question.php" ; 
 ?> 
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo $row["NewsTitle"] ; ?></title>
+    <title>Registration User</title>
     <meta charset="utf-8" />
 
     <script type="text/javascript" src="model/chkPassword.js"></script>
+    <script type="text/javascript" src="model/chkUsername.js"></script>
+    <script type="text/javascript" src="model/chkEmail.js"></script>
+    <script type="text/javascript" src="model/chkCap.js"></script>
+    <script type="text/javascript" src="model/chkEmtryForm.js"></script>
 
     <!-- JS -->     
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,7 +37,7 @@
                 background-position: center;
                 background-size: cover;
                 background-color: white;
-                background-image:url(../img/sea.gif);
+                background-image:url(img/Hot-Sun.jpg);
             }
             .carousel-caption {
                 padding : 10px ;
@@ -158,15 +163,15 @@
             <center><div class = "col-sm-1 col-md-2 col-lg-3" ></div></center>
             <!-- Start Form -->
                 <div class = "col-sm-10 col-md-8 col-lg-6" style="background-color:#e3e8e3;">
-                <form class="form-horizontal" action='' method="POST" style="padding:10px;">
+                <form class="form-horizontal" action='' role="form" method="POST" style="padding:10px;">
                     <fieldset>
                         <div id="legend">
-                        <legend class="">สมัครสมาชิก</legend>
+                        <legend class="">Registration</legend>
                         </div>
                         <div class="control-group" >
                         <!-- Username -->
                             <div class="form-group">
-                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>ชื่อ - นามสกุล/Name</label>
+                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>Name</label>
                                 <div class="controls">
                                     <input type="text" id="name" name="name" placeholder="" class="form-control">
                                     <p class="help-block" id="error-name">
@@ -174,7 +179,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="idenNo"><span class="glyphicon glyphicon-user"></span>เลขบัตรประจำวันตัวประชาชน/Passport No.</label>
+                                <label for="idenNo"><span class="glyphicon glyphicon-user"></span>Idenfication/Passport No.</label>
                                 <div class="controls">
                                     <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control">
                                     <p class="help-block" id="error-iden_passport">
@@ -189,7 +194,8 @@
                                             Browse… <input type="file" id="imgInp">
                                         </span>
                                     </span>
-                                    <input type="text" class="form-control" readonly>
+                                    <input type="text"  id = "person_img" class="form-control" readonly>
+                                    <p class="help-block" id="error-person-img">
                                 </div>
                                 <img id='img-upload'/>
                             </div>
@@ -222,64 +228,75 @@
 
 
                             <div class="form-group">
-                                <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>วันเกิด</label>
+                                <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>Birthdate</label>
                                 <div class='input-group date' id='datetimepicker1' data-date="2012-02-02" data-date-format="yyyy-mm-dd">
-                                    <input type='text' class="form-control" />
+                                    <input type='text' id="birthdate" class="form-control" />
                                     <p class="help-block" id="error-birthdate">
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                      </span>
                                  </div>
                             </div>
+                            <!-- intent : Query data from qcatalog 1 -->
+                            <?php $stmt= Question::getQuestion1() ;?>
 
                             <div class="form-group">
                                 <label for="Q1"><span class="glyphicon glyphicon-user"></span>Question1:</label>
                                 <br>
-                                <select class="selectpicker" data-live-search="true">
-                                    <option data-tokens="ketchup mustard">เลือกคำถาม</option>
-                                    <option data-tokens="ketchup mustard">Where ?</option>
-                                    <option data-tokens="mustard">Who ?</option>
-                                    <option data-tokens="frosting">When?</option>
+                                <select class="selectpicker" id="Question1" data-live-search="true">
+                                    <!-- Loop Question list in catalog 1 -->
+                                    <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+                                    <option value='<?php echo $row["qid"] ; ?>' ><?php echo $row["qdesc"]; ?> </option>
+                                    <?php  } ?>
+                                    <!-- End Loop -->
                                 </select>
 
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
                                     <input type="text" id="Q1" name="Q1" placeholder="" class="form-control">
-                                    <p class="help-block" id="error-question">
+                                    <p class="help-block" id="error-question1">
                                  </div>
                             </div>
+
+                            <!-- intent : Query data from qcatalog 2 -->
+                            <?php $stmt= Question::getQuestion2() ;?>
 
                             <div class="form-group">
                                 <label for="Q2"><span class="glyphicon glyphicon-user"></span>Question2:</label>
                                 <br>
-                                <select class="selectpicker" data-live-search="true">
-                                    <option data-tokens="ketchup mustard">เลือกคำถาม</option>
-                                    <option data-tokens="ketchup mustard">Where ?</option>
-                                    <option data-tokens="mustard">Who ?</option>
-                                    <option data-tokens="frosting">When?</option>
+                                <select class="selectpicker" id="Question2" data-live-search="true">
+                                    <!-- Loop Question list in catalog 2 -->
+                                    <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+                                    <option value='<?php echo $row["qid"] ; ?>' ><?php echo $row["qdesc"]; ?> </option>
+                                    <?php  } ?>
+                                    <!-- End Loop -->
                                 </select>
 
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
                                     <input type="text" id="Q2" name="Q2" placeholder="" class="form-control">
-                                    <p class="help-block" id="error-question">
+                                    <p class="help-block" id="error-question2">
                                  </div>
                             </div>
+
+                            <!-- intent : Query data from qcatalog 3 -->
+                            <?php $stmt= Question::getQuestion3() ;?>
 
                             <div class="form-group">
                                 <label for="Q3"><span class="glyphicon glyphicon-user"></span>Question3:</label>
                                 <br>
-                                <select class="selectpicker" data-live-search="true">
-                                    <option data-tokens="ketchup mustard">เลือกคำถาม</option>
-                                    <option data-tokens="ketchup mustard">Where ?</option>
-                                    <option data-tokens="mustard">Who ?</option>
-                                    <option data-tokens="frosting">When?</option>
+                                <select class="selectpicker" id="Question3" data-live-search="true">
+                                    <!-- Loop Question list in catalog 3 -->
+                                    <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
+                                    <option value='<?php echo $row["qid"] ; ?>' ><?php echo $row["qdesc"]; ?> </option>
+                                    <?php  } ?>
+                                    <!-- End Loop -->
                                 </select>
 
                                 <div class="controls">
                                 <label><span class=""></span>Answer : </label>
                                 <input type="text" id="Q3" name="Q3" placeholder="" class="form-control">
-                                <p class="help-block" id="error-question">
+                                <p class="help-block" id="error-question3">
                                  </div>
                             </div>
 
@@ -292,8 +309,9 @@
                             </div>
 
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" onchange="doalert(this)">
                                 <label class="form-check-label" for="exampleCheck1">I agree to the<a class = "btn"style="color : red;" data-toggle="modal" data-target="#exampleModalLong">Privacy and Terms</a></label>
+                                <p class="help-block" id="error-checkbox"></p>
                             </div>
 
                         <!-- End Form -->
@@ -326,7 +344,7 @@
                         <div class="control-group">
                         <!-- Button -->
                         <div class="controls">
-                            <button class="btn btn-success">Register</button>
+                            <button class="btn btn-success" id ="myRegister">Register</button>
                         </div>
                         </div>
                     </fieldset>
@@ -385,27 +403,63 @@
                     }); 
                 
             });
-            
             var goodColor = "#66cc66";
             var badColor = "#ff6666";
+            var pass_usernameJS = false ;
+            var pass_PasswordJS = false ;
+            var pass_EmailJS = false ;
+            $('#myRegister').click(function(event) {
+                
+                event.preventDefault();
 
-            $('#Password').keypress(function(e){ 
-                var s = String.fromCharCode( e.which );
-                if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
-                    document.getElementById('alert-cap').style.visibility = 'visible';
-                }else {
-                    document.getElementById('alert-cap').style.visibility = 'hidden';
-                }
-            });      
+                //intent : chkEmtryForm เช็คว่ามี null ในช่องform หรือไม่ ถ้าไม่มีจะ return true และ data 
+                chkValidUsername();
+                chkValidEmail();
+                chkLeastPassword();
+                var myObj = chkEmtryForm();
 
-            $('#con-Password').keypress(function(e){ 
-                var s = String.fromCharCode( e.which );
-                if ( s.toUpperCase() === s && s.toLowerCase() !== s && !e.shiftKey ) {
-                    document.getElementById('alert-cap').style.visibility = 'visible';
-                }else {
-                    document.getElementById('alert-cap').style.visibility = 'hidden';
+                var e = document.getElementById("Question1");
+                myObj.Q1 = e.options[e.selectedIndex].value ;
+                var e = document.getElementById("Question2");
+                myObj.Q2 = e.options[e.selectedIndex].value ;
+                var e = document.getElementById("Question3");
+                myObj.Q3 = e.options[e.selectedIndex].value  ;
+
+                //intent : myObJ.pass เช็คช่องว่าง true/false
+                console.log(myObj.pass) ; 
+                //intent : pass เช็คการผิดรูปแบบของ email pass username : true/false
+                console.log(pass_usernameJS);
+                console.log(pass_PasswordJS);
+                console.log(pass_EmailJS);
+                
+                if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS){
+                    console.log("Register it!!");
+                    console.log(myObj.name);
+                    console.log(myObj.iden);
+                    console.log(myObj.person_img);
+                    console.log(myObj.username);
+                    console.log(myObj.password);
+                    console.log(myObj.Birthdate);
+                    console.log(myObj.Q1); 
+                    console.log(myObj.Question1); // ANSWER OF Q1
+                    console.log(myObj.Q2);
+                    console.log(myObj.Question2); // ANSWER OF Q2
+                    console.log(myObj.Q3);
+                    console.log(myObj.Question3); // ANSWER OF Q3
+                    console.log(myObj.email);
+
+                    myObj = JSON.stringify(myObj);
+                    $.post('model/addUser.php', { dataUser: myObj}, function(data) {
+        
+                    });
+                }else{
+                    console.log("Can't Register !!!");
                 }
-            });     
+            
+            })
+
+            // Cap lock is on ? 
+            chkCap();
             </script>
 
             

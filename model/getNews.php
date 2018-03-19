@@ -1,6 +1,8 @@
 <?php 
     
     class News {
+
+        
         public function getNews($NewsID){
             try {
                
@@ -15,6 +17,7 @@
             }
         }
 
+
         public function getSlideFiveNews(){
             try {
                 $str = "SELECT NewsID, NewsTitle, NewsContent, NewsTag, TIMEDATE, NewsShot, DATE(TIMEDATE) AS DATE, TIME(TIMEDATE) AS TIME FROM NEWS ORDER BY TIMEDATE DESC LIMIT 5";
@@ -26,7 +29,8 @@
             }
         }
 
-        public function getAll(){
+        public
+         function getAll(){
             try {
                 $str = "SELECT NewsID, NewsTitle, NewsContent, NewsTag, TIMEDATE, NewsShot, DATE(TIMEDATE) AS DATE, TIME(TIMEDATE) AS TIME FROM NEWS ORDER BY TIMEDATE DESC";
                 $stmt2 = DB::get()->prepare($str);

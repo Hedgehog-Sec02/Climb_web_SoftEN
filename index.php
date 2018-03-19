@@ -91,7 +91,7 @@
                 background-position: center;
                 background-size: cover;
                 background-color: black;
-                /*background-image:url(img/Hot-Sun.jpg);*/
+                background-image:url(img/Hot-Sun.jpg);
             }
             .carousel-caption {
                 padding : 10px ;

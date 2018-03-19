@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180319 19:53:49.407" generator="Robot 3.0.2 (Python 3.5.2 on win32)">
+<suite name="Test Backlog 1" id="s1" source="C:\xampp\htdocs\climb_web\test\test_backlog_1\test_backlog_1.txt">
+<test name="Open Browser" id="s1-t1">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${SERVER}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg level="INFO" timestamp="20180319 19:53:54.433">Opening browser 'Chrome' to base url 'http://localhost:8080/'</msg>
+<status status="PASS" starttime="20180319 19:53:54.433" endtime="20180319 19:54:07.017"></status>
+</kw>
+<status status="PASS" starttime="20180319 19:53:54.432" endtime="20180319 19:54:07.018" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20180319 19:53:49.411" endtime="20180319 19:54:07.020"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Backlog 1" id="s1" pass="1" fail="0">Test Backlog 1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

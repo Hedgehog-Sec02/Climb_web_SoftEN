@@ -1,0 +1,14 @@
+***Setting***
+
+Library    Selenium2Library
+
+***Variable***
+${SERVER}    http://localhost:8080/
+${PATH}    registration.html
+${BROWSER}    Chrome
+***Test Cases***
+Open Browser
+    Open Browser    ${SERVER}    ${BROWSER}
+
+***Keywords***
+
