@@ -80,7 +80,7 @@
 <!-- End JS -->
     <style>
             footer {
-            background-color: #555;
+            background-color: black;
             color: white;
             padding: 15px;
                 }
@@ -90,8 +90,8 @@
                 background-attachment: fixed;
                 background-position: center;
                 background-size: cover;
-                background-color: white;
-                background-image:url(img/sea.gif);
+                background-color: black;
+                /*background-image:url(img/Hot-Sun.jpg);*/
             }
             .carousel-caption {
                 padding : 10px ;
@@ -183,15 +183,6 @@
     </style>
 </head>
 <body>
-<<<<<<< HEAD
-             <ul class="nav navbar-nav navbar-right ">
-                <a class="btn nav-item  btn-lg" style="color:black;" id="myBtn">Sign in</a>
-
-                <br><a class="btn nav-item btn-lg" style="color:black;" href ="registration.php">Register</a>
-
-            </ul>
-=======
->>>>>>> cb5d60d4ff1e4acf6c751a24adba9107d4cf601e
             <div class="container">
   <!-- Trigger the modal with a button -->
            
@@ -246,46 +237,19 @@
     </div>
   </div> 
 </div>
-<<<<<<< HEAD
-    
-    <h1 ><div  class="container" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
-    background-size:cover;background-attachment:fixed;background-position:center;padding:50px;"><img class='img-rounded' src="image/LOGO/logo.png" width="800px" height="250px" ></div></h1>
-    <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
-    <div class="container">
-        <div class="collapse navbar-collapse" id="myNavbar" >
-            <ul class="nav navbar-nav navbar-left">
-                <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
-						<h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
-					</div>
-                </li>
-                <li><a href="#services">Knowledge</a></li>
-                <li><a href="#portfolio">Activity</a></li>
-                <li><a href="#pricing">
-Community</a></li>
-                <li><a href="#contact"></a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#contact"></a></li>
-                <li><a href="#contact"></a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-=======
     <!-- End Modal for Login -->
 
         <!-- Start Header -->
-        <div  class="row" style ="background-image:url(img/sea.gif); background-repeat: no-repeat;width:100%;
+        <div  class="row" style ="background-image:url(img/Hot-Sun.jpg); background-repeat: no-repeat;width:100%;
             background-size:cover;background-attachment:fixed;background-position:center;">
-            <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:50px;padding-top:50px;padding-bottom:50px;">
-                <img class='img-rounded' src="image/LOGO/logo.png" style="width:100%;height:250px;">
+            <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:0px;padding-top:0px;padding-bottom:0px;">
+                <img class='img-rounded' src="image/LOGO/logo.png" style="width:45%;height:45%;">
             </div>
 
             <div class="col-sm-2 col-md-2 col-lg-2" >
                 <div class="pull-right">
                     <a  style="color:black;text-decoration:underline;" href ="#" id="myBtn">Sign in</a><br>
-                    <a  style="color:black;text-decoration:underline;" href ="registration.php">Register</a>
+                    <a  style="color:black;text-decoration:underline;" href ="registration.php">Register  </a>
                 </div>
             </div>
         </div>
@@ -325,13 +289,12 @@ Community</a></li>
         </nav>
 
         
->>>>>>> cb5d60d4ff1e4acf6c751a24adba9107d4cf601e
     <!-- End Header -->
 
     <!-- Start slide news -->
     <div class="container-fluid" style="background-color:white;">
         <div>
-            <div class="jumbotron text-center">
+            <div class="jumbotron text-center" style="background-color:black">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="padding-bottom:20px;">
                     <ol class="carousel-indicators">
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
