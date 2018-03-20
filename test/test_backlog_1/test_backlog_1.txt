@@ -3,11 +3,19 @@
 Library    Selenium2Library
 
 ***Variable***
+<<<<<<< HEAD
 ${SERVER}    http://localhost/Climb_web_SoftEN-master
+=======
+${SERVER}    http://localhost:8080/climb_web/index.php
+>>>>>>> fffb84cdb042b5cf9e58caf787ddd73576f5224e
 ${BROWSER}    Chrome
 ***Test Cases***
 Open Browser
     Open Browser    ${SERVER}    ${BROWSER}
-
+CHK LOADMORE
+	Click Element    loadMore
+	Element Should Be Visible    News_6    แนะนำอุปกรณ์พื้นฐานสำหรับการปีนหน้าผาเบื้องต้น
+CHK LOADMORE FAIL
+	Element Should Not Be Visible    News_1    5เหตุผลสุดเลิศที่จะต้องตกหลุมรักการปีนเขา
 ***Keywords***
 

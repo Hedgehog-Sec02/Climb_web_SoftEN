@@ -14,6 +14,7 @@ function chkEmtryForm(){
     var email = document.getElementById("email");
     var chk = document.getElementById("exampleCheck1");
 
+
     var err_fname = document.getElementById("error-fname");
     var err_lname = document.getElementById("error-lname");
     var err_iden = document.getElementById("error-iden_passport");

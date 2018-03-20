@@ -362,7 +362,7 @@
                                     $test[$i] = $row["NewsID"] ; 
                                     $i = $i + 1 ; 
                                 ?>
-                                        <li class="multiline"><a href="News/News.php?NewsID=<?php echo $row["NewsID"]?>"><?php echo $row["NewsTitle"]?></a></li> 
+                                        <li class="multiline" id=News_<?php echo $row["NewsID"]?> ><a href="News/News.php?NewsID=<?php echo $row["NewsID"]?>"><?php echo $row["NewsTitle"]?></a></li> 
                                 <?php } ?>
                             </ul> 
                         <div id="loadMore" align="right">Load more</div>
