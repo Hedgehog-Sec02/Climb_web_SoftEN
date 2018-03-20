@@ -4,10 +4,14 @@ Library    Selenium2Library
 
 ***Variable***
 ${SERVER}    http://localhost/Climb_web_SoftEN-master
+
 ${BROWSER}    Chrome
 ***Test Cases***
 Open Browser
     Open Browser    ${SERVER}    ${BROWSER}
 
-***Keywords***
+Load More
+    Click Element    loadMore
+Slide
+    Click Element    myCarousel    
 
