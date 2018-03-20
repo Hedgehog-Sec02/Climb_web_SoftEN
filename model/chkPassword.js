@@ -11,7 +11,7 @@ function chkLeastPassword(){
         if(pass1.value.match(pattern)){
             pass1.style.backgroundColor =goodColor ;
             message.style.color = goodColor ;
-            message.innerHTML = "Password is ok !!" ; 
+            message.innerHTML = "" ; 
             pass_PasswordJS = true ;
 
         }else {

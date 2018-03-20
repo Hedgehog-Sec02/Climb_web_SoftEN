@@ -13,6 +13,7 @@
     <script type="text/javascript" src="model/chkEmail.js"></script>
     <script type="text/javascript" src="model/chkCap.js"></script>
     <script type="text/javascript" src="model/chkBirthdate.js"></script>
+    <script type="text/javascript" src="model/chkIdenNo.js"></script>
     <script type="text/javascript" src="model/chkEmtryForm.js"></script>
 
     <!-- JS -->     
@@ -164,7 +165,7 @@
             <center><div class = "col-sm-1 col-md-2 col-lg-3" ></div></center>
             <!-- Start Form -->
                 <div class = "col-sm-10 col-md-8 col-lg-6" style="background-color:#e3e8e3;">
-                <form class="form-horizontal" action='' role="form" method="POST" style="padding:10px;">
+                <form class="form-horizontal" id="myForm" action='model/addUser.php' role="form" method="POST" style="padding:10px;">
                     <fieldset>
                         <div id="legend">
                         <legend class="">Registration</legend>
@@ -190,7 +191,7 @@
                             <div class="form-group">
                                 <label for="idenNo"><span class="glyphicon glyphicon-user"></span>Idenfication/Passport No.</label>
                                 <div class="controls">
-                                    <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control">
+                                    <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control" onkeyup="chkValidIden(); return false ;">
                                     <p class="help-block" id="error-iden_passport">
                                  </div>
                             </div>
@@ -200,10 +201,10 @@
                                 <div class="input-group">
                                     <span class="input-group-btn">
                                         <span class="btn btn-default btn-file">
-                                            Browse… <input type="file" id="imgInp">
+                                            Browse… <input type="file" id="imgInp" name="imgInp">
                                         </span>
                                     </span>
-                                    <input type="text"  id = "person_img" class="form-control" readonly>
+                                    <input type="text"  id = "person_img" name="person_img" class="form-control" readonly>
                                     <p class="help-block" id="error-person-img">
                                 </div>
                                 <img id='img-upload'/>
@@ -238,8 +239,8 @@
 
                             <div class="form-group">
                                 <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>Birthdate</label>
-                                <div class='input-group date' id='datetimepicker1' data-date="02-02-2010" data-date-format="dd-mm-yyyy">
-                                    <input type='text' id="birthdate" class="form-control" />
+                                <div class='input-group date' id='datetimepicker1' data-date="02/02/2010" data-date-format="dd/mm/yyyy">
+                                    <input type='text' id="birthdate" name="birthdate" class="form-control" onkeyup = "chkValidBirthdate(); return false;" placeholder="dd/mm/yyyy"/>
                                     <p class="help-block" id="error-birthdate">
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
@@ -252,7 +253,7 @@
                             <div class="form-group">
                                 <label for="Q1"><span class="glyphicon glyphicon-user"></span>Question1:</label>
                                 <br>
-                                <select class="selectpicker" id="Question1" data-live-search="true">
+                                <select class="selectpicker" id="Question1" name="Question1" data-live-search="true">
                                     <!-- Loop Question list in catalog 1 -->
                                     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
                                     <option value='<?php echo $row["qid"] ; ?>' ><?php echo $row["qdesc"]; ?> </option>
@@ -273,7 +274,7 @@
                             <div class="form-group">
                                 <label for="Q2"><span class="glyphicon glyphicon-user"></span>Question2:</label>
                                 <br>
-                                <select class="selectpicker" id="Question2" data-live-search="true">
+                                <select class="selectpicker" id="Question2" name="Question2" data-live-search="true">
                                     <!-- Loop Question list in catalog 2 -->
                                     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
                                     <option value='<?php echo $row["qid"] ; ?>' ><?php echo $row["qdesc"]; ?> </option>
@@ -294,7 +295,7 @@
                             <div class="form-group">
                                 <label for="Q3"><span class="glyphicon glyphicon-user"></span>Question3:</label>
                                 <br>
-                                <select class="selectpicker" id="Question3" data-live-search="true">
+                                <select class="selectpicker" id="Question3" name="Question3" data-live-search="true">
                                     <!-- Loop Question list in catalog 3 -->
                                     <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)){ ?>
                                     <option value='<?php echo $row["qid"] ; ?>' ><?php echo $row["qdesc"]; ?> </option>
@@ -318,7 +319,7 @@
                             </div>
 
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1" onchange="doalert(this)">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1"  onchange="doalert(this)">
                                 <label class="form-check-label" for="exampleCheck1">I agree to the<a class = "btn"style="color : red;" data-toggle="modal" data-target="#exampleModalLong">Privacy and Terms</a></label>
                                 <p class="help-block" id="error-checkbox"></p>
                             </div>
@@ -418,6 +419,7 @@
             var pass_PasswordJS = false ;
             var pass_EmailJS = false ;
             var pass_birthdate = false ;
+            var pass_iden = false ;
             $('#myRegister').click(function(event) {
                 
                 event.preventDefault();
@@ -426,6 +428,7 @@
                 chkValidEmail();
                 chkLeastPassword();
                 chkValidBirthdate();
+                chkValidIden();
                 var myObj = chkEmtryForm();
 
                 var e = document.getElementById("Question1");
@@ -441,10 +444,8 @@
                 console.log(pass_usernameJS);
                 console.log(pass_PasswordJS);
                 console.log(pass_EmailJS);
-
-                console.log(new Data());
                 
-                if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS){
+                if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS && pass_birthdate && pass_iden){
                     console.log("Register it!!");
                     console.log(myObj.fname);
                     console.log(myObj.lname);
@@ -460,16 +461,27 @@
                     console.log(myObj.Q3);
                     console.log(myObj.Question3); // ANSWER OF Q3
                     console.log(myObj.email);
-
+                    
+                    document.getElementById("myForm").submit();
+                    /*
                     myObj = JSON.stringify(myObj);
                     $.post('model/addUser.php', { dataUser: myObj}, function(data) {
-                        data = $.parseJSON(data);
-                        if(data.insertResult){
-                            window.location = "registerSuccess.html";
-                        }else{
+                        //data = $.parseJSON(data);
+                        //if(data.insertResult){
+                           // window.location = "registerSuccess.html";
+                        /*}else{
                             window.location = "registerNotSuccess.html";
                         }
-                    });
+                        window.location = "registerSuccess.html";
+                    });*/
+                    console.log(myObj);
+
+                    /*$.ajax({
+                        data: {dataUser: myObj},
+                        dataType: 'json',
+                        url: 'model/addUser.php',
+                        type: 'POST',  
+                    });*/
                 }else{
                     console.log("Can't Register !!!");
                 }

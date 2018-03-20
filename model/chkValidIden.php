@@ -2,25 +2,25 @@
     require_once "../connect.php" ;
     
 
-    if (isset($_POST['username'])) 
+    if (isset($_POST['iden'])) 
     {
-        $username = DB::get()->quote($_POST['username']);
+        $iden = DB::get()->quote($_POST['iden']);
 
-        if (!empty($username)) 
+        if (!empty($iden)) 
     {
-            $stmt = DB::get()->prepare("SELECT * FROM users WHERE userName =$username");
+            $stmt = DB::get()->prepare("SELECT * FROM users WHERE personID =$iden");
             $stmt->execute();
             $count= $stmt->fetchColumn(); 
              if($count==0)
              {
                $arr = array('count' => $count,
-                            'dataAlert' => "" 
+                            'dataAlert' => ''
              );
              }
             else
             {
                 $arr = array('count' => $count,
-                'dataAlert' => "Username already exist"
+                'dataAlert' => "identification/Passport Number already exist"
             );
             }
             echo json_encode($arr);
