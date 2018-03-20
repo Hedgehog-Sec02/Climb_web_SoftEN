@@ -12,6 +12,7 @@
     <script type="text/javascript" src="model/chkUsername.js"></script>
     <script type="text/javascript" src="model/chkEmail.js"></script>
     <script type="text/javascript" src="model/chkCap.js"></script>
+    <script type="text/javascript" src="model/chkBirthdate.js"></script>
     <script type="text/javascript" src="model/chkEmtryForm.js"></script>
 
     <!-- JS -->     
@@ -237,7 +238,7 @@
 
                             <div class="form-group">
                                 <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>Birthdate</label>
-                                <div class='input-group date' id='datetimepicker1' data-date="2012-02-02" data-date-format="yyyy-mm-dd">
+                                <div class='input-group date' id='datetimepicker1' data-date="02-02-2010" data-date-format="dd-mm-yyyy">
                                     <input type='text' id="birthdate" class="form-control" />
                                     <p class="help-block" id="error-birthdate">
                                     <span class="input-group-addon">
@@ -416,6 +417,7 @@
             var pass_usernameJS = false ;
             var pass_PasswordJS = false ;
             var pass_EmailJS = false ;
+            var pass_birthdate = false ;
             $('#myRegister').click(function(event) {
                 
                 event.preventDefault();
@@ -423,6 +425,7 @@
                 chkValidUsername();
                 chkValidEmail();
                 chkLeastPassword();
+                chkValidBirthdate();
                 var myObj = chkEmtryForm();
 
                 var e = document.getElementById("Question1");
@@ -438,6 +441,8 @@
                 console.log(pass_usernameJS);
                 console.log(pass_PasswordJS);
                 console.log(pass_EmailJS);
+
+                console.log(new Data());
                 
                 if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS){
                     console.log("Register it!!");
