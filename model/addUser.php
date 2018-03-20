@@ -58,7 +58,7 @@
                                     '$ans_q2', '$ans_q3', '$email', '$status',
                                     '$point','$lname');");*/
             $stmt->execute();
-            header("../registerSuccess.html");
+            header("location:../registerSuccess.html");
            /* $arr = array(
                         'insertResult'=> true 
             );
