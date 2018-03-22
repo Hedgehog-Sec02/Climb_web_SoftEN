@@ -25,7 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+   <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
     
 
 
@@ -117,7 +117,7 @@
             </div>
                <!-- Captcha -->
               <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                            <!-- <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div> -->
                             
                             <div class="help-block with-errors"></div>
                 </div>
@@ -167,12 +167,12 @@
                     <ul class="nav navbar-nav navbar-left">
                         <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
-                                <h5><a class="dropdown-item" href="../" style="color:white;">News&Announcements</a></h5>
+                                <h5><a class="dropdown-item" href="../" style="color:black;">News&Announcements</a></h5>
                             </div>
                         </li>
-                        <li><a href="#services">Knowledge</a></li>
-                        <li><a href="#portfolio">Activity</a></li>
-                        <li><a href="#pricing">Community</a></li>
+                        <li><a href="#services">Knowledge source</a></li>
+                        <li><a href="#portfolio">Event</a></li>
+                        <li><a href="#pricing">About Us</a></li>
                         <li><a href="#contact"></a></li>
                     </ul>
 
@@ -186,9 +186,9 @@
     <!-- End Header-->
     <div class="container-fluid" style="background-color:white;">
         <div class="row">
-            <center><div class = "col-sm-3 col-md-4 col-lg-1" ></div></center>
+            <center><div class = "col-sm-3 col-md-1 col-lg-1" ></div></center>
            
-                <div class = "col-sm-6 col-md-4 col-lg-10" style="background-color:#e3e8e3;">
+                <div class = "col-sm-12 col-md-10 col-lg-10" style="background-color:#e3e8e3;">
                     <center>
                         <img class='img-rounded' src='../image/news-img/<?php echo $row["NewsShot"]; ?>' alt='First' style='width:100%;height:350px;background-position:center;'>
                     </center>
@@ -207,7 +207,7 @@
                                                 if($page < $test[1]){ $next = $test[$chk-1] ; echo "<div align='right' class='col-sm-6 col-md-6 col-lg-6' ><a id='next' class='btn btn-primary btn-md' role='button' href ='News.php?NewsID=$next'>ถัดไป</a></div>" ;} 
                         ?>               
                 </div>
-            <center><div class = "col-sm-3 col-md-4 col-lg-1"></div></center>
+            <center><div class = "col-sm-3 col-md-1 col-lg-1"></div></center>
         </div>
     </div>
     <footer class="container-fluid text-center">

@@ -15,9 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
 
     
     <script>
@@ -134,6 +132,7 @@
             width: auto;
             overflow: hidden;
             position: relative;
+
             }
 
             .marquee div {
@@ -216,7 +215,7 @@
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
               <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                            <!-- <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div> -->
                             
                             <div class="help-block with-errors"></div>
                 </div>
@@ -274,9 +273,9 @@
                                 <h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
                             </div>
                         </li>
-                        <li><a href="#services">Knowledge</a></li>
-                        <li><a href="#portfolio">Activity</a></li>
-                        <li><a href="#pricing">Community</a></li>
+                        <li><a href="#services">Knowledge source</a></li>
+                        <li><a href="#portfolio">Event</a></li>
+                        <li><a href="#pricing">About Us</a></li>
                         <li><a href="#contact"></a></li>
                     </ul>
 
@@ -348,11 +347,11 @@
             <div class = "col-sm-3 col-md-6 col-lg-4">
                 <div class="marquee">
                     <div>
-                        <h4><span id="NewsAndAnno">News & Announcements</span></h4>
-                        <h4><span id="NewsAndAnno">News & Announcements</span></h4>
+                        <h4><span id="NewsAndAnno" style="color:black;">News & Announcements</span></h4>
+                        <h4><span id="NewsAndAnno" style="color:black;">News & Announcements</span></h4>
                     </div>
                 </div>
-                    <div class="textContainer_Truncate" style="background-color:#FFCC33	; padding:10px;">
+                    <div class="textContainer_Truncate" style="background-color:#FFCC33	; ">
                         <ul id="newsList">
                                 <?php
                                     // intent(getAll): function for get all news

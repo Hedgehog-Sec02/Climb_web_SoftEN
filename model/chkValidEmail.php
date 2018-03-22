@@ -14,7 +14,7 @@
              if($count > 0)
              {
                $arr = array('count' => $count,
-                            'dataAlert' => "email should be example@gmail.com" 
+                            'dataAlert' => "email already exist" 
              );
              }
             elseif(!strpos($email, '@')){

@@ -14,7 +14,9 @@
     <script type="text/javascript" src="model/chkCap.js"></script>
     <script type="text/javascript" src="model/chkBirthdate.js"></script>
     <script type="text/javascript" src="model/chkIdenNo.js"></script>
+    <script type="text/javascript" src="model/chkName.js"></script>
     <script type="text/javascript" src="model/chkEmtryForm.js"></script>
+
 
     <!-- JS -->     
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -175,7 +177,7 @@
                             <div class="form-group">
                                 <label for="name"><span class="glyphicon glyphicon-pencil"></span>FirstName</label>
                                 <div class="controls">
-                                    <input type="text" id="fname" name="fname" placeholder="" class="form-control">
+                                    <input type="text" id="fname" name="fname" placeholder="" class="form-control" onkeyup="chkValidFirstName();return false;" >
                                     <p class="help-block" id="error-fname">
                                  </div>
                             </div>
@@ -183,7 +185,7 @@
                             <div class="form-group">
                                 <label for="name"><span class="glyphicon glyphicon-pencil"></span>LastName</label>
                                 <div class="controls">
-                                    <input type="text" id="lname" name="lname" placeholder="" class="form-control">
+                                    <input type="text" id="lname" name="lname" placeholder="" class="form-control" onkeyup="chkValidLastName();return false;">
                                     <p class="help-block" id="error-lname">
                                  </div>
                             </div>
@@ -204,7 +206,7 @@
                                             Browse… <input type="file" id="imgInp" name="imgInp">
                                         </span>
                                     </span>
-                                    <input type="text"  id = "person_img" name="person_img" class="form-control" readonly>
+                                    <input type="text"  id = "person_img" name="person_img" class="form-control"> <!-- readonly-->
                                     <p class="help-block" id="error-person-img">
                                 </div>
                                 <img id='img-upload'/>
@@ -338,7 +340,20 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                ...
+                            <h2>ชุมชนนักปีนผา-ไต่เขา Privacy Policy</h2>
+                            <br><br>
+                        This Privacy Policy was last modified on 19-Mar-2018 
+                        <br><br>
+                        ชุมนักปีนผา-ไต่เขา  operates 10.199.66.227/SoftEn2018/Sec02_Hedge/. This page informs you of our policies regarding the collection, use and disclosure of Personal Information we receive from users of the Site.
+                        <br><br>                    
+                        We use your Personal Information only for providing and improving the Site. By using the Site, you agree the collection and use of information in accordance with this policy. 
+                        <br><br>                
+                        <b>Information Collection and Use</b><br>
+                        While using our Site, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to your name (“Personal Information”).
+                        <br><br>
+                        <b>Log Data</b> <br>
+                        Like many site operators, we collect information that your browser sends whenever you visit our Site (“Log Data”). This Log Data may include information such as your computer’s Internet Protocol (“IP”) address, browser type, browser version, the pages of our Site that you visit, the time and date of your visit, the time spent on those pages and other statistics.
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -420,6 +435,8 @@
             var pass_EmailJS = false ;
             var pass_birthdate = false ;
             var pass_iden = false ;
+            var pass_fname = false ; 
+            var pass_lname = false ;
             $('#myRegister').click(function(event) {
                 
                 event.preventDefault();
@@ -429,7 +446,10 @@
                 chkLeastPassword();
                 chkValidBirthdate();
                 chkValidIden();
+                chkValidFirstName();
+                chkValidLastName();
                 var myObj = chkEmtryForm();
+               
 
                 var e = document.getElementById("Question1");
                 myObj.Q1 = e.options[e.selectedIndex].value ;
@@ -445,7 +465,7 @@
                 console.log(pass_PasswordJS);
                 console.log(pass_EmailJS);
                 
-                if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS && pass_birthdate && pass_iden){
+                if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS && pass_birthdate && pass_iden && pass_fname && pass_lname) {
                     console.log("Register it!!");
                     console.log(myObj.fname);
                     console.log(myObj.lname);

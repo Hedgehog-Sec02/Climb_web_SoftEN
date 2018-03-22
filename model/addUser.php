@@ -43,22 +43,22 @@
             echo $ans_q3;
             echo $email;
 		
-	    $stmt = DB::get()->prepare("INSERT INTO users VALUES (NULL, '$fname', '$iden', '$username', 'password', 
+	   /* $stmt = DB::get()->prepare("INSERT INTO users VALUES (NULL, '$fname', '$iden', '$username', 'password', 
                                     '1997-03-14', 'person_img', 'q1', 'q2', 'q3', 'ans_q1',
                                     'ans_q2', 'ans_q3', 'email', 'status',
-                                    'point','lname');");
+                                    'point','lname');");*/
 
             /*$stmt = DB::get()->prepare("INSERT INTO users VALUES (1000, '$fname', '$iden', '$username', '$password', 
                                             '1997-03-14', '$person_img', '$q1', '$q2', '$q3', '$ans_q1',
                                              '$ans_q2', '$ans_q3', '$email', '$status',
                                             '$point','$lname');");*/
 
-            /*$stmt = DB::get()->prepare("INSERT INTO users VALUES (NULL, '$fname', '$iden', '$username', '$password', 
-                                    '1997-03-14', '$person_img', '$q1', '$q2', '$q3', '$ans_q1',
+            $stmt = DB::get()->prepare("INSERT INTO users VALUES (NULL, '$fname', '$iden', '$username', '$password', 
+                                    '$birthdate', '$person_img', '$q1', '$q2', '$q3', '$ans_q1',
                                     '$ans_q2', '$ans_q3', '$email', '$status',
-                                    '$point','$lname');");*/
+                                    '$point','$lname');");
             $stmt->execute();
-            header("location:../registerSuccess.html");
+            header("Location:../registerSuccess.html");
            /* $arr = array(
                         'insertResult'=> true 
             );

@@ -1,0 +1,26 @@
+﻿***Setting***
+
+Library    Selenium2Library
+
+***Variable***
+${SERVER}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/
+
+${BROWSER}    Chrome
+***Test Cases***
+Open Home Page
+    Open Browser    ${SERVER}    ${BROWSER}
+    Location Should Contain    ${SERVER}
+    Title Should Be    ชุมชนนักปีนผา-ไต่เขา
+
+Click News Link
+    Click Element    loadMore
+    Element Should Be Visible    News_14    URBAN PLAYGROUND CLIMBING15
+    Element Should Be Visible    News_13    หาดไร่เล (กระบี่)
+    Element Should Be Visible    News_12    หน้าผาม้าพยศ จังหวัดเชียงใหม่
+    Element Should Be Visible    News_11    เปิดเส้นทางพิชิต ‘เขาล้อมหมวก’ รอบพิเศษ 23 ก.พ.- 4 มี.ค. 61
+    Element Should Be Visible    News_10    ชวนช้อป ชม ชิล ที่ “ตลาดนัดบินคุ้ม คุณภาพครบ”
+    Element Should Be Visible    News_9    สาวอเมริกันปีนเขาพร้อมเพื่อนที่อ่าวไร่เลย์ ไร้ผู้เชี่ยวชาญดูแล พลัดตกสาหัส
+    Element Should Be Visible    News_8    หนุ่มนักปีนเขาไทยอาสา ขอช่วยนำร่าง 2 นศ.ไทยออกจากซากรถ
+    Element Should Be Visible    News_7    อดีตนักปีนเขาไม่ทิ้งฝันแม้เป็นอัมพาต ขอกลับมาพิชิตผาทั้งรถเข็น
+    Element Should Be Visible    News_6    แนะนำอุปกรณ์พื้นฐานสำหรับการปีนหน้าผาเบื้องต้น
+    Element Should Be Visible    News_5    ปีนผา ปีนเขา ได้แขนเข่าแข็งแรง
