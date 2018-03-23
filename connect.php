@@ -13,6 +13,7 @@ $base_url = "http://localhost:8080/climb_web/index.php" ;
             if(self::$instance == null ){
                 try{
                     self::$instance = new PDO("mysql:host=localhost;dbname=climbblog", "root","");
+                    //self::$instance = new PDO("mysql:host=10.199.66.227;dbname=sec02_hedge", "Sec02_Hedge","G8h34Ed9");
                     self::$instance->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
                     self::$instance->exec ( "SET NAMES \"utf8\"" );
                 }catch(PDOException $e){

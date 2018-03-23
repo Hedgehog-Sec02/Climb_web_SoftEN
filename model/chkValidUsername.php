@@ -14,7 +14,7 @@
              if($count==0)
              {
                $arr = array('count' => $count,
-                            'dataAlert' => "Username doesn't exist" 
+                            'dataAlert' => "" 
              );
              }
             else

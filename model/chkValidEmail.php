@@ -14,21 +14,21 @@
              if($count > 0)
              {
                $arr = array('count' => $count,
-                            'dataAlert' => "Email doesn't exist" 
+                            'dataAlert' => "email already exist" 
              );
              }
             elseif(!strpos($email, '@')){
                 $arr = array('count'=> true,
-                            'dataAlert' => "Email hasn't @"
+                            'dataAlert' => "email should be example@gmail.com"
             );
             }elseif(!strpos($email, '.com')){
                 $arr = array('count'=> true,
-                            'dataAlert' => "Email hasn't .com"
+                            'dataAlert' => "email should be example@gmail.com"
             );
             }else
             {
                 $arr = array('count' => $count,
-                'dataAlert' => "Email does exist"
+                'dataAlert' => ""
             );
             }
             echo json_encode($arr);

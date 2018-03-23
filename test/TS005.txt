@@ -1,0 +1,249 @@
+﻿*** Setting ***
+
+Library    Selenium2Library
+
+*** Variable ***
+${URL}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/registration.php
+${Browser}    Chrome
+${validFname}    อาทิตย์
+${validLname}    ประคำ
+${validIdenNumber}    1469900000000
+${personImage}    555.jpg
+${validUsername}    artit01
+${validPass}    aB_1111111111111
+${validCon_Pass}    aB_1111111111111
+${birthdate}    01/02/1997
+${answer1}    หมา
+${answer2}    แดง
+${answer3}    spiderman
+${validEmail}    artit1150@hotmail.com
+
+
+*** Keywords ***
+open web climb
+    open browser    ${URL}    ${Browser}
+input fname
+    Input Text    fname    ${validFName}
+input lname
+    Input Text    lname    ${validLname}
+input validIdenNumber
+    Input Text    idenNo    ${validIdenNumber}
+input uploadImage
+    Choose File    imgInp    C:/xampp/htdocs/climb_web/img/atisit_iden.jpg
+input username
+    Input Text    Username    ${validUsername}
+input pass
+    Input Text    Password    ${validPass}
+input conPass
+    Input Text    con-Password    ${validCon_Pass}
+input birthdate
+    Input Text    birthdate    ${birthdate}
+input answer1
+    Input Text    Q1    ${answer1}
+input answer2
+    Input Text    Q2    ${answer2}
+input answer3
+    Input Text    Q3    ${answer3}
+input email
+    Input Text    email    ${validEmail}
+	
+*** Test Cases ***
+testcase1 : ไม่กรอกชื่อ
+    open web climb
+    Input Text    fname    ${EMPTY}
+    input lname
+    input validIdenNumber
+    input uploadImage
+    input username
+    input pass
+    input conPass
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please fill firstname
+	
+testcase2 : ไม่กรอกนามสกุล
+    Go To    ${URL}
+    input fname
+    Input Text    lname    ${EMPTY}
+    input validIdenNumber
+    input uploadImage
+    input username
+    input pass
+    input conPass
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please fill lastname
+
+testcase3 : ไม่กรอกเลขบัตรประชาชนและเลข passport
+    Go To    ${URL}
+    input fname
+    input lname
+    Input Text    idenNo    ${EMPTY}
+    input uploadImage
+    input username
+    input pass
+    input conPass
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please fill idenfication/Password Number
+	
+testcase4 : ไม่ upload รูป
+    Go To    ${URL}
+    input fname
+    input lname
+    input validIdenNumber
+    Input Text    person_img    ${EMPTY}
+    input username
+    input pass
+    input conPass
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please upload idenfication/Password image
+	
+testcase5 : ไม่กรอก username
+    Go To    ${URL}
+    input fname
+    input lname
+    input validIdenNumber
+    input uploadImage
+    Input Text    Username    ${EMPTY}
+    input pass
+    input conPass
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please fill username
+	
+testcase6 : ไม่กรอก password
+    Go To    ${URL}
+    input fname
+    input lname
+    input validIdenNumber
+    input uploadImage
+    input username
+    Input Text    Password    ${EMPTY}
+    input conPass
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please fill password
+	
+testcase7 : ไม่กรอก confirm password
+    Go To    ${URL}
+    input fname
+    input lname
+    input validIdenNumber
+    input uploadImage
+    input username
+    input pass
+    Input Text    con-Password    ${EMPTY}
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please fill con-password
+	
+testcase8 : ไม่กรอกวันเกิด
+    Go To    ${URL}
+    input fname
+    input lname
+    input validIdenNumber
+    input uploadImage
+    input username
+    input pass
+    input conPass
+    Input Text    birthdate    ${EMPTY}
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please fill birthdate
+	
+testcase9 : ไม่กรอกคำตอบ
+    Go To    ${URL}
+    input fname
+    input lname
+    input validIdenNumber
+    input uploadImage
+    input username
+    input pass
+    input conPass
+    input birthdate
+    Input Text    Q1    ${EMPTY}
+    Input Text    Q2    ${EMPTY}
+    Input Text    Q3    ${EMPTY}
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please fill Answer
+	
+testcase10 : ไม่กรอก email
+    Go To    ${URL}
+    input fname
+    input lname
+    input validIdenNumber
+    input uploadImage
+    input username
+    input pass
+    input conPass
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    Input Text    email    ${EMPTY}
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Please fill Email
+	
+testcase11 : ไม่คลิก I agree to the privacy and terms
+    Go To    ${URL}
+    input fname
+    input lname
+    input validIdenNumber
+    input uploadImage
+    input username
+    input pass
+    input conPass
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Click Button    myRegister
+    Wait Until Page Contains    Please take accept policy in checkbox!!
+	
+    Close Browser
+	

@@ -38,8 +38,9 @@ function chkEmtryForm(){
         err_fname.style.color = badColor;
         myObj.pass = false ; 
     }else {
-        err_fname.innerHTML = '' ;
+        //err_fname.innerHTML = '' ;
         myObj.fname = fname.value ; 
+        //myObj['fname'] = fname.value ; 
     }  
 
     // lastname is '' 
@@ -48,8 +49,9 @@ function chkEmtryForm(){
         err_lname.style.color = badColor;
         myObj.pass = false ; 
     }else {
-        err_lname.innerHTML = '' ;
+        //err_lname.innerHTML = '' ;
         myObj.lname = lname.value ; 
+        //myObj['lname'] = lname.value ; 
     }   
 
     // idenfication is '' 
@@ -58,8 +60,9 @@ function chkEmtryForm(){
         err_iden.style.color = badColor ;
         myObj.pass = false ; 
     }else {
-        err_iden.innerHTML = ''; 
+        //err_iden.innerHTML = ''; 
         myObj.iden = iden.value ;
+        //myObj['iden'] = iden.value ;
     }
 
     // pimg is '' 
@@ -68,8 +71,9 @@ function chkEmtryForm(){
         err_person_img.style.color = badColor;
         myObj.pass = false ; 
     }else{
-        err_iden.innerHTML = '' ; 
+        //err_iden.innerHTML = '' ; 
         myObj.person_img = person_img.value ; 
+        //myObj['person_img'] = person_img.value ;
     }
 
     // username is '' 
@@ -78,8 +82,9 @@ function chkEmtryForm(){
         err_username.style.color = badColor;
         myObj.pass = false ; 
     }else {
-        err_username.innerHTML = '' ;
+        //err_username.innerHTML = '' ;
         myObj.username = username.value ;
+        //myObj['username'] = username.value ;
     }
 
     // password is ''
@@ -88,17 +93,18 @@ function chkEmtryForm(){
         err_password.style.color = badColor;
         myObj.pass = false ; 
     }else{
-        err_password.innerHTML = '' ; 
+        //err_password.innerHTML = '' ; 
         myObj.password = password.value ;
+        //myObj['password'] = password.value ;
     }
 
     //con-password is '' 
     if(con_password.value == ''){
-        err_con_password.innerHTML = "Please fil con-password" ;
+        err_con_password.innerHTML = "Please fill con-password" ;
         err_con_password.style.color = badColor;
         myObj.pass = false ; 
     }else{
-        err_con_password.innerHTML = '' ; 
+        //err_con_password.innerHTML = '' ; 
     }
 
     //birthdate is '' 
@@ -107,8 +113,9 @@ function chkEmtryForm(){
         err_Birthdate.style.color = badColor;
         myObj.pass = false ; 
     }else{
-        err_Birthdate.innerHTML = '' ; 
+        //err_Birthdate.innerHTML = '' ; 
         myObj.Birthdate = Birthdate.value ;
+        //myObj['Birthdate'] = Birthdate.value ;
     }
 
     //Question false is '' 
@@ -119,6 +126,7 @@ function chkEmtryForm(){
     }else{
         err_Question1.innerHTML = '' ;
         myObj.Question1 = Question1.value ;
+       //myObj['Question1'] = Question1.value ;
     }
 
     //Question 2 is '' 
@@ -129,6 +137,7 @@ function chkEmtryForm(){
     }else{
         err_Question2.innerHTML = '' ;
         myObj.Question2 = Question2.value ;
+        //myObj['Question2'] = Question1.value ;
     }
 
     //Question 3 is ''
@@ -139,6 +148,7 @@ function chkEmtryForm(){
     }else{
         err_Question3.innerHTML = '' ;
         myObj.Question3 = Question3.value ;
+        //myObj['Question3'] = Question1.value ;
     }
 
     // Email is '' 
@@ -147,8 +157,9 @@ function chkEmtryForm(){
         err_email.style.color = badColor;
         myObj.pass = false ; 
     }else{
-        err_email.innerHTML = '';
+        //err_email.innerHTML = '';
         myObj.email = email.value ;  
+       // myObj['email'] = email.value ;  
     }
 
     // check box is ''
