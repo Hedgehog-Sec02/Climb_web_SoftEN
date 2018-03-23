@@ -196,7 +196,7 @@
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
           <button type="button" class="close" data-dismiss="modal" >&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+          <h4><span class="glyphicon glyphicon-lock"></span> Sign in</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
 
@@ -211,26 +211,23 @@
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
               <input type="text" class="form-control" id="psw" placeholder="Enter password">
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
-            </div>
-              <div class="form-group">
+              <p><a href="#" style="text-decoration:underline;"class="pull-right ">Forget Password?</a></p>
+            </div> <br>
+            <div class="pull-right">    
+            <button type="submit" class="btn btn-success" style="background : #FF6600"><span class="glyphicon glyphicon-off" ></span> Sign in</button>
+        </div>  
+            </form>
+        </div>
+        <div class="modal-footer">
+        <center>
+          <div class="form-group">
                             <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
                             
                             <div class="help-block with-errors"></div>
-                </div>
-              
-              <button type="submit" class="btn btn-success btn-block" style="background : #FF6600"><span class="glyphicon glyphicon-off" ></span> Login</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-
-
+                </div> 
+        </center>
          <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
 
-          <p>Forgot <a href="#">Password?</a></p>
         </div>
       </div>
       
@@ -275,9 +272,9 @@
                             </div>
                         </li>
                         <li><a href="#services">Knowledge</a></li>
-                        <li><a href="#portfolio">Activity</a></li>
-                        <li><a href="#pricing">Community</a></li>
-                        <li><a href="#contact"></a></li>
+                        <li><a href="#portfolio">Source</a></li>
+                        <li><a href="#pricing">Event</a></li>
+                        <li><a href="#contact">About Us</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

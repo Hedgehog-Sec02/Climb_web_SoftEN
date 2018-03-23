@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180320 20:56:19.567" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
+<suite source="C:\xampp\htdocs\Climb_web_SoftEN-master\test\2\test2.txt" id="s1" name="Test2">
+<test id="s1-t1" name="Open Browser">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${SERVER}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20180320 20:56:19.862" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/Climb_web_SoftEN-master'.</msg>
+<status status="PASS" endtime="20180320 20:56:30.816" starttime="20180320 20:56:19.861"></status>
+</kw>
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>${SERVER}</arg>
+</arguments>
+<msg timestamp="20180320 20:56:30.826" level="INFO">Current location contains 'http://localhost/Climb_web_SoftEN-master'.</msg>
+<status status="PASS" endtime="20180320 20:56:30.826" starttime="20180320 20:56:30.817"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>ชุมชนนักปีนผา-ไต่เขา</arg>
+</arguments>
+<msg timestamp="20180320 20:56:30.835" level="INFO">Page title is 'ชุมชนนักปีนผา-ไต่เขา'.</msg>
+<status status="PASS" endtime="20180320 20:56:30.835" starttime="20180320 20:56:30.827"></status>
+</kw>
+<status status="PASS" endtime="20180320 20:56:30.836" critical="yes" starttime="20180320 20:56:19.861"></status>
+</test>
+<test id="s1-t2" name="Click News Link">
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>News_17</arg>
+</arguments>
+<msg timestamp="20180320 20:56:30.840" level="INFO">Clicking element 'News_17'.</msg>
+<status status="PASS" endtime="20180320 20:56:31.953" starttime="20180320 20:56:30.839"></status>
+</kw>
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>${SERVER}/News/News.php?NewsID=17</arg>
+</arguments>
+<msg timestamp="20180320 20:56:31.958" level="INFO">Current location contains 'http://localhost/Climb_web_SoftEN-master/News/News.php?NewsID=17'.</msg>
+<status status="PASS" endtime="20180320 20:56:31.958" starttime="20180320 20:56:31.953"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>‘ฮิลลารี สเต็ป’ เส้นทาง 12 ม.สุดท้ายสู่ยอดเขาเอเวอเรสต์ ถูกทำลายแล้ว</arg>
+</arguments>
+<msg timestamp="20180320 20:56:31.966" level="INFO">Page title is '‘ฮิลลารี สเต็ป’ เส้นทาง 12 ม.สุดท้ายสู่ยอดเขาเอเวอเรสต์ ถูกทำลายแล้ว'.</msg>
+<status status="PASS" endtime="20180320 20:56:31.967" starttime="20180320 20:56:31.959"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>2018-02-27 13:59:51</arg>
+</arguments>
+<status status="PASS" endtime="20180320 20:56:31.989" starttime="20180320 20:56:31.967"></status>
+</kw>
+<status status="PASS" endtime="20180320 20:56:31.990" critical="yes" starttime="20180320 20:56:30.838"></status>
+</test>
+<test id="s1-t3" name="Click next">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>next</arg>
+</arguments>
+<msg timestamp="20180320 20:56:31.992" level="INFO">Clicking link 'next'.</msg>
+<status status="PASS" endtime="20180320 20:56:32.894" starttime="20180320 20:56:31.992"></status>
+</kw>
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>${SERVER}/News/News.php?NewsID=21</arg>
+</arguments>
+<msg timestamp="20180320 20:56:32.903" level="INFO">Current location contains 'http://localhost/Climb_web_SoftEN-master/News/News.php?NewsID=21'.</msg>
+<status status="PASS" endtime="20180320 20:56:32.904" starttime="20180320 20:56:32.896"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>ตกหุบเขาออสเตรียดับ</arg>
+</arguments>
+<msg timestamp="20180320 20:56:32.913" level="INFO">Page title is 'ตกหุบเขาออสเตรียดับ'.</msg>
+<status status="PASS" endtime="20180320 20:56:32.914" starttime="20180320 20:56:32.904"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>2018-02-27 14:31:37</arg>
+</arguments>
+<status status="PASS" endtime="20180320 20:56:32.939" starttime="20180320 20:56:32.914"></status>
+</kw>
+<status status="PASS" endtime="20180320 20:56:32.940" critical="yes" starttime="20180320 20:56:31.991"></status>
+</test>
+<test id="s1-t4" name="Click prev">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>prev</arg>
+</arguments>
+<msg timestamp="20180320 20:56:32.946" level="INFO">Clicking link 'prev'.</msg>
+<status status="PASS" endtime="20180320 20:56:33.786" starttime="20180320 20:56:32.946"></status>
+</kw>
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>${SERVER}/News/News.php?NewsID=17</arg>
+</arguments>
+<msg timestamp="20180320 20:56:33.799" level="INFO">Current location contains 'http://localhost/Climb_web_SoftEN-master/News/News.php?NewsID=17'.</msg>
+<status status="PASS" endtime="20180320 20:56:33.799" starttime="20180320 20:56:33.787"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>‘ฮิลลารี สเต็ป’ เส้นทาง 12 ม.สุดท้ายสู่ยอดเขาเอเวอเรสต์ ถูกทำลายแล้ว</arg>
+</arguments>
+<msg timestamp="20180320 20:56:33.804" level="INFO">Page title is '‘ฮิลลารี สเต็ป’ เส้นทาง 12 ม.สุดท้ายสู่ยอดเขาเอเวอเรสต์ ถูกทำลายแล้ว'.</msg>
+<status status="PASS" endtime="20180320 20:56:33.804" starttime="20180320 20:56:33.800"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until ``text`` appears on current page.</doc>
+<arguments>
+<arg>2018-02-27 13:59:51</arg>
+</arguments>
+<status status="PASS" endtime="20180320 20:56:33.817" starttime="20180320 20:56:33.805"></status>
+</kw>
+<status status="PASS" endtime="20180320 20:56:33.817" critical="yes" starttime="20180320 20:56:32.944"></status>
+</test>
+<status status="PASS" endtime="20180320 20:56:33.819" starttime="20180320 20:56:19.654"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="4">Critical Tests</stat>
+<stat fail="0" pass="4">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test2" pass="4">Test2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

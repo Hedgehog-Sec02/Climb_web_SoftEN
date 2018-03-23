@@ -171,9 +171,9 @@
                             </div>
                         </li>
                         <li><a href="#services">Knowledge</a></li>
-                        <li><a href="#portfolio">Activity</a></li>
-                        <li><a href="#pricing">Community</a></li>
-                        <li><a href="#contact"></a></li>
+                        <li><a href="#portfolio">Source</a></li>
+                        <li><a href="#pricing">Event</a></li>
+                        <li><a href="#contact">About Us</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">

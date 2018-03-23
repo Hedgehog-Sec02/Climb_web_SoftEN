@@ -1,51 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20180320 15:38:06.021" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
+<robot generated="20180320 21:18:29.876" generator="Robot 3.0.2 (Python 2.7.13 on win32)">
 <suite source="C:\xampp\htdocs\Climb_web_SoftEN-master\test\1\test.txt" id="s1" name="Test">
-<test id="s1-t1" name="Open Browser">
+<test id="s1-t1" name="Open Home Page">
 <kw name="Open Browser" library="Selenium2Library">
 <doc>Opens a new browser instance to the given ``url``.</doc>
 <arguments>
 <arg>${SERVER}</arg>
 <arg>${BROWSER}</arg>
 </arguments>
-<msg timestamp="20180320 15:38:06.206" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/Climb_web_SoftEN-master'.</msg>
-<status status="PASS" endtime="20180320 15:38:18.435" starttime="20180320 15:38:06.205"></status>
+<msg timestamp="20180320 21:18:30.100" level="INFO">Opening browser 'Chrome' to base url 'http://localhost/Climb_web_SoftEN-master'.</msg>
+<status status="PASS" endtime="20180320 21:18:41.963" starttime="20180320 21:18:30.100"></status>
 </kw>
-<status status="PASS" endtime="20180320 15:38:18.436" critical="yes" starttime="20180320 15:38:06.204"></status>
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains ``expected``.</doc>
+<arguments>
+<arg>${SERVER}</arg>
+</arguments>
+<msg timestamp="20180320 21:18:41.984" level="INFO">Current location contains 'http://localhost/Climb_web_SoftEN-master'.</msg>
+<status status="PASS" endtime="20180320 21:18:41.984" starttime="20180320 21:18:41.965"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>ชุมชนนักปีนผา-ไต่เขา</arg>
+</arguments>
+<msg timestamp="20180320 21:18:41.999" level="INFO">Page title is 'ชุมชนนักปีนผา-ไต่เขา'.</msg>
+<status status="PASS" endtime="20180320 21:18:41.999" starttime="20180320 21:18:41.985"></status>
+</kw>
+<status status="PASS" endtime="20180320 21:18:42.000" critical="yes" starttime="20180320 21:18:30.099"></status>
 </test>
-<test id="s1-t2" name="Load More">
+<test id="s1-t2" name="CHK LOADMORE VISIBLE">
 <kw name="Click Element" library="Selenium2Library">
 <doc>Click element identified by ``locator``.</doc>
 <arguments>
 <arg>loadMore</arg>
 </arguments>
-<msg timestamp="20180320 15:38:18.444" level="INFO">Clicking element 'loadMore'.</msg>
-<status status="PASS" endtime="20180320 15:38:18.577" starttime="20180320 15:38:18.443"></status>
+<msg timestamp="20180320 21:18:42.006" level="INFO">Clicking element 'loadMore'.</msg>
+<status status="PASS" endtime="20180320 21:18:42.156" starttime="20180320 21:18:42.006"></status>
 </kw>
-<status status="PASS" endtime="20180320 15:38:18.578" critical="yes" starttime="20180320 15:38:18.442"></status>
-</test>
-<test id="s1-t3" name="Slide">
-<kw name="Click Element" library="Selenium2Library">
-<doc>Click element identified by ``locator``.</doc>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
 <arguments>
-<arg>myCarousel</arg>
+<arg>News_14</arg>
+<arg>URBAN PLAYGROUND CLIMBING15</arg>
 </arguments>
-<msg timestamp="20180320 15:38:18.582" level="INFO">Clicking element 'myCarousel'.</msg>
-<status status="PASS" endtime="20180320 15:38:29.229" starttime="20180320 15:38:18.581"></status>
+<msg timestamp="20180320 21:18:42.246" level="INFO">Element 'News_14' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.246" starttime="20180320 21:18:42.157"></status>
 </kw>
-<status status="PASS" endtime="20180320 15:38:29.230" critical="yes" starttime="20180320 15:38:18.580"></status>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>News_13</arg>
+<arg>หาดไร่เล (กระบี่)</arg>
+</arguments>
+<msg timestamp="20180320 21:18:42.362" level="INFO">Element 'News_13' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.363" starttime="20180320 21:18:42.247"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>News_12</arg>
+<arg>หน้าผาม้าพยศ จังหวัดเชียงใหม่</arg>
+</arguments>
+<msg timestamp="20180320 21:18:42.506" level="INFO">Element 'News_12' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.506" starttime="20180320 21:18:42.363"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>News_11</arg>
+<arg>เปิดเส้นทางพิชิต ‘เขาล้อมหมวก’ รอบพิเศษ 23 ก.พ.- 4 มี.ค. 61</arg>
+</arguments>
+<msg timestamp="20180320 21:18:42.571" level="INFO">Element 'News_11' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.571" starttime="20180320 21:18:42.507"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>News_10</arg>
+<arg>ชวนช้อป ชม ชิล ที่ “ตลาดนัดบินคุ้ม คุณภาพครบ”</arg>
+</arguments>
+<msg timestamp="20180320 21:18:42.610" level="INFO">Element 'News_10' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.610" starttime="20180320 21:18:42.572"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>News_9</arg>
+<arg>สาวอเมริกันปีนเขาพร้อมเพื่อนที่อ่าวไร่เลย์ ไร้ผู้เชี่ยวชาญดูแล พลัดตกสาหัส</arg>
+</arguments>
+<msg timestamp="20180320 21:18:42.648" level="INFO">Element 'News_9' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.648" starttime="20180320 21:18:42.611"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>News_8</arg>
+<arg>หนุ่มนักปีนเขาไทยอาสา ขอช่วยนำร่าง 2 นศ.ไทยออกจากซากรถ</arg>
+</arguments>
+<msg timestamp="20180320 21:18:42.687" level="INFO">Element 'News_8' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.688" starttime="20180320 21:18:42.649"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>News_7</arg>
+<arg>อดีตนักปีนเขาไม่ทิ้งฝันแม้เป็นอัมพาต ขอกลับมาพิชิตผาทั้งรถเข็น</arg>
+</arguments>
+<msg timestamp="20180320 21:18:42.724" level="INFO">Element 'News_7' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.725" starttime="20180320 21:18:42.689"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>News_6</arg>
+<arg>แนะนำอุปกรณ์พื้นฐานสำหรับการปีนหน้าผาเบื้องต้น</arg>
+</arguments>
+<msg timestamp="20180320 21:18:42.772" level="INFO">Element 'News_6' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.772" starttime="20180320 21:18:42.726"></status>
+</kw>
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<arguments>
+<arg>News_5</arg>
+<arg>ปีนผา ปีนเขา ได้แขนเข่าแข็งแรง</arg>
+</arguments>
+<msg timestamp="20180320 21:18:42.811" level="INFO">Element 'News_5' is displayed.</msg>
+<status status="PASS" endtime="20180320 21:18:42.811" starttime="20180320 21:18:42.773"></status>
+</kw>
+<status status="PASS" endtime="20180320 21:18:42.812" critical="yes" starttime="20180320 21:18:42.004"></status>
 </test>
-<status status="PASS" endtime="20180320 15:38:29.237" starttime="20180320 15:38:06.024"></status>
+<status status="PASS" endtime="20180320 21:18:42.815" starttime="20180320 21:18:29.889"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="3">Critical Tests</stat>
-<stat fail="0" pass="3">All Tests</stat>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Test" pass="3">Test</stat>
+<stat fail="0" id="s1" name="Test" pass="2">Test</stat>
 </suite>
 </statistics>
 <errors>

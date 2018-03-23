@@ -1,0 +1,39 @@
+﻿***Setting***
+
+Library    Selenium2Library
+
+***Variable***
+${SERVER}    http://localhost/Climb_web_SoftEN-master
+${BROWSER}    Chrome
+
+
+***Test Cases***
+Open Browser
+    Open Browser    ${SERVER}    ${BROWSER}
+    Location Should Contain    ${SERVER}
+    Title Should Be    ชุมชนนักปีนผา-ไต่เขา
+
+Click News Link
+    Click Element    News_17
+    Location Should Contain    ${SERVER}/News/News.php?NewsID=17
+    Title Should Be    ‘ฮิลลารี สเต็ป’ เส้นทาง 12 ม.สุดท้ายสู่ยอดเขาเอเวอเรสต์ ถูกทำลายแล้ว
+    Wait Until Page Contains    2018-02-27 13:59:51  
+
+Click next
+    Click Link    next
+    Location Should Contain    ${SERVER}/News/News.php?NewsID=21
+    Title Should Be    ตกหุบเขาออสเตรียดับ
+    Wait Until Page Contains    2018-02-27 14:31:37    
+
+Click prev
+    Click Link    prev
+    Location Should Contain    ${SERVER}/News/News.php?NewsID=17
+    Title Should Be    ‘ฮิลลารี สเต็ป’ เส้นทาง 12 ม.สุดท้ายสู่ยอดเขาเอเวอเรสต์ ถูกทำลายแล้ว
+    Wait Until Page Contains    2018-02-27 13:59:51     
+    
+
+
+ 
+
+    
+
