@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="model/chkLogin.js"></script>
 
     
     <script>
@@ -199,16 +200,18 @@
         <div class="modal-body" style="padding:40px 50px;">
 
 
-          <form role="form" method="post" action="model/loginUser.php">
+          <form id="myLoginForm" role="form" method="post" action="model/loginUser.php">
 
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter username">
+              <p class="help-block" id="err-loginUsername"></p>
             </div>
 
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
               <input type="text" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password">
+              <p class="help-block" id="err-loginPassword"></p>
 
               <p><a href="#" style="text-decoration:underline;"class="pull-right ">Forget Password?</a></p>
             </div> <br>
@@ -388,20 +391,37 @@
 
 <script>
 
-// Start function for Login
-$(document).ready(function(){
-    $("#myBtn").click(function(){
-        $("#myModal").modal();
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    // Start function for Login
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myModal").modal();
+        });
     });
-});
+    
+    var key_login_username = false ;
+    var key_login_password = false ;
 
-$('#myLogin').click(function(event) {           
-    event.preventDefault();
-            
-            
-})
+    var loginUsername = document.getElementById("loginUsername");
+    var loginPassword = document.getElementById("loginPassword");
 
-// End function for Login
+    var err_loginUsername = document.getElementById("err-loginUsername");
+    var err_loginPassword = document.getElementById("err-loginPassword");
+
+    $('#myLogin').click(function(event) {        
+        event.preventDefault();
+        chkEmtryLogin();
+        chkLogin();
+        if(key_login_username && key_login_password){
+            document.getElementById("myLoginForm").submit();
+        }else{
+            console.log("Can't Register !!!");
+        }
+                
+    })
+
+    // End function for Login
 </script>
 
 </body>

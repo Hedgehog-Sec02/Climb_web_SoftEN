@@ -7,8 +7,6 @@
     $stmt->execute();
     $row = $stmt->fetch();
 
-    echo $row["userID"];
-    echo $row["status"];
     if ($row){
         $_SESSION["userId"] = $row["userID"];
         $_SESSION["status"] = $row["status"];
