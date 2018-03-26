@@ -39,6 +39,18 @@
             }
         }
 
+        public function getQuestion($qid){
+            try {
+                $str = "SELECT * FROM question WHERE qid = '$qid'";
+                $stmt = DB::get()->prepare($str);
+                $stmt->execute(); 
+                $row = $stmt->fetch(PDO::FETCH_ASSOC) ;
+                return $row ;
+            }catch(PDOException $e){
+                throw $e;
+            }
+        }
+
     }
 
 ?>

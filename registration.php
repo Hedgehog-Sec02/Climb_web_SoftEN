@@ -120,6 +120,7 @@
 
             <div class="col-sm-2 col-md-2 col-lg-2" >
                 <div class="pull-right">
+                    
                     <a  style="color:black;text-decoration:underline;" href = "#" id="myBtn">Sign in</a><br>
                     <a  style="color:black;text-decoration:underline;" href ="registration.php">Register</a>
                 </div>

@@ -1,7 +1,8 @@
 <?php 
-
+    session_start();
     require_once "connect.php" ;
     require_once "model/getNews.php" ;
+    require_once "model/getUser.php" ;
     // intent(getSlideFiveNews) : function for get later five news
     $stmt = News::getSlideFiveNews();
 ?> 
@@ -14,8 +15,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
 
     
     <script>
@@ -199,40 +198,32 @@
         </div>
         <div class="modal-body" style="padding:40px 50px;">
 
-          <form role="form">
 
-          <form role="form" method="post">
+          <form role="form" method="post" action="model/loginUser.php">
 
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter username">
             </div>
+
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
-<<<<<<< HEAD
+              <input type="text" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password">
+
               <p><a href="#" style="text-decoration:underline;"class="pull-right ">Forget Password?</a></p>
             </div> <br>
             <div class="pull-right">    
-            <button type="submit" class="btn btn-success" style="background : #FF6600"><span class="glyphicon glyphicon-off" ></span> Sign in</button>
+            <button type="submit" class="btn btn-success" id="myLogin" style="background : #FF6600"><span class="glyphicon glyphicon-off" ></span> Sign in</button>
         </div>  
             </form>
         </div>
         <div class="modal-footer">
         <center>
-          <div class="form-group">
+          <!-- <div class="form-group">
                             <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-=======
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
-            </div>
-              <div class="form-group">
-                            <!-- <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div> -->
->>>>>>> 1537fcd0e5023979c2c1e8684bd349a5a3d025dc
                             
                             <div class="help-block with-errors"></div>
-                </div> 
+                </div> -->
         </center>
          <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
 
@@ -253,8 +244,16 @@
 
             <div class="col-sm-2 col-md-2 col-lg-2" >
                 <div class="pull-right">
-                    <a  style="color:black;text-decoration:underline;" href ="#" id="myBtn">Sign in</a><br>
-                    <a  style="color:black;text-decoration:underline;" href ="registration.php">Register  </a>
+                    <?php 
+                        if(isset($_SESSION['userId'])){
+                            $row = User::getUser($_SESSION['userId']) ; 
+                            echo "สวัสดี "."<a href='userProfile.php'>".$row['userName']."</a>"; echo "<br>";
+                            echo '<a href="logout.php">Sign out</a>';
+                        }else{
+                            echo '<a  style="color:black;text-decoration:underline;" href ="#" id="myBtn">Sign in</a><br>' ;
+                            echo '<a  style="color:black;text-decoration:underline;" href ="registration.php">Register </a>';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -279,17 +278,10 @@
                                 <h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
                             </div>
                         </li>
-<<<<<<< HEAD
-                        <li><a href="#services">Knowledge</a></li>
-                        <li><a href="#portfolio">Source</a></li>
-                        <li><a href="#pricing">Event</a></li>
-                        <li><a href="#contact">About Us</a></li>
-=======
                         <li><a href="#services">Knowledge source</a></li>
                         <li><a href="#portfolio">Event</a></li>
                         <li><a href="#pricing">About Us</a></li>
                         <li><a href="#contact"></a></li>
->>>>>>> 1537fcd0e5023979c2c1e8684bd349a5a3d025dc
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -402,6 +394,13 @@ $(document).ready(function(){
         $("#myModal").modal();
     });
 });
+
+$('#myLogin').click(function(event) {           
+    event.preventDefault();
+            
+            
+})
+
 // End function for Login
 </script>
 

@@ -170,17 +170,10 @@
                                 <h5><a class="dropdown-item" href="../" style="color:black;">News&Announcements</a></h5>
                             </div>
                         </li>
-<<<<<<< HEAD
-                        <li><a href="#services">Knowledge</a></li>
-                        <li><a href="#portfolio">Source</a></li>
-                        <li><a href="#pricing">Event</a></li>
-                        <li><a href="#contact">About Us</a></li>
-=======
                         <li><a href="#services">Knowledge source</a></li>
                         <li><a href="#portfolio">Event</a></li>
                         <li><a href="#pricing">About Us</a></li>
                         <li><a href="#contact"></a></li>
->>>>>>> 1537fcd0e5023979c2c1e8684bd349a5a3d025dc
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
