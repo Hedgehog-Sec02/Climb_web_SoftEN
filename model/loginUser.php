@@ -8,13 +8,16 @@
     $row = $stmt->fetch();
 
     if ($row){
-        $_SESSION["userId"] = $row["userID"];
-        $_SESSION["status"] = $row["status"];
-        
         if($row["status"] == "user"){
+            
+            $_SESSION["userId"] = $row["userID"];
+            $_SESSION["status"] = $row["status"];
+
             header("Location:../index.php");
         }else if($row["status"] == "WAIT"){
-            // 
+
+            header("Location:../index.php");
+
         }else if($row["status"] == "VIP" ){
             //
         }else{

@@ -3,7 +3,7 @@
 Library    Selenium2Library
 
 *** Variable ***
-${URL}    http://localhost:8080/climb_web/
+${URL}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/
 ${Browser}    Chrome
 ${validUsername}    Natthida16
 ${validPassword}    Maprang_narak123
@@ -21,6 +21,7 @@ input password
 	
 *** Test Cases ***
 testcase1 : signin success
+	Set Selenium Speed    0.1
     open web climb
     click signin
     input username

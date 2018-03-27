@@ -225,7 +225,7 @@
         <center>
 
            <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6LfSPk8UAAAAADxGzbw6lEKMrLk49M8kgnywJ8py"></div>
+                <div class="g-recaptcha" data-sitekey="6LfSPk8UAAAAADxGzbw6lEKMrLk49M8kgnywJ8py" data-callback="enableBtn"></div>
                 <div class="help-block with-errors"></div>
             </div> 
         </center>
@@ -392,6 +392,11 @@
 
 <script>
 
+    //function click capcha  
+    function enableBtn(){
+        document.getElementById("myLogin").disabled = false;
+    }
+    document.getElementById("myLogin").disabled = true ;
     var goodColor = "#66cc66";
     var badColor = "#ff6666";
     var key_login_username = false ;
