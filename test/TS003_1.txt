@@ -1,0 +1,35 @@
+﻿*** Setting ***
+
+Library    Selenium2Library
+
+*** Variable ***
+${URL}    http://localhost:8080/climb_web/
+${Browser}    Chrome
+${validUsername}    Natthida16
+${validPassword}    Maprang_narak123
+
+*** Keywords ***
+open web climb
+    Open Browser    ${URL}    ${Browser}
+    Title Should Be    ชุมชนนักปีนผา-ไต่เขา
+click signin 
+    Click Link    myBtn
+input username
+    Input Text    loginUsername    ${validUsername}
+input password
+    Input Text    loginPassword    ${validPassword}
+	
+*** Test Cases ***
+testcase1 : signin success
+    open web climb
+    click signin
+    input username
+    input password
+    Click button    myLogin
+    Location Should Contain    ${URL}
+    Wait Until Page Contains    สวัสดี
+    
+ 
+    
+
+	

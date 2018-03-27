@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180327 20:49:12.083" generator="Robot 3.0.2 (Python 3.5.2 on win32)">
+<suite id="s1" name="TS003 1" source="C:\xampp\htdocs\climb_web\test\TS003_1.txt">
+<test id="s1-t1" name="testcase1 : signin success">
+<kw name="open web climb">
+<kw library="Selenium2Library" name="Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20180327 20:49:12.222" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8080/climb_web/'</msg>
+<status endtime="20180327 20:49:19.668" status="PASS" starttime="20180327 20:49:12.222"></status>
+</kw>
+<kw library="Selenium2Library" name="Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>ชุมชนนักปีนผา-ไต่เขา</arg>
+</arguments>
+<msg timestamp="20180327 20:49:19.692" level="INFO">Page title is 'ชุมชนนักปีนผา-ไต่เขา'.</msg>
+<status endtime="20180327 20:49:19.693" status="PASS" starttime="20180327 20:49:19.669"></status>
+</kw>
+<status endtime="20180327 20:49:19.694" status="PASS" starttime="20180327 20:49:12.222"></status>
+</kw>
+<kw name="click signin">
+<kw library="Selenium2Library" name="Click Link">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>myBtn</arg>
+</arguments>
+<msg timestamp="20180327 20:49:19.698" level="INFO">Clicking link 'myBtn'.</msg>
+<status endtime="20180327 20:49:19.985" status="PASS" starttime="20180327 20:49:19.697"></status>
+</kw>
+<status endtime="20180327 20:49:19.985" status="PASS" starttime="20180327 20:49:19.695"></status>
+</kw>
+<kw name="input username">
+<kw library="Selenium2Library" name="Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>loginUsername</arg>
+<arg>${validUsername}</arg>
+</arguments>
+<msg timestamp="20180327 20:49:19.987" level="INFO">Typing text 'Natthida16' into text field 'loginUsername'</msg>
+<kw library="Selenium2Library" name="Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180327 20:49:20.575" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-65.png"&gt;&lt;img src="selenium-screenshot-65.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status endtime="20180327 20:49:20.576" status="PASS" starttime="20180327 20:49:20.051"></status>
+</kw>
+<msg timestamp="20180327 20:49:20.871" level="FAIL">InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+  (Session info: chrome=65.0.3325.181)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.16299 x86_64)
+</msg>
+<status endtime="20180327 20:49:20.872" status="FAIL" starttime="20180327 20:49:19.987"></status>
+</kw>
+<status endtime="20180327 20:49:20.873" status="FAIL" starttime="20180327 20:49:19.986"></status>
+</kw>
+<status endtime="20180327 20:49:20.874" status="FAIL" critical="yes" starttime="20180327 20:49:12.221">InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+  (Session info: chrome=65.0.3325.181)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.16299 x86_64)
+</status>
+</test>
+<status endtime="20180327 20:49:20.881" status="FAIL" starttime="20180327 20:49:12.084"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" pass="0" id="s1" name="TS003 1">TS003 1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

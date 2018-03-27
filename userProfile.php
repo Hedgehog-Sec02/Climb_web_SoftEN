@@ -179,7 +179,6 @@
         <div class="row">
             <center><div class = "col-sm-1 col-md-2 col-lg-3" ></div></center>
              <div class = "col-sm-10 col-md-8 col-lg-6" style="background-color:#e3e8e3;">
-                <div> hello darkness my old friend <br>
                     <?php
                         $row = User::getUser($_SESSION['userId']) ;
                         $question1 = Question::getQuestion($row['qNO1']);
@@ -192,18 +191,102 @@
                                 $iden[$i] = 'x' ;
                             }
                         }
-                        echo $iden ; 
-                        echo "ชื่อ : ".$row['userName']; echo "<br>";
+                        $password = $row['password'] ;
+                        for($i = 0 ; $i < strlen($row['password']) ; $i++){
+                
+                            if($i >= 0){
+                                $password[$i] = 'x' ;
+                            }
+                        }
+
+                        /*echo "ชื่อ : ".$row['userName']; echo "<br>";
                         echo "รหัสบัตรประชาชน : ".$row['personID']; echo "<br>";
                         echo "password : ".$row['password']; echo "<br>";
 
                         echo "คำถามข้อที่ 1 : ".$question1['qdesc']; echo "<br>";
                         echo "คำถามข้อที่ 2 : ".$question2['qdesc']; echo "<br>";
                         echo "คำถามข้อที่ 3 : ".$question3['qdesc']; echo "<br>";
-                        echo "email : ".$row['userEmail']; echo "<br>";
-
-
+                        echo "email : ".$row['userEmail']; echo "<br>";*/
                     ?>
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">First Name : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $row["fname"]; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Last Name : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $row["lname"]; ?></p>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Identification/Passport Number : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $iden ; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Password : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $password ; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Question 1 : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $question1['qdesc'] ; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Answer : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $row["question1"] ; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Question 2 : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $question2['qdesc'] ; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Answer : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $row["question2"] ; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Question 3 : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $question3['qdesc'] ; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Answer : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $row["question3"] ; ?></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Email : </label>
+                            <div class="col-sm-8">
+                            <p class="form-control-static"><?php echo $row["userEmail"] ; ?></p>
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
              </div>
              <center><div class = "col-sm-1 col-md-2 col-lg-3"></div></center>

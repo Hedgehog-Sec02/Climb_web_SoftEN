@@ -16,7 +16,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="model/chkLogin.js"></script>
-
+    <script type="text/javascript" src="model/chkEmptyLogin.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     
     <script>
     /* // Old showmore
@@ -222,11 +223,11 @@
         </div>
         <div class="modal-footer">
         <center>
-          <!-- <div class="form-group">
-                            <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                            
-                            <div class="help-block with-errors"></div>
-                </div> -->
+
+           <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LfSPk8UAAAAADxGzbw6lEKMrLk49M8kgnywJ8py"></div>
+                <div class="help-block with-errors"></div>
+            </div> 
         </center>
          <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
 
@@ -393,33 +394,53 @@
 
     var goodColor = "#66cc66";
     var badColor = "#ff6666";
-    // Start function for Login
-    $(document).ready(function(){
-        $("#myBtn").click(function(){
-            $("#myModal").modal();
-        });
-    });
-    
     var key_login_username = false ;
     var key_login_password = false ;
+
+    var key_valid_login_username = false;
+    var key_valid_login_password = false ;
+
 
     var loginUsername = document.getElementById("loginUsername");
     var loginPassword = document.getElementById("loginPassword");
 
     var err_loginUsername = document.getElementById("err-loginUsername");
     var err_loginPassword = document.getElementById("err-loginPassword");
+    // Start function for Login
+    $(document).ready(function(){
+        
+        $("#myBtn").click(function(){
+            $("#myModal").modal();
+        });
 
-    $('#myLogin').click(function(event) {        
+        $('#myLogin').click(function(event) {        
         event.preventDefault();
         chkEmtryLogin();
-        chkLogin();
-        if(key_login_username && key_login_password){
+
+            // ปิด Async เพื่อให้ cilent รอผลจาก server
+        $.ajaxSetup({
+            async: false ,
+            timeout: 0
+        });
+
+        chkValidLogin();
+
+        console.log(key_login_username);
+        console.log(key_login_password);
+        console.log(key_valid_login_username);
+        console.log(key_valid_login_password);
+        if(key_login_username && key_login_password && key_valid_login_password && key_valid_login_username){
+            console.log('login!!!');
             document.getElementById("myLoginForm").submit();
         }else{
-            console.log("Can't Register !!!");
-        }
-                
+            console.log("Can't Login !!!");
+        }      
     })
+    });
+
+        
+
+    
 
     // End function for Login
 </script>
