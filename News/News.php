@@ -1,6 +1,8 @@
 <?php 
+    session_start();
     require_once "../connect.php" ;
     require_once "../model/getNews.php";
+    require_once "../model/getUser.php" ;
     $stmt = DB::get()->prepare("SELECT * FROM NEWS ORDER BY TIMEDATE DESC");
     $stmt->execute();
     $test[0] = NULL ;
@@ -24,7 +26,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="../model/chkLogin.js"></script>
+    <script type="text/javascript" src="../model/chkEmptyLogin.js"></script>
    <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
     
 
@@ -100,34 +103,41 @@
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
           <button type="button" class="close" data-dismiss="modal" >&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+          <h4><span class="glyphicon glyphicon-lock"></span> Sign in</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+
+
+          <form id="myLoginForm" role="form" method="post" action="<?php echo $base_url ; ?>model/loginUser.php">
+
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter username">
+              <p class="help-block" id="err-loginUsername"></p>
             </div>
+
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
-            </div>
-               <!-- Captcha -->
-              <div class="form-group">
-                            <!-- <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div> -->
-                            
-                            <div class="help-block with-errors"></div>
-                </div>
-              <button type="submit" class="btn btn-success btn-block" style="background : #FF6600"><span class="glyphicon glyphicon-off" ></span> Login</button>
-          </form>
+              <input type="text" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password">
+              <p class="help-block" id="err-loginPassword"></p>
+
+              <p><a href="#" style="text-decoration:underline;"class="pull-right ">Forget Password?</a></p>
+            </div> <br>
+            <div class="pull-right">    
+            <button type="submit" class="btn btn-success" id="myLogin" style="background : #FF6600"><span class="glyphicon glyphicon-off" ></span> Sign in</button>
+        </div>  
+            </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-          <p>Not a member? <a href="#">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
+        <!-- <input type="botton" class="btn btn-success" onclick="enableBtn()" value="demo_capcha"> -->
+        <!-- <center>
+           <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LfSPk8UAAAAADxGzbw6lEKMrLk49M8kgnywJ8py" data-callback="enableBtn"></div>
+                <div class="help-block with-errors"></div>
+            </div> 
+        </center> -->
+         <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
+
         </div>
       </div>
       
@@ -142,10 +152,19 @@
                 <img class='img-rounded' src="../image/LOGO/logo.png" style="width:45%;height:45%;">
             </div>
 
+
             <div class="col-sm-2 col-md-2 col-lg-2" >
                 <div class="pull-right">
-                    <a  style="color:black;text-decoration:underline;" href ="#" id="myBtn">Sign in</a><br>
-                    <a  style="color:black;text-decoration:underline;" href ="registration.php">Register</a>
+                    <?php 
+                        if(isset($_SESSION['userId'])){
+                            $row2 = User::getUser($_SESSION['userId']) ; 
+                            echo "สวัสดี "."<a href='../userProfile.php'>".$row2['userName']."</a>"; echo "<br>";
+                            echo '<a href="../logout.php">Sign out</a>';
+                        }else{
+                            echo '<a  style="color:black;text-decoration:underline;" href ="#" id="myBtn">Sign in</a><br>' ;
+                            echo '<a  style="color:black;text-decoration:underline;" href ="../registration.php">Register </a>';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -218,11 +237,58 @@
     </footer>
     
     <script>
-        $(document).ready(function(){
+
+    //function click capcha  
+    function enableBtn(){
+        document.getElementById("myLogin").disabled = false;
+    }
+    document.getElementById("myLogin").disabled = true ;
+    var goodColor = "#66cc66";
+    var badColor = "#ff6666";
+    var key_login_username = false ;
+    var key_login_password = false ;
+
+    var key_valid_login_username = false;
+    var key_valid_login_password = false ;
+
+
+    var loginUsername = document.getElementById("loginUsername");
+    var loginPassword = document.getElementById("loginPassword");
+
+    var err_loginUsername = document.getElementById("err-loginUsername");
+    var err_loginPassword = document.getElementById("err-loginPassword");
+    // Start function for Login
+    $(document).ready(function(){
+        
         $("#myBtn").click(function(){
-        $("#myModal").modal();
+            $("#myModal").modal();
         });
+
+        $('#myLogin').click(function(event) {        
+        event.preventDefault();
+        chkEmtryLogin();
+
+            // ปิด Async เพื่อให้ cilent รอผลจาก server
+        $.ajaxSetup({
+            async: false ,
+            timeout: 0
         });
-    </script>
+
+        chkValidLogin();
+
+        console.log(key_login_username);
+        console.log(key_login_password);
+        console.log(key_valid_login_username);
+        console.log(key_valid_login_password);
+        if(key_login_username && key_login_password && key_valid_login_password && key_valid_login_username){
+            console.log('login!!!');
+            document.getElementById("myLoginForm").submit();
+        }else{
+            console.log("Can't Login !!!");
+        }      
+    })
+    });
+    // End function for Login
+</script>
 </body>
 </html>

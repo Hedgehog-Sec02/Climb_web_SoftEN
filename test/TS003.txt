@@ -3,70 +3,34 @@
 Library    Selenium2Library
 
 *** Variable ***
-${URL}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/registration.php
+${URL}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/
 ${Browser}    Chrome
-${validFname}    อาทิตย์
-${validLname}    ประคำ
-${validIdenNumber}    1469900000000
-${personImage}    555.jpg
-${validUsername}    artit01
-${validPass}    aB_1111111111111
-${validCon_Pass}    aB_1111111111111
-${birthdate}    01/02/1997
-${answer1}    หมา
-${answer2}    แดง
-${answer3}    spiderman
-${validEmail}    artit1150@hotmail.com
-
+${validUsername}    atisit
+${validPassword}    1111111111111
 
 *** Keywords ***
 open web climb
-    open browser    ${URL}    ${Browser}
-input fname
-    Input Text    fname    ${validFName}
-input lname
-    Input Text    lname    ${validLname}
-input validIdenNumber
-    Input Text    idenNo    ${validIdenNumber}
-input uploadImage
-    Choose File    imgInp    C:/xampp/htdocs/climb_web/img/atisit_iden.jpg
+    Open Browser    ${URL}    ${Browser}
+    Title Should Be    ชุมชนนักปีนผา-ไต่เขา
+click signin 
+    Click Link    myBtn
 input username
-    Input Text    Username    ${validUsername}
-input pass
-    Input Text    Password    ${validPass}
-input conPass
-    Input Text    con-Password    ${validCon_Pass}
-input birthdate
-    Input Text    birthdate    ${birthdate}
-input answer1
-    Input Text    Q1    ${answer1}
-input answer2
-    Input Text    Q2    ${answer2}
-input answer3
-    Input Text    Q3    ${answer3}
-input email
-    Input Text    email    ${validEmail}
+    Input Text    loginUsername    ${validUsername}
+input password
+    Input Text    loginPassword    ${validPassword}
 	
 *** Test Cases ***
-testcase1 : registration success
+testcase1 : signin success
+    Set Selenium Speed    0.1
     open web climb
-    input fname
-    input lname
-    input validIdenNumber
-    input uploadImage
+    click signin
     input username
-    input pass
-    input conPass
-    input birthdate
-    input answer1
-    input answer2
-    input answer3
-    input email
-    Select Checkbox    exampleCheck1
-    Click Button    myRegister
+    input password
+    Click button    myLogin
+    Location Should Contain    ${URL}
+    Wait Until Page Contains    สวัสดี
     
-    Wait Until Page Contains    Thank you to register
-    Wait Until Page Contains    Please verify your email then wait for admin approval.
-	
-    Close Browser
+ 
+    
+
 	

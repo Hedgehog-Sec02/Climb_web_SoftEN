@@ -3,7 +3,7 @@ function chkValidIden(){
     var err_viden = document.getElementById('error-iden_passport');
     var pattern_iden = /^$|^\d{13}$/; //13 only
     //var pattern_iden = /^([7-9]|1[0-3])$/ ;
-    var pattern_passport = /^(?=.*\d)^(?=.*[A-Z])[0-9A-Z]{7,}$/ ; 
+    var pattern_passport = /(^[A-Z]{2})[0-9]{7}$/ ;
      
     if(iden.value != ''){
         $.post('model/chkValidIden.php', { iden: iden.value}, function(data) {
@@ -15,12 +15,12 @@ function chkValidIden(){
 
         }else if(!iden.value.match(pattern_iden)){
             err_viden.style.color = badColor ;
-            data.dataAlert = "identification Number must be match such as 1112223334445 !!" ;
+            data.dataAlert = "Identification/Passport Number must be match such as 1112223334445 or AA5555555 !!" ;
             pass_iden = false ;
             
                 if(!iden.value.match(pattern_passport)){
                     err_viden.style.color = badColor ;
-                    data.dataAlert = "Passport Number must be match such as AA5555555 !!" ;
+                    data.dataAlert = "Identification/Passport Number must be match such as 1112223334445 or AA5555555 !!" ;
                 }else{
                     data.dataAlert = '' ;
                     err_viden.innerHTML = ''; 

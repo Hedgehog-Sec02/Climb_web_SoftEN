@@ -129,6 +129,7 @@
                 color:black;
             }
             .marquee {
+            
             height: 40px;
             width: auto;
             overflow: hidden;
@@ -222,13 +223,13 @@
             </form>
         </div>
         <div class="modal-footer">
+        <!-- <input type="botton" class="btn btn-success" onclick="enableBtn()" value="demo_capcha"> -->
         <center>
-
            <div class="form-group">
                 <div class="g-recaptcha" data-sitekey="6LfSPk8UAAAAADxGzbw6lEKMrLk49M8kgnywJ8py" data-callback="enableBtn"></div>
                 <div class="help-block with-errors"></div>
             </div> 
-        </center>
+        </center> 
          <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
 
         </div>
@@ -251,7 +252,7 @@
                     <?php 
                         if(isset($_SESSION['userId'])){
                             $row = User::getUser($_SESSION['userId']) ; 
-                            echo "สวัสดี "."<a href='userProfile.php'>".$row['userName']."</a>"; echo "<br>";
+                            echo "สวัสดี "."<a id='myUsername' href='userProfile.php'>".$row['userName']."</a>"; echo "<br>";
                             echo '<a href="logout.php">Sign out</a>';
                         }else{
                             echo '<a  style="color:black;text-decoration:underline;" href ="#" id="myBtn">Sign in</a><br>' ;
@@ -354,12 +355,14 @@
         <!-- Start Show all news -->
         <div class="row">
             <div class = "col-sm-3 col-md-6 col-lg-4">
+                <!--
                 <div class="marquee">
-                    <div>
+                    <div style="height:auto;">
                         <h4><span id="NewsAndAnno" style="color:black;">News & Announcements</span></h4>
                         <h4><span id="NewsAndAnno" style="color:black;">News & Announcements</span></h4>
                     </div>
-                </div>
+                </div>-->
+                <h4><span id="NewsAndAnno" style="color:black; background-color:white;">News & Announcements</span></h4>
                     <div class="textContainer_Truncate" style="background-color:#FFCC33	; ">
                         <ul id="newsList">
                                 <?php
@@ -442,11 +445,6 @@
         }      
     })
     });
-
-        
-
-    
-
     // End function for Login
 </script>
 

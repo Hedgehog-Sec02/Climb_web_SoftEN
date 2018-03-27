@@ -142,13 +142,12 @@
                 </div>
                 <div class="collapse navbar-collapse" id = "example-navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
+                        <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="../">HOME</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
                                 <h5><a class="dropdown-item" href="index.php" style="color:white;">News&Announcements</a></h5>
                             </div>
                         </li>
-                        <li><a href="#services">Knowledge</a></li>
-                        <li><a href="#portfolio">Source</a></li>
+                        <li><a href="#services">Knowledge Source</a></li>
                         <li><a href="#pricing">Event</a></li>
                         <li><a href="#contact">About Us</a></li>
                     </ul>

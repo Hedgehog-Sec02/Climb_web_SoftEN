@@ -156,9 +156,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id = "example-navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
+                        <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="index.php">HOME</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
-                                <h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
+                                <h5><a class="dropdown-item" href="index.php" style="color:white;">News&Announcements</a></h5>
                             </div>
                         </li>
                         <li><a href="#services">Knowledge source</a></li>
@@ -185,13 +185,18 @@
                         $question2 = Question::getQuestion($row['qNO2']);
                         $question3 = Question::getQuestion($row['qNO3']);
                         $iden = $row['personID'];
+                        $answer1 = $row['question1'];
+                        $answer2 = $row['question2'];
+                        $answer3 = $row['question3'];
+                        $password = $row['password'] ;
+                        
+                        
                         for($i = 0 ; $i < strlen($row['personID']) ; $i++){
                 
                             if($i >= 2){
                                 $iden[$i] = 'x' ;
                             }
                         }
-                        $password = $row['password'] ;
                         for($i = 0 ; $i < strlen($row['password']) ; $i++){
                 
                             if($i >= 0){
@@ -199,90 +204,115 @@
                             }
                         }
 
-                        /*echo "ชื่อ : ".$row['userName']; echo "<br>";
-                        echo "รหัสบัตรประชาชน : ".$row['personID']; echo "<br>";
-                        echo "password : ".$row['password']; echo "<br>";
+                        for($i = 0 ; $i < strlen($answer1) ; $i++){
+                
+                            if($i >= 0){
+                                $answer1[$i] = 'x' ;
+                            }
+                        }
 
-                        echo "คำถามข้อที่ 1 : ".$question1['qdesc']; echo "<br>";
-                        echo "คำถามข้อที่ 2 : ".$question2['qdesc']; echo "<br>";
-                        echo "คำถามข้อที่ 3 : ".$question3['qdesc']; echo "<br>";
-                        echo "email : ".$row['userEmail']; echo "<br>";*/
+                        for($i = 0 ; $i < strlen($answer2) ; $i++){
+                
+                            if($i >= 0){
+                                $answer2[$i] = 'x' ;
+                            }
+                        }
+
+                        for($i = 0 ; $i < strlen($answer3) ; $i++){
+                
+                            if($i >= 0){
+                                $answer3[$i] = 'x' ;
+                            }
+                        }
+
                     ?>
-                    <form>
+                    <form style="padding-top:10px;">
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">First Name : </label>
                             <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $row["fname"]; ?></p>
+                            <input class="form-control" value="<?php echo $row["fname"]; ?>" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Last Name : </label>
                             <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $row["lname"]; ?></p>
+                            <input class="form-control" value="<?php echo $row["lname"]; ?>" disabled>
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Identification/Passport Number : </label>
                             <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $iden ; ?></p>
+                            <input class="form-control" value="<?php echo $iden ; ?>" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Password : </label>
-                            <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $password ; ?></p>
+                            <div class="col-sm-6">
+                            <input class="form-control" value="<?php echo $password ; ?>" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <button>Edit</button>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Question 1 : </label>
                             <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $question1['qdesc'] ; ?></p>
+                            <input class="form-control" value="<?php echo $question1['qdesc'] ; ?>" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Answer : </label>
-                            <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $row["question1"] ; ?></p>
+                            <div class="col-sm-6">
+                            <input class="form-control" value="<?php echo $answer1 ; ?>" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <button>Edit</button>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Question 2 : </label>
                             <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $question2['qdesc'] ; ?></p>
+                            <input class="form-control" value="<?php echo $question2['qdesc'] ; ?>" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Answer : </label>
-                            <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $row["question2"] ; ?></p>
+                            <div class="col-sm-6">
+                            <input class="form-control" value="<?php echo $answer2 ; ?>" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <button>Edit</button>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Question 3 : </label>
                             <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $question3['qdesc'] ; ?></p>
+                            <input class="form-control" value="<?php echo $question3['qdesc'] ; ?>" disabled>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Answer : </label>
-                            <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $row["question3"] ; ?></p>
+                            <div class="col-sm-6">
+                            <input class="form-control" value="<?php echo $answer3 ; ?>" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <button>Edit</button>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Email : </label>
                             <div class="col-sm-8">
-                            <p class="form-control-static"><?php echo $row["userEmail"] ; ?></p>
+                            <input class="form-control" value="<?php echo $row["userEmail"] ; ?>" disabled>
                             </div>
                         </div>
 
