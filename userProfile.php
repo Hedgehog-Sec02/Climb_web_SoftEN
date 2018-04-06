@@ -228,21 +228,21 @@
                     ?>
                     <form style="padding-top:10px;">
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label">First Name : </label>
+                            <label class="col-sm-4 col-form-label">First Name - Last Name : </label>
                             <div class="col-sm-8">
                             <input class="form-control" value="<?php echo $row["fname"]; ?>" disabled>
                             </div>
                         </div>
-
+                        <!--
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label">Last Name : </label>
                             <div class="col-sm-8">
                             <input class="form-control" value="<?php echo $row["lname"]; ?>" disabled>
                             </div>
                         </div>
-                        
+                        -->
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label">Identification/Passport Number : </label>
+                            <label class="col-sm-4 col-form-label">SSN/Passport Number : </label>
                             <div class="col-sm-8">
                             <input class="form-control" value="<?php echo $iden ; ?>" disabled>
                             </div>

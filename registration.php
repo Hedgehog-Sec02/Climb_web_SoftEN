@@ -193,7 +193,7 @@
                             -->
 
                             <div class="form-group">
-                                <label for="idenNo"><span class="glyphicon glyphicon-user"></span>Idenfication/Passport No.</label>
+                                <label for="idenNo"><span class="glyphicon glyphicon-user"></span>SSN/Passport No.</label>
                                 <div class="controls">
                                     <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control" onkeyup="chkValidIden(); return false ;">
                                     <p class="help-block" id="error-iden_passport">
