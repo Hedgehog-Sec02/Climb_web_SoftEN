@@ -1,15 +1,15 @@
 function chkValidBirthdate(){
     var birthdate = document.getElementById("birthdate");
     var err_birthdate = document.getElementById("error-birthdate");
-    var pattern =/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/;
+    var pattern =/^([0-9]{1,2})\/([0-9]{1,2})\/([0-9]{4})$/;
 
     if(!birthdate.value.match(pattern)){
         err_birthdate.innerHTML = "Date must be match such as 14/03/1997" ; 
         err_birthdate.style.color = badColor ;
         pass_birthdate = false  ;
-    }else if(calculateAge(parseDate($('#birthdate').val()), new Date()) < 15){
+    }else if(calculateAge(parseDate($('#birthdate').val()), new Date()) < 20){
         //err_birthdate.innerHTML = calculateAge(parseDate($('#birthdate').val()), new Date());
-        err_birthdate.innerHTML = "Age must be more than 15 years" ;
+        err_birthdate.innerHTML = "Age must be more than 20 years" ;
         err_birthdate.style.color = badColor ;
     }else{
         err_birthdate.innerHTML = "" ;
@@ -77,4 +77,7 @@ function chkValidBirthdate(){
   
     return true;
   }
+
+
+  
   

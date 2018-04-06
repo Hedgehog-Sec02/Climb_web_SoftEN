@@ -3,12 +3,12 @@
 Library    Selenium2Library
 
 *** Variable ***
-${URL}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/registration.php
+${URL}	  http://localhost:8080/climb_web/registration.php
+#${URL}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/registration.php
 ${Browser}    Chrome
-${validFname}    อาทิตย์
-${validLname}    ประคำ
-${validIdenNumber}    1469900000000
-${personImage}    555.jpg
+${validname}    อาทิตย์ ประคำ
+${validIdenNumber}    1469900387907
+${personImage}    ‪C:\xampp\htdocs\climb_web\img\11.jpg
 ${validUsername}    artit01
 ${validPass}    aB_1111111111111
 ${validCon_Pass}    aB_1111111111111
@@ -22,10 +22,8 @@ ${validEmail}    artit1150@hotmail.com
 *** Keywords ***
 open web climb
     open browser    ${URL}    ${Browser}
-input fname
-    Input Text    fname    ${validFName}
-input lname
-    Input Text    lname    ${validLname}
+input name
+    Input Text    fname    ${validname}
 input validIdenNumber
     Input Text    idenNo    ${validIdenNumber}
 input uploadImage
@@ -50,8 +48,7 @@ input email
 *** Test Cases ***
 testcase1 : registration success
     open web climb
-    input fname
-    input lname
+    input name
     input validIdenNumber
     input uploadImage
     input username
@@ -64,9 +61,6 @@ testcase1 : registration success
     input email
     Select Checkbox    exampleCheck1
     Click Button    myRegister
-    
     Wait Until Page Contains    Thank you to register
     Wait Until Page Contains    Please verify your email then wait for admin approval.
-	
-    Close Browser
 	

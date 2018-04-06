@@ -21,10 +21,10 @@
                 $arr = array('count'=> true,
                             'dataAlert' => "email should be example@gmail.com"
             );
-            }elseif(!strpos($email, '.com')){
+            /*}elseif(!strpos($email, '.com')){
                 $arr = array('count'=> true,
                             'dataAlert' => "email should be example@gmail.com"
-            );
+            );*/
             }else
             {
                 $arr = array('count' => $count,

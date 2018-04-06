@@ -197,7 +197,7 @@
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
           <button type="button" class="close" data-dismiss="modal" >&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Sign in</h4>
+          <h4><span class="glyphicon glyphicon-lock"></span>Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
 
@@ -207,13 +207,12 @@
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter username">
-              <p class="help-block" id="err-loginUsername"></p>
             </div>
 
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password">
-              <p class="help-block" id="err-loginPassword"></p>
+              <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password">
+              <p class="help-block" id="err-login"></p>
 
               <p><a href="#" style="text-decoration:underline;"class="pull-right ">Forget Password?</a></p>
             </div> <br>
@@ -395,11 +394,6 @@
 
 <script>
 
-    //function click capcha  
-    function enableBtn(){
-        document.getElementById("myLogin").disabled = false;
-    }
-    document.getElementById("myLogin").disabled = true ;
     var goodColor = "#66cc66";
     var badColor = "#ff6666";
     var key_login_username = false ;
@@ -408,12 +402,21 @@
     var key_valid_login_username = false;
     var key_valid_login_password = false ;
 
-
+    var chk_captcha = false ;
     var loginUsername = document.getElementById("loginUsername");
     var loginPassword = document.getElementById("loginPassword");
 
-    var err_loginUsername = document.getElementById("err-loginUsername");
-    var err_loginPassword = document.getElementById("err-loginPassword");
+    var err_login = document.getElementById("err-login");
+    
+
+    //function click capcha  
+    function enableBtn(){
+       // document.getElementById("myLogin").disabled = false;
+       chk_captcha = true ;
+    }
+
+    //document.getElementById("myLogin").disabled = true ;
+
     // Start function for Login
     $(document).ready(function(){
         
@@ -432,12 +435,21 @@
         });
 
         chkValidLogin();
+        
 
-        console.log(key_login_username);
-        console.log(key_login_password);
-        console.log(key_valid_login_username);
-        console.log(key_valid_login_password);
-        if(key_login_username && key_login_password && key_valid_login_password && key_valid_login_username){
+        console.log("username not null : " + key_login_username);
+        console.log("password not null : " + key_login_password);
+        console.log("username valid : " + key_valid_login_username);
+        console.log("passowrd valid : " + key_valid_login_password);
+        console.log("click ReCaptcha : " + chk_captcha);
+
+        if(!chk_captcha){
+            err_login.innerHTML = "Please click ReCaptcha to make sure you're not robot" ; 
+        }else{
+
+        }
+
+        if(key_login_username && key_login_password && key_valid_login_password && key_valid_login_username && chk_captcha){
             console.log('login!!!');
             document.getElementById("myLoginForm").submit();
         }else{

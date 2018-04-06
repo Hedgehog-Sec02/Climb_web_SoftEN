@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180406 14:29:19.095" generator="Robot 3.0.2 (Python 3.5.2 on win32)">
+<suite source="C:\xampp\htdocs\climb_web\test\TS006.txt" id="s1" name="TS006">
+<test id="s1-t1" name="testcase1 : registration success">
+<kw name="open web climb">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:19.235" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8080/climb_web/registration.php'</msg>
+<status starttime="20180406 14:29:19.235" endtime="20180406 14:29:27.084" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:19.235" endtime="20180406 14:29:27.084" status="PASS"></status>
+</kw>
+<kw name="input name">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>fname</arg>
+<arg>${validname}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:27.085" level="INFO">Typing text 'อาทิตย์ ประคำ' into text field 'fname'</msg>
+<status starttime="20180406 14:29:27.085" endtime="20180406 14:29:27.202" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:27.084" endtime="20180406 14:29:27.202" status="PASS"></status>
+</kw>
+<kw name="input validIdenNumber">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>idenNo</arg>
+<arg>${validIdenNumber}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:27.203" level="INFO">Typing text '1469900387907' into text field 'idenNo'</msg>
+<status starttime="20180406 14:29:27.203" endtime="20180406 14:29:27.350" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:27.203" endtime="20180406 14:29:27.350" status="PASS"></status>
+</kw>
+<kw name="input uploadImage">
+<kw name="Choose File" library="Selenium2Library">
+<doc>Inputs the `file_path` into file input field found by `locator`.</doc>
+<arguments>
+<arg>imgInp</arg>
+<arg>C:/xampp/htdocs/climb_web/img/atisit_iden.jpg</arg>
+</arguments>
+<status starttime="20180406 14:29:27.351" endtime="20180406 14:29:27.385" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:27.351" endtime="20180406 14:29:27.385" status="PASS"></status>
+</kw>
+<kw name="input username">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Username</arg>
+<arg>${validUsername}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:27.386" level="INFO">Typing text 'artit01' into text field 'Username'</msg>
+<status starttime="20180406 14:29:27.386" endtime="20180406 14:29:27.488" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:27.386" endtime="20180406 14:29:27.488" status="PASS"></status>
+</kw>
+<kw name="input pass">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Password</arg>
+<arg>${validPass}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:27.489" level="INFO">Typing text 'aB_1111111111111' into text field 'Password'</msg>
+<status starttime="20180406 14:29:27.489" endtime="20180406 14:29:27.614" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:27.489" endtime="20180406 14:29:27.614" status="PASS"></status>
+</kw>
+<kw name="input conPass">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>con-Password</arg>
+<arg>${validCon_Pass}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:27.615" level="INFO">Typing text 'aB_1111111111111' into text field 'con-Password'</msg>
+<status starttime="20180406 14:29:27.615" endtime="20180406 14:29:27.731" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:27.615" endtime="20180406 14:29:27.731" status="PASS"></status>
+</kw>
+<kw name="input birthdate">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>birthdate</arg>
+<arg>${birthdate}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:27.732" level="INFO">Typing text '01/02/1997' into text field 'birthdate'</msg>
+<status starttime="20180406 14:29:27.732" endtime="20180406 14:29:27.883" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:27.732" endtime="20180406 14:29:27.883" status="PASS"></status>
+</kw>
+<kw name="input answer1">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Q1</arg>
+<arg>${answer1}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:27.884" level="INFO">Typing text 'หมา' into text field 'Q1'</msg>
+<status starttime="20180406 14:29:27.884" endtime="20180406 14:29:27.955" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:27.884" endtime="20180406 14:29:27.955" status="PASS"></status>
+</kw>
+<kw name="input answer2">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Q2</arg>
+<arg>${answer2}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:27.956" level="INFO">Typing text 'แดง' into text field 'Q2'</msg>
+<status starttime="20180406 14:29:27.956" endtime="20180406 14:29:28.020" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:27.955" endtime="20180406 14:29:28.020" status="PASS"></status>
+</kw>
+<kw name="input answer3">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>Q3</arg>
+<arg>${answer3}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:28.021" level="INFO">Typing text 'spiderman' into text field 'Q3'</msg>
+<status starttime="20180406 14:29:28.021" endtime="20180406 14:29:28.108" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:28.020" endtime="20180406 14:29:28.109" status="PASS"></status>
+</kw>
+<kw name="input email">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>email</arg>
+<arg>${validEmail}</arg>
+</arguments>
+<msg timestamp="20180406 14:29:28.110" level="INFO">Typing text 'artit1150@hotmail.com' into text field 'email'</msg>
+<status starttime="20180406 14:29:28.109" endtime="20180406 14:29:28.302" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:28.109" endtime="20180406 14:29:28.303" status="PASS"></status>
+</kw>
+<kw name="Select Checkbox" library="Selenium2Library">
+<doc>Selects checkbox identified by `locator`.</doc>
+<arguments>
+<arg>exampleCheck1</arg>
+</arguments>
+<msg timestamp="20180406 14:29:28.303" level="INFO">Selecting checkbox 'exampleCheck1'.</msg>
+<status starttime="20180406 14:29:28.303" endtime="20180406 14:29:28.368" status="PASS"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>myRegister</arg>
+</arguments>
+<msg timestamp="20180406 14:29:28.369" level="INFO">Clicking button 'myRegister'.</msg>
+<status starttime="20180406 14:29:28.369" endtime="20180406 14:29:28.520" status="PASS"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Thank you to register</arg>
+</arguments>
+<status starttime="20180406 14:29:28.521" endtime="20180406 14:29:28.539" status="PASS"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>Please verify your email then wait for admin approval.</arg>
+</arguments>
+<status starttime="20180406 14:29:28.540" endtime="20180406 14:29:28.555" status="PASS"></status>
+</kw>
+<status starttime="20180406 14:29:19.234" critical="yes" endtime="20180406 14:29:28.556" status="PASS"></status>
+</test>
+<status starttime="20180406 14:29:19.096" endtime="20180406 14:29:28.557" status="PASS"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" name="TS006" id="s1" pass="1">TS006</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

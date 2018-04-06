@@ -175,13 +175,14 @@
                         <div class="control-group" >
                         <!-- Username -->
                             <div class="form-group">
-                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>FirstName</label>
+                                <label for="name"><span class="glyphicon glyphicon-pencil"></span>Firstname-Lastname</label>
                                 <div class="controls">
                                     <input type="text" id="fname" name="fname" placeholder="" class="form-control" onkeyup="chkValidFirstName();return false;" >
                                     <p class="help-block" id="error-fname">
                                  </div>
                             </div>
 
+                            <!--
                             <div class="form-group">
                                 <label for="name"><span class="glyphicon glyphicon-pencil"></span>LastName</label>
                                 <div class="controls">
@@ -189,6 +190,7 @@
                                     <p class="help-block" id="error-lname">
                                  </div>
                             </div>
+                            -->
 
                             <div class="form-group">
                                 <label for="idenNo"><span class="glyphicon glyphicon-user"></span>Idenfication/Passport No.</label>
@@ -436,7 +438,8 @@
             var pass_birthdate = false ;
             var pass_iden = false ;
             var pass_fname = false ; 
-            var pass_lname = false ;
+
+            
             $('#myRegister').click(function(event) {
                 
                 event.preventDefault();
@@ -447,7 +450,6 @@
                 chkValidBirthdate();
                 chkValidIden();
                 chkValidFirstName();
-                chkValidLastName();
                 var myObj = chkEmtryForm();
                
 
@@ -465,10 +467,9 @@
                 console.log(pass_PasswordJS);
                 console.log(pass_EmailJS);
                 
-                if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS && pass_birthdate && pass_iden && pass_fname && pass_lname) {
+                if(myObj.pass && pass_usernameJS && pass_PasswordJS && pass_EmailJS && pass_birthdate && pass_iden && pass_fname) {
                     console.log("Register it!!");
                     console.log(myObj.fname);
-                    console.log(myObj.lname);
                     console.log(myObj.iden);
                     console.log(myObj.person_img);
                     console.log(myObj.username);
@@ -510,6 +511,7 @@
 
             // Cap lock is on ? 
             chkCap();
+
             </script>
 
             

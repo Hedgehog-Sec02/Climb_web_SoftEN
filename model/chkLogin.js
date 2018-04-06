@@ -1,36 +1,55 @@
 
 function chkValidLogin(){
-    if(loginUsername.value!=''){
+    /*if(loginUsername.value!='' ){
         $.post('model/chkValidUsername.php', { username: loginUsername.value}, function(data) {
             data = $.parseJSON(data);
             if(data.count > 0 ){
                 key_valid_login_username = true ;
-                err_loginUsername.innerHTML = "" ;
+                err_login.innerHTML = "" ;
             }else{
                 key_valid_login_username = false ;
-                err_loginUsername.innerHTML = "Please enter the correct Username" ;
-                err_loginUsername.style.color = badColor ;
+                err_login.innerHTML = "Please enter the correct Username or Password" ;
+                err_login.style.color = badColor ;
                 
             }
             });
     }else{
         key_valid_login_username = false ;
-    }
+    }*/
 
-    if(loginPassword.value!=''){
+    if(loginUsername.value!='' && loginPassword.value!=''){
+
+        $.post('model/chkValidUsername.php', { username: loginUsername.value}, function(data) {
+            data = $.parseJSON(data);
+            if(data.count > 0 ){
+                console.log("pass username");
+                key_valid_login_username = true ;
+                err_login.innerHTML = "" ;
+            }else{
+                key_valid_login_username = false ;
+                err_login.innerHTML = "Please enter the correct Username or Password" ;
+                err_login.style.color = badColor ;
+                
+            }
+            });
+
+
         $.post('model/chkValidPassword.php', { password: loginPassword.value}, function(data) {
             data = $.parseJSON(data);
             if(data.count > 0 ){
+                console.log("pass username");
                 key_valid_login_password = true ;
-                err_loginPassword.innerHTML = "" ;
+                err_login.innerHTML = "" ;
             }else{
                 key_valid_login_password = false ;
-                err_loginPassword.innerHTML = "Please enter the correct Password" ;
-                err_loginPassword.style.color = badColor ;
+                err_login.innerHTML = "Please enter the correct Username or Password" ;
+                err_login.style.color = badColor ;
 
             }
             });
+
     }else{
+        key_valid_login_username = false ;
         key_valid_login_password = false ;
     }
 

@@ -1,7 +1,7 @@
 function chkEmtryForm(){
 
     var fname = document.getElementById("fname");
-    var lname = document.getElementById("lname");
+    //var lname = document.getElementById("lname");
     var iden = document.getElementById("idenNo");
     var person_img = document.getElementById("person_img");
     var username = document.getElementById("Username");
@@ -16,7 +16,7 @@ function chkEmtryForm(){
 
 
     var err_fname = document.getElementById("error-fname");
-    var err_lname = document.getElementById("error-lname");
+    //var err_lname = document.getElementById("error-lname");
     var err_iden = document.getElementById("error-iden_passport");
     var err_person_img = document.getElementById("error-person-img");
     var err_username = document.getElementById("error-username");
@@ -44,7 +44,7 @@ function chkEmtryForm(){
     }  
 
     // lastname is '' 
-    if(lname.value == ''){
+   /* if(lname.value == ''){
         err_lname.innerHTML = " Please fill lastname";
         err_lname.style.color = badColor;
         myObj.pass = false ; 
@@ -52,7 +52,7 @@ function chkEmtryForm(){
         //err_lname.innerHTML = '' ;
         myObj.lname = lname.value ; 
         //myObj['lname'] = lname.value ; 
-    }   
+    }   */
 
     // idenfication is '' 
     if(iden.value == ''){
