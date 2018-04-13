@@ -225,7 +225,7 @@
         <!-- <input type="botton" class="btn btn-success" onclick="enableBtn()" value="demo_capcha"> -->
         <center>
            <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6LfSPk8UAAAAADxGzbw6lEKMrLk49M8kgnywJ8py" data-callback="enableBtn"></div>
+                <div class="g-recaptcha" data-sitekey="6LfZgFEUAAAAAEacJEK4M_0-YsINj8VfXIWZeSW0" data-callback="enableBtn"></div>
                 <div class="help-block with-errors"></div>
             </div> 
         </center> 
@@ -412,6 +412,10 @@
     //function click capcha  
     function enableBtn(){
        // document.getElementById("myLogin").disabled = false;
+       $.post('validate_captcha.php', { response : grecaptcha.getResponse() }, function(data) {
+        //data = $.parseJSON(data);
+        console.log(data); 
+        });
        chk_captcha = true ;
     }
 
