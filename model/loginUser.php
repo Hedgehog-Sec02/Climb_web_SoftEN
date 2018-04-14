@@ -8,20 +8,29 @@
     $row = $stmt->fetch();
 
     if ($row){
-        if($row["status"] == "user"){
+        if($row['loginStatus']=="0"){
             
-            $_SESSION["userId"] = $row["userID"];
-            $_SESSION["status"] = $row["status"];
+            $stmt = DB::get()->prepare("UPDATE users SET loginStatus = '1', lastUpdate = NOW() 
+            WHERE userID = '".$row["userID"]."'  ");
+            $stmt->execute();
 
-            header("Location:../index.php");
-        }else if($row["status"] == "WAIT"){
+            if($row["status"] == "user"){
 
-            header("Location:../index.php");
+                $_SESSION["userId"] = $row["userID"];
+                $_SESSION["status"] = $row["status"];
+                header("Location:../index.php");
 
-        }else if($row["status"] == "VIP" ){
-            //
+            }else if($row["status"] == "WAIT"){
+
+                header("Location:../index.php");
+
+            }else if($row["status"] == "VIP" ){
+                //
+            }else{
+                echo "fail" ;
+            }
         }else{
-            echo "fail" ;
+            echo $username." existed login!!" ;
         }
     }else{
         echo "no id" ;

@@ -18,7 +18,7 @@
     <script type="text/javascript" src="model/chkLogin.js"></script>
     <script type="text/javascript" src="model/chkEmptyLogin.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    
+    <link rel="stylesheet" href="css/style.css">
     <script>
     /* // Old showmore
         $(document).ready(function () {
@@ -77,114 +77,10 @@
 
     </script>
 <!-- End JS -->
-    <style>
-            footer {
-            background-color: black;
-            color: white;
-            padding: 15px;
-                }
-            body {
-                width:100%;height:100%;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-position: center;
-                background-size: cover;
-                background-color: black;
-                background-image:url(img/Hot-Sun.jpg);
-            }
-            .carousel-caption {
-                padding : 10px ;
-                margin-bottom : 10px ;
-                background: black;
-            }
-            .multiline
-            {
-                padding:5px;
-                white-space: pre-wrap;
-            }
-            .LOGO
-            {
-                max-width: 100%;
-                height: auto;
-                text-align: center;
-                vertical-align: middle;
-                display: table-cell;
-            }
-            
-            #newsList li{ display:none;
-            }
-            #loadMore {
-                color:green;
-                cursor:pointer;
-            }
-            #loadMore:hover {
-                color:black;
-            }
-            #showLess {
-                color:red;
-                cursor:pointer;
-                display:none;
-            }
-            #showLess:hover {
-                color:black;
-            }
-            .marquee {
-            
-            height: 40px;
-            width: auto;
-            overflow: hidden;
-            position: relative;
-
-            }
-
-            .marquee div {
-            display: block;
-            width: 200%;
-            height: 30px;
-
-            position: absolute;
-            overflow: hidden;
-
-            animation: marquee 5s linear infinite;
-            }
-
-            .marquee span {
-            float: left;
-            width: 50%;
-            
-            }
-
-            @keyframes marquee {
-            0% { left: 0; }
-            100% { left: -100%; }
-            }
-			ul.nav.navbar-nav.navbar-right li.nav-item{
-			    /*background-color: #000033; */
-				margin-right:20px ;
-				background-color:None ;
-                font-size:10px;
-			}
-		
-			ul.nav.navbar-nav.navbar-right li.nav-item a:hover{
-				/*background:#000033;*/
-                background:None;
-			}
-            
-             .modal-header, h4, .close {
-                background-color: #FFCC00;
-                color:white !important;
-                text-align: center;
-                font-size: 30px;
-            }
-        
-            .modal-footer {
-            background-color: #f9f9f9;
-            }
-		
-    </style>
 </head>
 <body>
-            <div class="container">
+
+<div class="container">
   <!-- Trigger the modal with a button -->
            
   <!--<button type="button" class="btn btn-default btn-lg  navbar-right" id="myBtn">Login</button>-->
@@ -242,6 +138,7 @@
         <!-- Start Header -->
         <div  class="row" style ="background-image:url(img/Hot-Sun.jpg); background-repeat: no-repeat;width:100%;
             background-size:cover;background-attachment:fixed;background-position:center;">
+            
             <div class="col-sm-10 col-md-10 col-lg-10" style="padding-left:0px;padding-top:0px;padding-bottom:0px;">
                 <img class='img-rounded' src="image/LOGO/logo.png" style="width:45%;height:45%;">
             </div>
@@ -251,6 +148,10 @@
                     <?php 
                         if(isset($_SESSION['userId'])){
                             $row = User::getUser($_SESSION['userId']) ; 
+
+                            $updateStmt = DB::get()->prepare("UPDATE users SET loginStatus = '1', lastUpdate = NOW() 
+                                            WHERE userID = '".$row["userID"]."'  ");
+                            $updateStmt->execute();
                             echo "สวัสดี "."<a id='myUsername' href='userProfile.php'>".$row['userName']."</a>"; echo "<br>";
                             echo '<a href="logout.php">Sign out</a>';
                         }else{
@@ -262,7 +163,7 @@
             </div>
         </div>
 
-        <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF	; ">
+        <nav class="navbar navbar-default" style="background-color: #000033; color:#FFFFFF;margin:none;">
             <div class="container">
                 <div class = "navbar-header">
                     <button type = "button" class = "navbar-toggle" 
@@ -294,9 +195,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
-        
+        </nav>        
     <!-- End Header -->
 
     <!-- Start slide news -->
@@ -454,6 +353,7 @@
         console.log("click ReCaptcha : " + chk_captcha);
 
         if(!chk_captcha){
+            err_login.style.color = badColor ;
             err_login.innerHTML = "Please click ReCaptcha to make sure you're not robot" ; 
         }else{
 

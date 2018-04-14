@@ -3,6 +3,7 @@
     require_once "../connect.php" ;
     require_once "../model/getNews.php";
     require_once "../model/getUser.php" ;
+
     $stmt = DB::get()->prepare("SELECT * FROM NEWS ORDER BY TIMEDATE DESC");
     $stmt->execute();
     $test[0] = NULL ;
@@ -15,6 +16,7 @@
     $NewsID = $_GET["NewsID"] ; 
     // intent(getNews) : Get News matching NewsID 
     $row = News::getNews($NewsID);
+
 ?> 
 <!DOCTYPE html>
 <html>
@@ -29,65 +31,10 @@
     <script type="text/javascript" src="../model/chkLogin.js"></script>
     <script type="text/javascript" src="../model/chkEmptyLogin.js"></script>
    <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
-    
+   <link rel="stylesheet" href="../css/style.css">
 
 
-    <style>
-            footer {
-            background-color: #555;
-            color: white;
-            padding: 15px;
-                }
-            body {
-                width:100%;height:100%;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-position: center;
-                background-size: cover;
-                background-color: white;
-                background-image:url(../img/Hot-Sun.jpg);
-            }
-            .carousel-caption {
-                padding : 10px ;
-                margin-bottom : 10px ;
-                background: black;
-            }
-            .multiline
-            {
-                padding:20px;
-                white-space: pre-wrap;
-            }
-            .LOGO
-        {
-            max-width: 100%;
-            height: auto;
-            text-align: center;
-            vertical-align: middle;
-            display: table-cell;
-        }
-			ul.nav.navbar-nav.navbar-right li.nav-item{
-			    /*background-color: #000033; */
-				margin-right:20px ;
-				background-color:None ;
-                font-size:50px;
-			}
-		
-			ul.nav.navbar-nav.navbar-right li.nav-item a:hover{
-				/*background:#000033;*/
-                background:None;
-			}
-        
-             .modal-header, h4, .close {
-                background-color: #FFCC00;
-                color:white !important;
-                text-align: center;
-                font-size: 30px;
-            }
-        
-            .modal-footer {
-            background-color: #f9f9f9;
-            }
-    </style>
+   
 </head>
 <body>
 
@@ -157,6 +104,9 @@
                 <div class="pull-right">
                     <?php 
                         if(isset($_SESSION['userId'])){
+                            $updateStmt = DB::get()->prepare("UPDATE users SET loginStatus = '0', lastUpdate = NOW() 
+                            WHERE userID = '".$_SESSION["userId"]."'");
+                            $updateStmt->execute();
                             $row2 = User::getUser($_SESSION['userId']) ; 
                             echo "สวัสดี "."<a href='../userProfile.php'>".$row2['userName']."</a>"; echo "<br>";
                             echo '<a href="../logout.php">Sign out</a>';

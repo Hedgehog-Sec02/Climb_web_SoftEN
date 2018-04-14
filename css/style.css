@@ -1,5 +1,5 @@
 footer {
-    background-color: #555;
+    background-color: black;
     color: white;
     padding: 15px;
         }
@@ -9,8 +9,8 @@ footer {
         background-attachment: fixed;
         background-position: center;
         background-size: cover;
-        background-color: white;
-        background-image:url(img/sea.gif);
+        background-color: black;
+        background-image:url(../img/Hot-Sun.jpg);
     }
     .carousel-caption {
         padding : 10px ;
@@ -49,10 +49,12 @@ footer {
         color:black;
     }
     .marquee {
+    
     height: 40px;
     width: auto;
     overflow: hidden;
     position: relative;
+
     }
 
     .marquee div {
@@ -80,7 +82,7 @@ footer {
         /*background-color: #000033; */
         margin-right:20px ;
         background-color:None ;
-        font-size:50px;
+        font-size:10px;
     }
 
     ul.nav.navbar-nav.navbar-right li.nav-item a:hover{
@@ -97,4 +99,42 @@ footer {
 
     .modal-footer {
     background-color: #f9f9f9;
+    }
+    .btn-file {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+    #img-upload{
+        width: 100%;
+    }
+    a:hover.btn{
+
+        text-decoration:underline;
+    }
+    #alert-cap
+    {
+    border: 1px solid #FFFF66;
+    background-color: #FFFFCC;
+    display: inline-block;
+    margin-left: 10px;
+    padding: 3px;
+    margin-top:3px;
+    visibility:hidden;
     }

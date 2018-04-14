@@ -3,6 +3,10 @@
     require_once "connect.php" ;
     require_once "model/getUser.php" ;
     require_once "model/question.php";
+
+    $stmt = DB::get()->prepare("UPDATE users SET lastUpdate = NOW() 
+            WHERE userID = '".$_SESSION["userId"]."'");
+    $stmt->execute();
 ?>
 
 <!DOCTYPE html>
@@ -14,109 +18,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-            footer {
-            background-color: black;
-            color: white;
-            padding: 15px;
-                }
-            body {
-                width:100%;height:100%;
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-position: center;
-                background-size: cover;
-                background-color: black;
-                background-image:url(img/Hot-Sun.jpg);
-            }
-            .carousel-caption {
-                padding : 10px ;
-                margin-bottom : 10px ;
-                background: black;
-            }
-            .multiline
-            {
-                padding:5px;
-                white-space: pre-wrap;
-            }
-            .LOGO
-            {
-                max-width: 100%;
-                height: auto;
-                text-align: center;
-                vertical-align: middle;
-                display: table-cell;
-            }
-            
-            #newsList li{ display:none;
-            }
-            #loadMore {
-                color:green;
-                cursor:pointer;
-            }
-            #loadMore:hover {
-                color:black;
-            }
-            #showLess {
-                color:red;
-                cursor:pointer;
-                display:none;
-            }
-            #showLess:hover {
-                color:black;
-            }
-            .marquee {
-            height: 40px;
-            width: auto;
-            overflow: hidden;
-            position: relative;
-
-            }
-
-            .marquee div {
-            display: block;
-            width: 200%;
-            height: 30px;
-
-            position: absolute;
-            overflow: hidden;
-
-            animation: marquee 5s linear infinite;
-            }
-
-            .marquee span {
-            float: left;
-            width: 50%;
-            
-            }
-
-            @keyframes marquee {
-            0% { left: 0; }
-            100% { left: -100%; }
-            }
-			ul.nav.navbar-nav.navbar-right li.nav-item{
-			    /*background-color: #000033; */
-				margin-right:20px ;
-				background-color:None ;
-                font-size:10px;
-			}
-		
-			ul.nav.navbar-nav.navbar-right li.nav-item a:hover{
-				/*background:#000033;*/
-                background:None;
-			}
-            
-             .modal-header, h4, .close {
-                background-color: #FFCC00;
-                color:white !important;
-                text-align: center;
-                font-size: 30px;
-            }
-        
-            .modal-footer {
-            background-color: #f9f9f9;
-            }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Start Header -->
