@@ -5,27 +5,27 @@ Library    Selenium2Library
 *** Variable ***
 ${URL}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/registration.php
 ${Browser}    Chrome
-${validFname}    อาทิตย์ ประคำ
-${validIdenNumber}    1103702208302
+${validFname}    อธิสิต ทองใบ
+${validIdenNumber}    1103702281441
 ${personImage}    555.jpg
-${validUsername}    artit01
+${validUsername}    atisit
 ${validPass}    aB_1111111111111
 ${validCon_Pass}    aB_1111111111111
 ${birthdate}    01/02/1995
 ${answer1}    หมา
 ${answer2}    แดง
 ${answer3}    spiderman
-${validEmail}    artit1150@hotmail.com
+${validEmail}    atisit_thongbai@hotmail.com
 
 ${invalidFname}    อาทิตย์123
 ${invalidIdenNumber}    14699
-${alreadyIdenNumber}    1103702281441
-${alreadyUsername}    atisit
+${alreadyIdenNumber}    1409901491881
+${alreadyUsername}    janthakan
 ${invalidPass}    aB_1
 ${invalidCon_Pass}    aB_2
 ${notAllowBirthdate}    01/02/2003
-${invalidBirthdate}    10-09-1995
-${alreadyEmail}    atisit_thongbai@kkumail.com
+${invalidBirthdate}    1995-09-01
+${alreadyEmail}    janthakankan789@gmail.com
 ${invalidEmail}    artit1150
 
 
@@ -56,7 +56,7 @@ input email
     Input Text    email    ${validEmail}	
 
 input invalidFname
-	Input Text    fname    ${invaidFname}
+	Input Text    fname    ${invalidFname}
 input invalidIdenNumber
     Input Text    idenNo    ${invalidIdenNumber}
 input alreadyIdenNumber
@@ -79,6 +79,7 @@ input alreadyEmail
 *** Test Cases ***
 testcase1 : invalidFname
     open web climb
+	Set Selenium Speed    0.1
     input invalidFname
     input validIdenNumber
     input uploadImage
@@ -96,6 +97,7 @@ testcase1 : invalidFname
 	
 testcase2 : invalidIdenNumber
 	Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input invalidIdenNumber
     input uploadImage
@@ -114,6 +116,7 @@ testcase2 : invalidIdenNumber
 	
 testcase3 : already identification number
     Go To    ${URL}
+	Set Selenium Speed    0.5
     input fname
     input alreadyIdenNumber
     input uploadImage
@@ -132,10 +135,11 @@ testcase3 : already identification number
 	
 testcase4 : already username
     Go To    ${URL}
+	Set Selenium Speed    0.5
     input fname
     input validIdenNumber
     input uploadImage
-    input username
+    input alreadyUsername
     input pass
     input conPass
     input birthdate
@@ -149,6 +153,7 @@ testcase4 : already username
 
 testcase5 : invalid password
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -166,6 +171,7 @@ testcase5 : invalid password
 
 testcase6 : confirm password doesn't match password
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -183,6 +189,7 @@ testcase6 : confirm password doesn't match password
 
 testcase7 : not allow birthdate
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -200,6 +207,7 @@ testcase7 : not allow birthdate
 
 testcase8 : invalid birthdate
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -217,6 +225,7 @@ testcase8 : invalid birthdate
 
 testcase9 : invalid email
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -234,6 +243,7 @@ testcase9 : invalid email
 
 testcase10 : already exist email
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage

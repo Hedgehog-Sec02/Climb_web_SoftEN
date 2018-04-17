@@ -162,7 +162,7 @@
 
                             <div class="form-group">
                                 <label for="Birthdate"><span class="glyphicon glyphicon-user"></span>Birthdate</label>
-                                <div class='input-group date' id='datetimepicker1'  > <!-- data-date="02/02/2010" data-date-format="dd/mm/yyyy" -->
+                                <div class='input-group date'  ><!--id='datetimepicker1' data-date="02/02/2010" data-date-format="dd/mm/yyyy"-->
                                     <input type='text' id="birthdate" name="birthdate" class="form-control" onkeyup = "chkValidBirthdate(); return false;" placeholder="dd/mm/yyyy"/>
                                     <p class="help-block" id="error-birthdate">
                                     <span class="input-group-addon">

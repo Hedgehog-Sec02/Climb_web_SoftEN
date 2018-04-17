@@ -22,7 +22,7 @@
                 header("Location:../index.php");
 
             }else if($row["status"] == "WAIT"){
-
+                
                 header("Location:../index.php");
 
             }else if($row["status"] == "VIP" ){

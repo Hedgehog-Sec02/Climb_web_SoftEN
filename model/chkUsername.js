@@ -4,7 +4,7 @@ function chkValidUsername(){
     //err_vusername.style.color = "yellow" ; 
     err_vusername.innerHTML = "Seaching...";
 
-    var pattern = /[0-9a-zA-Z]{5,}$/;
+    var pattern = /^[0-9a-zA-Z_-]{1,}$/;
     if(username.value != ''){
         $.post('model/chkValidUsername.php', { username: username.value}, function(data) {
         data = $.parseJSON(data);

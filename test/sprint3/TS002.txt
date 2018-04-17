@@ -7,8 +7,8 @@ ${URL}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/
 ${Browser}    Chrome
 ${invalidUsername}    Natthida
 ${invalidPassword}    Maprang_narak1234
-${validUsername}    atisit
-${validPassword}    1111111111111
+${validUsername}    janthakan
+${validPassword}    Kankan1122_kkkan
 *** Keywords ***
 open web climb
     Open Browser    ${URL}    ${Browser}
