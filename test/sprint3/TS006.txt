@@ -46,7 +46,9 @@ input email
 	
 *** Test Cases ***
 testcase1 : ไม่กรอกชื่อ
+
     open web climb
+	Set Selenium Speed    0.1
     Input Text    fname    ${EMPTY}
     input validIdenNumber
     input uploadImage
@@ -63,7 +65,9 @@ testcase1 : ไม่กรอกชื่อ
     Wait Until Page Contains    Please fill firstname and lastname
 
 testcase2 : ไม่กรอกเลขบัตรประชาชนและเลข passport
+
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     Input Text    idenNo    ${EMPTY}
     input uploadImage
@@ -81,6 +85,7 @@ testcase2 : ไม่กรอกเลขบัตรประชาชนแ�
 	
 testcase3 : ไม่ upload รูป
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     Input Text    person_img    ${EMPTY}
@@ -97,7 +102,9 @@ testcase3 : ไม่ upload รูป
     Wait Until Page Contains    Please upload idenfication/Password image
 	
 testcase4 : ไม่กรอก username
+    
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -114,7 +121,9 @@ testcase4 : ไม่กรอก username
     Wait Until Page Contains    Please fill username
 	
 testcase5 : ไม่กรอก password
+    
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -131,7 +140,9 @@ testcase5 : ไม่กรอก password
     Wait Until Page Contains    Please fill password
 	
 testcase6 : ไม่กรอก confirm password
+    
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -148,7 +159,9 @@ testcase6 : ไม่กรอก confirm password
     Wait Until Page Contains    Please fill con-password
 	
 testcase7 : ไม่กรอกวันเกิด
+   
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -165,7 +178,9 @@ testcase7 : ไม่กรอกวันเกิด
     Wait Until Page Contains    Please fill birthdate
 	
 testcase8 : ไม่กรอกคำตอบ
+    
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -182,7 +197,9 @@ testcase8 : ไม่กรอกคำตอบ
     Wait Until Page Contains    Please fill Answer
 	
 testcase9 : ไม่กรอก email
+   
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage
@@ -199,7 +216,9 @@ testcase9 : ไม่กรอก email
     Wait Until Page Contains    Please fill Email
 	
 testcase10 : ไม่คลิก I agree to the privacy and terms
+    
     Go To    ${URL}
+	Set Selenium Speed    0.1
     input fname
     input validIdenNumber
     input uploadImage

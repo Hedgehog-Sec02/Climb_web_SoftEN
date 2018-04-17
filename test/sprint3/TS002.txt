@@ -35,7 +35,7 @@ testcase1 : กรอก Username ผิด
     click signin
     input false username
     input password
-	click element   //div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe
+	
     Click button    myLogin
     Wait Until Page Contains    Please click ReCaptcha to make sure you're not robot
    
@@ -45,7 +45,7 @@ testcase2 : กรอก Password ผิด
     click signin
     input username
     input false password
-	click element   //div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe
+	
     Click button    myLogin
     Wait Until Page Contains    Please click ReCaptcha to make sure you're not robot
    
@@ -55,7 +55,7 @@ testcase3 : กรอก UsernameและPassword ผิด
     click signin
     input false username
     input false password
-	click element   //div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe
+	
     Click button    myLogin
     Wait Until Page Contains    Please click ReCaptcha to make sure you're not robot
   
@@ -65,7 +65,7 @@ testcase4 : ไม่กรอก Username
     click signin
     input null username
     input password
-	click element   //div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe
+	
     Click button    myLogin
     Wait Until Page Contains    Please click ReCaptcha to make sure you're not robot
   
@@ -75,7 +75,7 @@ testcase5 : ไม่กรอก Password
     click signin
     input username
     input null password
-	click element   //div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe
+	
     Click button    myLogin
     Wait Until Page Contains    Please click ReCaptcha to make sure you're not robot
 
@@ -85,7 +85,7 @@ testcase6 : ไม่กรอก UsernameและPassword
     click signin
     input null username
     input null password
-	click element   //div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe
+	
     Click button    myLogin
     Wait Until Page Contains    Please click ReCaptcha to make sure you're not robot
    
@@ -95,7 +95,7 @@ testcase7 : กรอก Username ผิดและไม่กรอกPasswor
     click signin
     input false username
     input null password
-	click element   //div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe
+	
     Click button    myLogin
     Wait Until Page Contains    Please click ReCaptcha to make sure you're not robot
     
@@ -105,7 +105,7 @@ testcase8 : ไม่กรอก Username และกรอกPassword ผิ�
     click signin
     input null username
     input false password
-	click element   //div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe
+	
     Click button    myLogin
     Wait Until Page Contains    Please click ReCaptcha to make sure you're not robot
 

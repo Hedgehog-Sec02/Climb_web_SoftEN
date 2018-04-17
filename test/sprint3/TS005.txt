@@ -95,7 +95,7 @@ testcase1 : invalidFname
     Wait Until Page Contains    Don't special character in firstname and lastname such as atisit thongbai!
 	
 testcase2 : invalidIdenNumber
-    open web climb
+	Go To    ${URL}
     input fname
     input invalidIdenNumber
     input uploadImage
