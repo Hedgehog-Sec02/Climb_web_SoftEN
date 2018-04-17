@@ -1,18 +1,14 @@
 <?php 
     session_start();
+
     require_once "../connect.php" ;
     require_once "../model/getNews.php";
     require_once "../model/getUser.php" ;
 
-    $stmt = DB::get()->prepare("SELECT * FROM NEWS ORDER BY TIMEDATE DESC");
-    $stmt->execute();
-    $test[0] = NULL ;
-    $i = 1 ;
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-    $test[$i] = $row["NewsID"] ; echo " " ;
-    if($test[$i] == $_GET["NewsID"]){ $chk = $i ;}    
-    $i = $i + 1 ; 
-    }
+    //getListNewsID function -> ลูปเพื่อหาลำดับของข่าว โดยเก็บ NewsID ไว้ใน Array ชื่อ test[]
+    //getListNewsID function -> จะ retrun ตำแหน่งของ NewsID ในหน้าปัจจุบันออกมา เก็บไว้ใน chk 
+    $test = News::getListNewsID()[0];
+    $chk  = News::getListNewsID()[1];
     $NewsID = $_GET["NewsID"] ; 
     // intent(getNews) : Get News matching NewsID 
     $row = News::getNews($NewsID);
@@ -29,8 +25,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../model/chkLogin.js"></script>
+    <script type="text/javascript" src="../manageCheckAutheLogin.js"></script>
     <script type="text/javascript" src="../model/chkEmptyLogin.js"></script>
-   <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
    <link rel="stylesheet" href="../css/style.css">
 
 
@@ -42,7 +39,7 @@
            
   <!--<button type="button" class="btn btn-default btn-lg  navbar-right" id="myBtn">Login</button>-->
   
-  <!-- Start Modal -->
+  <!-- Modal for Login -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
@@ -50,23 +47,22 @@
       <div class="modal-content">
         <div class="modal-header" style="padding:35px 50px;">
           <button type="button" class="close" data-dismiss="modal" >&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Sign in</h4>
+          <h4><span class="glyphicon glyphicon-lock"></span>Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
 
 
-          <form id="myLoginForm" role="form" method="post" action="<?php echo $base_url ; ?>model/loginUser.php">
+          <form id="myLoginForm" role="form" method="post" action="../model/loginUser.php">
 
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter username">
-              <p class="help-block" id="err-loginUsername"></p>
             </div>
 
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password">
-              <p class="help-block" id="err-loginPassword"></p>
+              <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password">
+              <p class="help-block" id="err-login"></p>
 
               <p><a href="#" style="text-decoration:underline;"class="pull-right ">Forget Password?</a></p>
             </div> <br>
@@ -77,12 +73,12 @@
         </div>
         <div class="modal-footer">
         <!-- <input type="botton" class="btn btn-success" onclick="enableBtn()" value="demo_capcha"> -->
-        <!-- <center>
+        <center>
            <div class="form-group">
-                <div class="g-recaptcha" data-sitekey="6LfSPk8UAAAAADxGzbw6lEKMrLk49M8kgnywJ8py" data-callback="enableBtn"></div>
+                <div class="g-recaptcha" data-sitekey="6LfZgFEUAAAAAEacJEK4M_0-YsINj8VfXIWZeSW0" data-callback="enableBtn" data-expired-callback="recaptchaExpired"></div>
                 <div class="help-block with-errors"></div>
             </div> 
-        </center> -->
+        </center> 
          <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
 
         </div>
@@ -91,7 +87,8 @@
     </div>
   </div> 
 </div>
- <!-- End Modal -->
+    <!-- End Modal for Login -->
+
     <!-- Start Header -->
     <div  class="row" style ="background-image:url(../img/HOT-Sun.jpg); background-repeat: no-repeat;width:100%;
             background-size:cover;background-attachment:fixed;background-position:center;">
@@ -188,11 +185,6 @@
     
     <script>
 
-    //function click capcha  
-    function enableBtn(){
-        document.getElementById("myLogin").disabled = false;
-    }
-    document.getElementById("myLogin").disabled = true ;
     var goodColor = "#66cc66";
     var badColor = "#ff6666";
     var key_login_username = false ;
@@ -201,43 +193,37 @@
     var key_valid_login_username = false;
     var key_valid_login_password = false ;
 
-
+    var chk_captcha = false ;
     var loginUsername = document.getElementById("loginUsername");
     var loginPassword = document.getElementById("loginPassword");
 
-    var err_loginUsername = document.getElementById("err-loginUsername");
-    var err_loginPassword = document.getElementById("err-loginPassword");
+    var err_login = document.getElementById("err-login");
+    
+    var getUrl = window.location;
+    var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+ "/" + getUrl.pathname.split('/')[2];
+    //var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+    console.log(baseUrl);
+
+    //function click capcha  
+
+    function recaptchaExpired(){
+        chk_captcha = false ;
+        //alert("Your Recaptcha has expired, please verify it again !");
+    }
+
+    function enableBtn(){
+       // document.getElementById("myLogin").disabled = false;
+       $.post('../validate_captcha.php', { response : grecaptcha.getResponse() }, function(data) {
+        //data = $.parseJSON(data);
+        console.log(data); 
+        });
+       chk_captcha = true ;
+    }
+
+    //document.getElementById("myLogin").disabled = true ;
+
     // Start function for Login
-    $(document).ready(function(){
-        
-        $("#myBtn").click(function(){
-            $("#myModal").modal();
-        });
-
-        $('#myLogin').click(function(event) {        
-        event.preventDefault();
-        chkEmtryLogin();
-
-            // ปิด Async เพื่อให้ cilent รอผลจาก server
-        $.ajaxSetup({
-            async: false ,
-            timeout: 0
-        });
-
-        chkValidLogin();
-
-        console.log(key_login_username);
-        console.log(key_login_password);
-        console.log(key_valid_login_username);
-        console.log(key_valid_login_password);
-        if(key_login_username && key_login_password && key_valid_login_password && key_valid_login_username){
-            console.log('login!!!');
-            document.getElementById("myLoginForm").submit();
-        }else{
-            console.log("Can't Login !!!");
-        }      
-    })
-    });
+    manageCheckAutheLogin();
     // End function for Login
 </script>
 </body>

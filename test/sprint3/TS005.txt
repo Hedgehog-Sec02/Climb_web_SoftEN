@@ -5,27 +5,35 @@ Library    Selenium2Library
 *** Variable ***
 ${URL}    http://10.199.66.227/SoftEn2018/Sec02_Hedge/registration.php
 ${Browser}    Chrome
-${validFname}    อาทิตย์
-${validLname}    ประคำ
-${validIdenNumber}    1469900000000
+${validFname}    อาทิตย์ ประคำ
+${validIdenNumber}    1103702208302
 ${personImage}    555.jpg
 ${validUsername}    artit01
 ${validPass}    aB_1111111111111
 ${validCon_Pass}    aB_1111111111111
-${birthdate}    01/02/1997
+${birthdate}    01/02/1995
 ${answer1}    หมา
 ${answer2}    แดง
 ${answer3}    spiderman
 ${validEmail}    artit1150@hotmail.com
+
+${invalidFname}    อาทิตย์123
+${invalidIdenNumber}    14699
+${alreadyIdenNumber}    1103702281441
+${alreadyUsername}    atisit
+${invalidPass}    aB_1
+${invalidCon_Pass}    aB_2
+${notAllowBirthdate}    01/02/2003
+${invalidBirthdate}    10-09-1995
+${alreadyEmail}    atisit_thongbai@kkumail.com
+${invalidEmail}    artit1150
 
 
 *** Keywords ***
 open web climb
     open browser    ${URL}    ${Browser}
 input fname
-    Input Text    fname    ${validFName}
-input lname
-    Input Text    lname    ${validLname}
+    Input Text    fname    ${validFname}
 input validIdenNumber
     Input Text    idenNo    ${validIdenNumber}
 input uploadImage
@@ -45,13 +53,33 @@ input answer2
 input answer3
     Input Text    Q3    ${answer3}
 input email
-    Input Text    email    ${validEmail}
+    Input Text    email    ${validEmail}	
+
+input invalidFname
+	Input Text    fname    ${invaidFname}
+input invalidIdenNumber
+    Input Text    idenNo    ${invalidIdenNumber}
+input alreadyIdenNumber
+    Input Text    idenNo    ${alreadyIdenNumber}
+input alreadyUsername
+    Input Text    Username    ${alreadyUsername}
+input invalidPass
+    Input Text    Password    ${invalidPass}
+input invalidCon_Pass
+    Input Text    con-Password    ${invalidCon_Pass}
+input notAllowBirthdate
+    Input Text    birthdate    ${notAllowBirthdate}
+input invalidBirthdate
+    Input Text    birthdate    ${invalidBirthdate}	
+input invalidEmail
+    Input Text    email    ${invalidEmail}
+input alreadyEmail
+    Input Text    email    ${alreadyEmail}
 	
 *** Test Cases ***
-testcase1 : ไม่กรอกชื่อ
+testcase1 : invalidFname
     open web climb
-    Input Text    fname    ${EMPTY}
-    input lname
+    input invalidFname
     input validIdenNumber
     input uploadImage
     input username
@@ -64,13 +92,30 @@ testcase1 : ไม่กรอกชื่อ
     input email
     Select Checkbox    exampleCheck1
     Click Button    myRegister
-    Wait Until Page Contains    Please fill firstname
+    Wait Until Page Contains    Don't special character in firstname and lastname such as atisit thongbai!
 	
-testcase2 : ไม่กรอกนามสกุล
+testcase2 : invalidIdenNumber
+    open web climb
+    input fname
+    input invalidIdenNumber
+    input uploadImage
+    input username
+    input pass
+    input conPass
+    input birthdate
+    input answer1
+    input answer2
+    input answer3
+    input email
+    Select Checkbox    exampleCheck1
+    Click Button    myRegister
+    Wait Until Page Contains    Identification/Passport Number must be match such as 1103702281441 or AA5555555 !!
+	
+	
+testcase3 : already identification number
     Go To    ${URL}
     input fname
-    Input Text    lname    ${EMPTY}
-    input validIdenNumber
+    input alreadyIdenNumber
     input uploadImage
     input username
     input pass
@@ -82,13 +127,13 @@ testcase2 : ไม่กรอกนามสกุล
     input email
     Select Checkbox    exampleCheck1
     Click Button    myRegister
-    Wait Until Page Contains    Please fill lastname
+    Wait Until Page Contains    identification/Passport Number already exist
 
-testcase3 : ไม่กรอกเลขบัตรประชาชนและเลข passport
+	
+testcase4 : already username
     Go To    ${URL}
     input fname
-    input lname
-    Input Text    idenNo    ${EMPTY}
+    input validIdenNumber
     input uploadImage
     input username
     input pass
@@ -100,17 +145,16 @@ testcase3 : ไม่กรอกเลขบัตรประชาชนแ�
     input email
     Select Checkbox    exampleCheck1
     Click Button    myRegister
-    Wait Until Page Contains    Please fill idenfication/Password Number
-	
-testcase4 : ไม่ upload รูป
+    Wait Until Page Contains    Username already exist
+
+testcase5 : invalid password
     Go To    ${URL}
     input fname
-    input lname
     input validIdenNumber
-    Input Text    person_img    ${EMPTY}
+    input uploadImage
     input username
-    input pass
-    input conPass
+    input invalidPass
+    input invalidPass
     input birthdate
     input answer1
     input answer2
@@ -118,17 +162,16 @@ testcase4 : ไม่ upload รูป
     input email
     Select Checkbox    exampleCheck1
     Click Button    myRegister
-    Wait Until Page Contains    Please upload idenfication/Password image
-	
-testcase5 : ไม่กรอก username
+    Wait Until Page Contains    Password must contain at least (A-Z,a-z,0-9, _ , -) and 16 digit!
+
+testcase6 : confirm password doesn't match password
     Go To    ${URL}
     input fname
-    input lname
     input validIdenNumber
     input uploadImage
-    Input Text    Username    ${EMPTY}
+    input username
     input pass
-    input conPass
+    input invalidCon_Pass
     input birthdate
     input answer1
     input answer2
@@ -136,84 +179,45 @@ testcase5 : ไม่กรอก username
     input email
     Select Checkbox    exampleCheck1
     Click Button    myRegister
-    Wait Until Page Contains    Please fill username
-	
-testcase6 : ไม่กรอก password
+    Wait Until Page Contains    Password isn't match !!
+
+testcase7 : not allow birthdate
     Go To    ${URL}
     input fname
-    input lname
     input validIdenNumber
     input uploadImage
     input username
-    Input Text    Password    ${EMPTY}
+    input pass
     input conPass
-    input birthdate
+    input notAllowBirthdate
     input answer1
     input answer2
     input answer3
     input email
     Select Checkbox    exampleCheck1
     Click Button    myRegister
-    Wait Until Page Contains    Please fill password
-	
-testcase7 : ไม่กรอก confirm password
+    Wait Until Page Contains    Age must be more than 20 years
+
+testcase8 : invalid birthdate
     Go To    ${URL}
     input fname
-    input lname
     input validIdenNumber
     input uploadImage
     input username
     input pass
-    Input Text    con-Password    ${EMPTY}
-    input birthdate
+    input conPass
+    input invalidBirthdate
     input answer1
     input answer2
     input answer3
     input email
     Select Checkbox    exampleCheck1
     Click Button    myRegister
-    Wait Until Page Contains    Please fill con-password
-	
-testcase8 : ไม่กรอกวันเกิด
+    Wait Until Page Contains    Date must be match such as 14/03/1997
+
+testcase9 : invalid email
     Go To    ${URL}
     input fname
-    input lname
-    input validIdenNumber
-    input uploadImage
-    input username
-    input pass
-    input conPass
-    Input Text    birthdate    ${EMPTY}
-    input answer1
-    input answer2
-    input answer3
-    input email
-    Select Checkbox    exampleCheck1
-    Click Button    myRegister
-    Wait Until Page Contains    Please fill birthdate
-	
-testcase9 : ไม่กรอกคำตอบ
-    Go To    ${URL}
-    input fname
-    input lname
-    input validIdenNumber
-    input uploadImage
-    input username
-    input pass
-    input conPass
-    input birthdate
-    Input Text    Q1    ${EMPTY}
-    Input Text    Q2    ${EMPTY}
-    Input Text    Q3    ${EMPTY}
-    input email
-    Select Checkbox    exampleCheck1
-    Click Button    myRegister
-    Wait Until Page Contains    Please fill Answer
-	
-testcase10 : ไม่กรอก email
-    Go To    ${URL}
-    input fname
-    input lname
     input validIdenNumber
     input uploadImage
     input username
@@ -223,15 +227,14 @@ testcase10 : ไม่กรอก email
     input answer1
     input answer2
     input answer3
-    Input Text    email    ${EMPTY}
+    input invalidEmail
     Select Checkbox    exampleCheck1
     Click Button    myRegister
-    Wait Until Page Contains    Please fill Email
-	
-testcase11 : ไม่คลิก I agree to the privacy and terms
+    Wait Until Page Contains    email should be example@gmail.com
+
+testcase10 : already exist email
     Go To    ${URL}
     input fname
-    input lname
     input validIdenNumber
     input uploadImage
     input username
@@ -241,9 +244,9 @@ testcase11 : ไม่คลิก I agree to the privacy and terms
     input answer1
     input answer2
     input answer3
-    input email
+    input alreadyEmail
+    Select Checkbox    exampleCheck1
     Click Button    myRegister
-    Wait Until Page Contains    Please take accept policy in checkbox!!
-	
-    Close Browser
-	
+    Wait Until Page Contains    email already exist
+    
+    Close Browser	

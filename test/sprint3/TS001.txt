@@ -26,12 +26,11 @@ testcase1 : signin success
     click signin
     input username
     input password
+	click element   //div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe
     Click button    myLogin
     Location Should Contain    ${URL}
     Wait Until Page Contains    สวัสดี
-	Click Link    myUsername
-    Wait Until Page Contains    atisit
-	close browser
+    
  
     
 

@@ -22,5 +22,24 @@ $base_url = "http://localhost:8080/climb_web/" ;
             }
             return self::$instance ;
         }
+
+        public function getBaseUrl(){
+
+            // output: /climb_web/index.php
+            $currentPath = $_SERVER['PHP_SELF'];
+
+            //output : Array([dirname]) => /climb_web[basename] => index.php [extenstion] => php [filename] => index)
+            $pathInfo = pathinfo($currentPath);
+            
+            //output: localhost
+            $hostname = $_SERVER['HTTP_HOST'];
+
+            //output: http://
+            $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"], 0, 5)) == 'https://'?'https://':'http://';
+            
+            // return: http://localhost/climb_web
+            return $protocol.$hostname."/climb_web" ; 
+        }
     }
+
 ?>

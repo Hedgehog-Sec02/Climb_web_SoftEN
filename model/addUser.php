@@ -9,7 +9,6 @@
         if (!empty($data)) 
         { */  
             $fname = $_POST['fname'] ;
-            $lname = $_POST['lname'] ;
             $iden = $_POST['idenNo'] ;
             $person_img = $_POST['person_img'];
             $username = $_POST['Username'];
@@ -27,21 +26,7 @@
             $email = $_POST['email'];
             $status = "WAIT" ;
             $point = 0 ; 
-            echo "TEST";
-            echo $fname ;
-            echo $lname ;
-            echo $iden ;
-            echo $person_img;
-            echo $username;
-            echo $password;
-            echo $birthdate;
-            echo $q1;
-            echo $ans_q1;
-            echo $q2;
-            echo $ans_q2;
-            echo $q3;
-            echo $ans_q3;
-            echo $email;
+            
 		
 	   /* $stmt = DB::get()->prepare("INSERT INTO users VALUES (NULL, '$fname', '$iden', '$username', 'password', 
                                     '1997-03-14', 'person_img', 'q1', 'q2', 'q3', 'ans_q1',
@@ -52,12 +37,23 @@
                                             '1997-03-14', '$person_img', '$q1', '$q2', '$q3', '$ans_q1',
                                              '$ans_q2', '$ans_q3', '$email', '$status',
                                             '$point','$lname');");*/
-
-            $stmt = DB::get()->prepare("INSERT INTO users VALUES (NULL, '$fname', '$iden', '$username', '$password', 
+    
+            /*$stmt = DB::get()->prepare("INSERT INTO users VALUES ('', '$fname', '$iden', '$username', '$password', 
                                     '$birthdate', '$person_img', '$q1', '$q2', '$q3', '$ans_q1',
                                     '$ans_q2', '$ans_q3', '$email', '$status',
-                                    '$point','$lname');");
-            $stmt->execute();
+                                    '$point','','');");*/
+            try{
+                $stmt = DB::get()->prepare("INSERT INTO users VALUES (NULL, '$fname', '$iden', '$username', '$password', 
+                                    '$birthdate', '$person_img', '$q1', '$q2', '$q3', '$ans_q1',
+                                    '$ans_q2', '$ans_q3', '$email', '$status',
+                                    '$point','0000-00-00 00:00:00',0);");
+                $stmt->execute();
+
+            }catch(PDOException $e){
+                echo "Error: " . $e->getMessage();
+            }
+
+
             header("Location:../registerSuccess.html");
            /* $arr = array(
                         'insertResult'=> true 

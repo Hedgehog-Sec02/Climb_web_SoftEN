@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180417 19:14:06.707" generator="Robot 3.0.2 (Python 3.5.2 on win32)">
+<suite id="s1" name="TS001" source="C:\xampp\htdocs\climb_web\test\sprint3\TS001.TXT">
+<test id="s1-t1" name="testcase1 : signin success">
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.1</arg>
+</arguments>
+<status endtime="20180417 19:14:06.852" status="PASS" starttime="20180417 19:14:06.852"></status>
+</kw>
+<kw name="open web climb">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg level="INFO" timestamp="20180417 19:14:06.853">Opening browser 'Chrome' to base url 'http://10.199.66.227/SoftEn2018/Sec02_Hedge/'</msg>
+<status endtime="20180417 19:14:13.890" status="PASS" starttime="20180417 19:14:06.853"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>ชุมชนนักปีนผา-ไต่เขา</arg>
+</arguments>
+<msg level="INFO" timestamp="20180417 19:14:14.004">Page title is 'ชุมชนนักปีนผา-ไต่เขา'.</msg>
+<status endtime="20180417 19:14:14.005" status="PASS" starttime="20180417 19:14:13.890"></status>
+</kw>
+<status endtime="20180417 19:14:14.005" status="PASS" starttime="20180417 19:14:06.852"></status>
+</kw>
+<kw name="click signin">
+<kw name="Click Link" library="Selenium2Library">
+<doc>Clicks a link identified by locator.</doc>
+<arguments>
+<arg>myBtn</arg>
+</arguments>
+<msg level="INFO" timestamp="20180417 19:14:14.008">Clicking link 'myBtn'.</msg>
+<status endtime="20180417 19:14:14.424" status="PASS" starttime="20180417 19:14:14.008"></status>
+</kw>
+<status endtime="20180417 19:14:14.424" status="PASS" starttime="20180417 19:14:14.007"></status>
+</kw>
+<kw name="input username">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>loginUsername</arg>
+<arg>${validUsername}</arg>
+</arguments>
+<msg level="INFO" timestamp="20180417 19:14:14.425">Typing text 'atisit' into text field 'loginUsername'</msg>
+<status endtime="20180417 19:14:14.871" status="PASS" starttime="20180417 19:14:14.425"></status>
+</kw>
+<status endtime="20180417 19:14:14.872" status="PASS" starttime="20180417 19:14:14.424"></status>
+</kw>
+<kw name="input password">
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>loginPassword</arg>
+<arg>${validPassword}</arg>
+</arguments>
+<msg level="INFO" timestamp="20180417 19:14:14.873">Typing text '1111111111111' into text field 'loginPassword'</msg>
+<status endtime="20180417 19:14:15.264" status="PASS" starttime="20180417 19:14:14.873"></status>
+</kw>
+<status endtime="20180417 19:14:15.264" status="PASS" starttime="20180417 19:14:14.872"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>//div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe</arg>
+</arguments>
+<msg level="INFO" timestamp="20180417 19:14:15.265">Clicking element '//div[@id="myModal"]/div/div/div[3]/center/div/div/div/div/iframe'.</msg>
+<status endtime="20180417 19:14:15.553" status="PASS" starttime="20180417 19:14:15.265"></status>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<doc>Clicks a button identified by `locator`.</doc>
+<arguments>
+<arg>myLogin</arg>
+</arguments>
+<msg level="INFO" timestamp="20180417 19:14:15.554">Clicking button 'myLogin'.</msg>
+<status endtime="20180417 19:14:16.173" status="PASS" starttime="20180417 19:14:15.553"></status>
+</kw>
+<kw name="Location Should Contain" library="Selenium2Library">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>${URL}</arg>
+</arguments>
+<msg level="INFO" timestamp="20180417 19:14:16.541">Current location contains 'http://10.199.66.227/SoftEn2018/Sec02_Hedge/'.</msg>
+<status endtime="20180417 19:14:16.541" status="PASS" starttime="20180417 19:14:16.174"></status>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<doc>Waits until `text` appears on current page.</doc>
+<arguments>
+<arg>สวัสดี</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg level="INFO" html="yes" timestamp="20180417 19:14:22.244">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status endtime="20180417 19:14:22.244" status="PASS" starttime="20180417 19:14:21.772"></status>
+</kw>
+<msg level="FAIL" timestamp="20180417 19:14:22.249">Text 'สวัสดี' did not appear in 5 seconds</msg>
+<status endtime="20180417 19:14:22.250" status="FAIL" starttime="20180417 19:14:16.542"></status>
+</kw>
+<status endtime="20180417 19:14:22.252" status="FAIL" critical="yes" starttime="20180417 19:14:06.851">Text 'สวัสดี' did not appear in 5 seconds</status>
+</test>
+<status endtime="20180417 19:14:22.273" status="FAIL" starttime="20180417 19:14:06.709"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1">Critical Tests</stat>
+<stat pass="0" fail="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" id="s1" name="TS001" fail="1">TS001</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

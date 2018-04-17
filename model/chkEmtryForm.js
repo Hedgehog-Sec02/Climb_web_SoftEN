@@ -34,7 +34,7 @@ function chkEmtryForm(){
     myObj.pass = true ; 
     // firstname is '' 
     if(fname.value == ''){
-        err_fname.innerHTML = " Please fill firstname";
+        err_fname.innerHTML = " Please fill firstname and lastname";
         err_fname.style.color = badColor;
         myObj.pass = false ; 
     }else {

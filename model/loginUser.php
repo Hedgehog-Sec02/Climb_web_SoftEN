@@ -1,6 +1,7 @@
 <?php 
     session_start();
     require_once "../connect.php";
+    
     $username = $_POST['loginUsername'];
     $password = $_POST['loginPassword'] ; 
     $stmt = DB::get()->prepare("SELECT * FROM users WHERE userName = '$username' AND password= '$password' ");
@@ -30,9 +31,19 @@
                 echo "fail" ;
             }
         }else{
-            echo $username." existed login!!" ;
+
+            $message =  $username." existed login!!" ;
+            echo "<script type='text/javascript'>
+                    var r = confirm('$message') ;
+                    var js2PHP = '<?php ?>';
+                    if(r){
+                        document.write(js2PHP) ;
+                    }else{
+                        
+                    }
+                    </script>";
         }
     }else{
-        echo "no id" ;
+        header("Location:../index.php");
     }
 ?>

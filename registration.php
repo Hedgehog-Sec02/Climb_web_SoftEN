@@ -130,7 +130,7 @@
                                     <input type="text"  id = "person_img" name="person_img" class="form-control"> <!-- readonly-->
                                     <p class="help-block" id="error-person-img">
                                 </div>
-                                <img id='img-upload'/>
+                                <!-- <img id='img-upload'/> -->
                             </div>
 
                             <div class="form-group">
