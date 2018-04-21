@@ -27,6 +27,10 @@
 
             }else if($row["status"] == "VIP" ){
                 //
+            }else if($row["status"] == "admin"){
+                $_SESSION["userId"] = $row["userID"];
+                $_SESSION["status"] = $row["status"];
+                header("Location:../admin/adminPage.php");
             }else{
                 echo "fail" ;
             }

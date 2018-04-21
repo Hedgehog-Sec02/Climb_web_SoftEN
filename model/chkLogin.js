@@ -20,6 +20,7 @@ function chkValidLogin(){
     if(loginUsername.value!='' && loginPassword.value!=''){
 
         $.post(baseUrl+'/model/chkValidUsername.php', { username: loginUsername.value}, function(data) {
+            console.log(baseUrl);
             data = $.parseJSON(data);
             if(data.count > 0 ){
                 console.log("pass username");
@@ -35,6 +36,7 @@ function chkValidLogin(){
 
 
         $.post(baseUrl+'/model/chkValidPassword.php', { password: loginPassword.value}, function(data) {
+            console.log(baseUrl);
             data = $.parseJSON(data);
             if(data.count > 0 ){
                 console.log("pass username");

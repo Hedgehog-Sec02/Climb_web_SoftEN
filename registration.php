@@ -114,7 +114,7 @@
                             <div class="form-group">
                                 <label for="idenNo"><span class="glyphicon glyphicon-user"></span>SSN/Passport No.</label>
                                 <div class="controls">
-                                    <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control" onkeyup="chkValidIden(); return false ;">
+                                    <input type="text" id="idenNo" name="idenNo" placeholder="" class="form-control" onkeyup="chkValidIden(); return false ;" onblur="chkValidIden(); return false ;">
                                     <p class="help-block" id="error-iden_passport">
                                  </div>
                             </div>
@@ -136,7 +136,7 @@
                             <div class="form-group">
                                 <label for="Usernmae"><span class="glyphicon glyphicon-user"></span> Username</label>
                                 <div class="controls">
-                                    <input type="text" id="Username" name="Username" placeholder="" class="form-control" onkeyup="chkValidUsername(); return false;"> 
+                                    <input type="text" id="Username" name="Username" placeholder="" class="form-control" onkeyup="chkValidUsername(); return false;" onblur="chkValidUsername(); return false;"> 
                                     <p class="help-block" id="error-username">
                                  </div>
                             </div>
@@ -186,7 +186,7 @@
 
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
-                                    <input type="text" id="Q1" name="Q1" placeholder="" class="form-control">
+                                    <input type="text" id="Q1" name="Q1" placeholder="" class="form-control" onkeyup= "chkEmtryForm();return false ;">
                                     <p class="help-block" id="error-question1">
                                  </div>
                             </div>
@@ -207,7 +207,7 @@
 
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
-                                    <input type="text" id="Q2" name="Q2" placeholder="" class="form-control">
+                                    <input type="text" id="Q2" name="Q2" placeholder="" class="form-control" onkeyup= "chkEmtryForm();return false ;">
                                     <p class="help-block" id="error-question2">
                                  </div>
                             </div>
@@ -228,7 +228,7 @@
 
                                 <div class="controls">
                                 <label><span class=""></span>Answer : </label>
-                                <input type="text" id="Q3" name="Q3" placeholder="" class="form-control">
+                                <input type="text" id="Q3" name="Q3" placeholder="" class="form-control" onkeyup= "chkEmtryForm();return false ;">
                                 <p class="help-block" id="error-question3">
                                  </div>
                             </div>
@@ -236,7 +236,7 @@
                             <div class="form-group">
                                 <label for="email"><span class="glyphicon glyphicon-user"></span>E-mail</label>
                                 <div class="controls">
-                                    <input type="text" id="email" name="email" placeholder="" class="form-control" onkeyup="chkValidEmail(); return false;">
+                                    <input type="text" id="email" name="email" placeholder="" class="form-control" onkeyup="chkValidEmail(); return false;" onblur="chkValidEmail(); return false;">
                                     <p class="help-block" id="error-email"></p>
                                  </div>
                             </div>

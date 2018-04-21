@@ -179,12 +179,21 @@
                 </div>
                 <div class="collapse navbar-collapse" id = "example-navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
+                    
                         <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href=<?php $base_url ;?>>HOME</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
                                 <h5><a class="dropdown-item" href="#" style="color:white;">News&Announcements</a></h5>
                             </div>
                         </li>
-                        <li><a href="#services">Knowledge source</a></li>
+
+                        <li class="nav-item dropdown" style=""><a href="knowledgesource.php">Knowledge source</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
+                                <h5><a class="dropdown-item" href="knowledgesource.php?topic=1" style="color:white;">สาระน่ารู้</a></h5>
+                                <h5><a class="dropdown-item" href="#" style="color:white;">How to</a></h5>
+                                <h5><a class="dropdown-item" href="#" style="color:white;">เทคนิค</a></h5>
+                            </div>
+                        </li>
+
                         <li><a href="#portfolio">Event</a></li>
                         <li><a href="#pricing">About Us</a></li>
                         <li><a href="#contact"></a></li>
@@ -309,8 +318,8 @@
     var err_login = document.getElementById("err-login");
     
     var getUrl = window.location;
-    //var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-    var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" + getUrl.pathname.split('/')[2]  ;
+    var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+    //var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1] + "/" + getUrl.pathname.split('/')[2]  ;
     console.log(baseUrl);
     //function click capcha  
 
