@@ -70,9 +70,7 @@
 
                         <li class="nav-item dropdown" style=""><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="">Manage Users</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
-                                <h5><a class="dropdown-item"  style="">Add</a></h5>
-                                <h5><a class="dropdown-item"  style="">Edit</a></h5>
-                                <h5><a class="dropdown-item"  style="">Delete</a></h5>
+                                
                             </div>
                         </li>
                   

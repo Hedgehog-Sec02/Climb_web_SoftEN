@@ -2,15 +2,18 @@
     session_start();
     require_once "connect.php" ;
     require_once "model/getUser.php" ;
-    require_once "model/question.php";
+    require_once "article/getArticle.php";
     if(isset($_SESSION['userId'])){
         $stmt = DB::get()->prepare("UPDATE users SET lastUpdate = NOW() 
             WHERE userID = '".$_SESSION["userId"]."'");
         $stmt->execute();
     }
 
-    $topic = $_GET['topic']; 
-    
+    $topic = 0 ;
+    if(isset($_GET['topic'])){
+        $topic = $_GET['topic']; 
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +37,20 @@
 
             <div class="col-sm-2 col-md-2 col-lg-2" >
                 <div class="pull-right">
-                    
+                    <?php 
+                        if(isset($_SESSION['userId'])){
+                            $row = User::getUser($_SESSION['userId']) ; 
+
+                            $updateStmt = DB::get()->prepare("UPDATE users SET loginStatus = '1', lastUpdate = NOW() 
+                                            WHERE userID = '".$row["userID"]."'  ");
+                            $updateStmt->execute();
+                            echo "สวัสดี "."<a id='myUsername' href='userProfile.php'>".$row['userName']."</a>"; echo "<br>";
+                            echo '<a href="logout.php">Sign out</a>';
+                        }else{
+                            echo '<a  style="color:black;text-decoration:underline;" href ="#" id="myBtn">Sign in</a><br>' ;
+                            echo '<a  style="color:black;text-decoration:underline;" href ="registration.php">Register </a>';
+                        }
+                    ?>
                 </div>
             </div>
         </div>
@@ -52,6 +68,7 @@
                         
                     <a class = "navbar-brand" href = "#"></a>
                 </div>
+
                 <div class="collapse navbar-collapse" id = "example-navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
                         <li class="nav-item dropdown" style="background-color:#FFCC33;"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="index.php">HOME</a>
@@ -59,7 +76,13 @@
                                 <h5><a class="dropdown-item" href="index.php" style="color:white;">News&Announcements</a></h5>
                             </div>
                         </li>
-                        <li><a href="#services">Knowledge source</a></li>
+                        <li class="nav-item dropdown" style=""><a href="knowledgesource.php">Knowledge source</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
+                                <h5><a class="dropdown-item" href="knowledgesource.php?topic=1" style="color:white;">สาระน่ารู้</a></h5>
+                                <h5><a class="dropdown-item" href="#" style="color:white;">How to</a></h5>
+                                <h5><a class="dropdown-item" href="#" style="color:white;">เทคนิค</a></h5>
+                            </div>
+                        </li>
                         <li><a href="#portfolio">Event</a></li>
                         <li><a href="#pricing">About Us</a></li>
                         <li><a href="#contact"></a></li>
@@ -77,26 +100,31 @@
         <div class="row">
             <center><div class = "col-sm-3 col-md-1 col-lg-1" ></div></center>
            
-                <div class = "col-sm-12 col-md-10 col-lg-10" style="background-color:#e3e8e3;height:400px;">
+                <div class = "col-sm-12 col-md-10 col-lg-10" style="background-color:#e3e8e3;">
                     
                     <?php
                     if($topic==1){
                         echo "<header>
                                 <h3>สาระน่ารู้</h3>
                               </header>" ;
+                        $stmt = Article::getArticleTopic($topic);
                     }else{
                         echo "<header>
                                 <h3>Knowledge Source</h3>
                             </header>" ;
+                        $stmt = Article::getAll();
                     }
                     ?>
                     <ul class="" style="padding-top:20px;">
-                        <li class="">111</li>
-                        <li class="">222</li>
-                        <li class="">333</li>
-                        <li class="">444</li>
+                        <?php 
+                        
+                            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                
+                        ?>
+                            <li class="multiline" ><a id="<?php echo 'article_'.$row['articleID']?>" href="article/articlePage.php?ArticleID=<?php echo $row['articleID'];?>"><?php echo $row['title'];?></a></li>
+                        <?php  } ?> 
                     </ul>
-
+                                
                         
                     
                 

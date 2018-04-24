@@ -103,12 +103,12 @@
 
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter username">
+              <input type="text" class="form-control" id="loginUsername" name="loginUsername" placeholder="Enter username" autocomplete="off">
             </div>
 
             <div class="form-group">
               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password">
+              <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password" autocomplete="new-password">
               <p class="help-block" id="err-login"></p>
 
               <p><a href="#" style="text-decoration:underline;"class="pull-right ">Forget Password?</a></p>

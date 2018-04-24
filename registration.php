@@ -86,7 +86,7 @@
             <center><div class = "col-sm-1 col-md-2 col-lg-3" ></div></center>
             <!-- Start Form -->
                 <div class = "col-sm-10 col-md-8 col-lg-6" style="background-color:#e3e8e3;">
-                <form class="form-horizontal" id="myForm" action='model/addUser.php' role="form" method="POST" style="padding:10px;">
+                <form class="form-horizontal" id="myForm" action='model/addUser.php' role="form" method="POST" style="padding:10px;" autocomplete="false">
                     <fieldset>
                         <div id="legend">
                         <legend class="">Registration</legend>
@@ -136,7 +136,7 @@
                             <div class="form-group">
                                 <label for="Usernmae"><span class="glyphicon glyphicon-user"></span> Username</label>
                                 <div class="controls">
-                                    <input type="text" id="Username" name="Username" placeholder="" class="form-control" onkeyup="chkValidUsername(); return false;" onblur="chkValidUsername(); return false;"> 
+                                    <input type="text"  id="Username" name="Username"  class="form-control" onkeyup="chkValidUsername(); return false;" onblur="chkValidUsername(); return false;" autocomplete="off"> 
                                     <p class="help-block" id="error-username">
                                  </div>
                             </div>
@@ -144,7 +144,7 @@
                             <div class="form-group">
                                 <label for="Password"><span class="glyphicon glyphicon-user"></span>Password</label><span  id="alert-cap" >Caps lock is on!</span>
                                 <div class="controls">
-                                    <input type="password" id="Password" name="Password" placeholder="" class="form-control" onkeyup="chkLeastPassword(); return false;" >
+                                    <input type="password" id="Password" name="Password"  class="form-control" onkeyup="chkLeastPassword(); return false;" autocomplete="new-password">
                                     <p class="help-block" id="error-al">
                                  </div>
                             </div>
@@ -152,7 +152,7 @@
                             <div class="form-group">
                                 <label for="con-Password"><span class="glyphicon glyphicon-user"></span>Confirm Password</label>
                                 <div class="controls">
-                                    <input type="password" id="con-Password" name="con-Password" placeholder="" class="form-control" onkeyup="chkLeastPassword(); return false;" >
+                                    <input type="password" id="con-Password" name="con-Password"  class="form-control" onkeyup="chkLeastPassword(); return false;" autocomplete="new-password">
                                     <p class="help-block" id="error-al2">
                                  </div>
                             </div>
@@ -186,7 +186,7 @@
 
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
-                                    <input type="text" id="Q1" name="Q1" placeholder="" class="form-control" onkeyup= "chkEmtryForm();return false ;">
+                                    <input type="text" id="Q1" name="Q1" placeholder="" class="form-control" onkeyup= "emptyquestion1();return false ;">
                                     <p class="help-block" id="error-question1">
                                  </div>
                             </div>
@@ -207,7 +207,7 @@
 
                                 <div class="controls">
                                     <label><span class=""></span>Answer : </label>
-                                    <input type="text" id="Q2" name="Q2" placeholder="" class="form-control" onkeyup= "chkEmtryForm();return false ;">
+                                    <input type="text" id="Q2" name="Q2" placeholder="" class="form-control" onkeyup= "emptyquestion2();return false ;">
                                     <p class="help-block" id="error-question2">
                                  </div>
                             </div>
@@ -228,7 +228,7 @@
 
                                 <div class="controls">
                                 <label><span class=""></span>Answer : </label>
-                                <input type="text" id="Q3" name="Q3" placeholder="" class="form-control" onkeyup= "chkEmtryForm();return false ;">
+                                <input type="text" id="Q3" name="Q3" placeholder="" class="form-control" onkeyup= "emptyquestion3();return false ;">
                                 <p class="help-block" id="error-question3">
                                  </div>
                             </div>
@@ -305,6 +305,8 @@
     <?php  require_once "footer.html" ; ?>
 
     <script type="text/javascript">
+    
+ 
             $(function () {
                 $('#datetimepicker1').datetimepicker({
                     calendarWeeks: true,
@@ -427,6 +429,40 @@
                 }
             
             })
+            
+    var err_Question1 = document.getElementById("error-question1");
+    var err_Question2 = document.getElementById("error-question2");
+    var err_Question3 = document.getElementById("error-question3");
+
+    function emptyquestion1(){
+        if(Question1.value == ''){
+            err_Question1.innerHTML = "Please fill Answer"; 
+            err_Question1.style.color = badColor;
+        }else{
+            err_Question1.innerHTML = '' ;
+        //myObj['Question1'] = Question1.value ;
+    }
+}
+    function emptyquestion2(){
+        if(Question1.value == ''){
+            err_Question2.innerHTML = "Please fill Answer"; 
+            err_Question2.style.color = badColor;
+        }else{
+            err_Question2.innerHTML = '' ;
+
+        //myObj['Question1'] = Question1.value ;
+    }
+}
+    function emptyquestion3(){
+        if(Question1.value == ''){
+            err_Question3.innerHTML = "Please fill Answer"; 
+            err_Question3.style.color = badColor;
+        }else{
+            err_Question3.innerHTML = '' ;
+
+        //myObj['Question1'] = Question1.value ;
+    }
+}
 
             // Cap lock is on ? 
             chkCap();

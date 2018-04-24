@@ -46,6 +46,7 @@ input email
 	
 *** Test Cases ***
 testcase1 : registration success
+	Set Selenium Speed    0.1
     open web climb
     input fname
     input validIdenNumber
@@ -59,6 +60,7 @@ testcase1 : registration success
     input answer3
     input email
     Select Checkbox    exampleCheck1
+	Select Checkbox    exampleCheck1
     Click Button    myRegister
     
     Wait Until Page Contains    Thank you to register

@@ -48,7 +48,7 @@ function chkValidLogin(){
                 err_login.style.color = badColor ;
 
             }
-            });
+        });
 
     }else{
         key_valid_login_username = false ;
