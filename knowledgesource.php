@@ -79,7 +79,7 @@
                         <li class="nav-item dropdown" style=""><a href="knowledgesource.php">Knowledge source</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background : black; " >
                                 <h5><a class="dropdown-item" href="knowledgesource.php?topic=1" style="color:white;">สาระน่ารู้</a></h5>
-                                <h5><a class="dropdown-item" href="#" style="color:white;">How to</a></h5>
+                                <h5><a class="dropdown-item" href="knowledgesource.php?topic=2" style="color:white;">How to</a></h5>
                                 <h5><a class="dropdown-item" href="#" style="color:white;">เทคนิค</a></h5>
                             </div>
                         </li>
@@ -106,6 +106,11 @@
                     if($topic==1){
                         echo "<header>
                                 <h3>สาระน่ารู้</h3>
+                              </header>" ;
+                        $stmt = Article::getArticleTopic($topic);
+                    }else if($topic==2){
+                        echo "<header>
+                                <h3>How to</h3>
                               </header>" ;
                         $stmt = Article::getArticleTopic($topic);
                     }else{
